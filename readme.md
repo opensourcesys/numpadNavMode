@@ -17,6 +17,8 @@ This add-on makes that possible.
 With this add-on enabled: no matter what keyboard layout you are using, you can press Alt+NVDA+NumpadPlus (which is usually the long key second up on the right), and quickly and easily switch between the normal NVDA navigation controls, and the classical Windows navigation controls.
 Note that this key can be remapped under Input Gestures, in the Input section.
 
+Note also that this add-on does not disable the use of numpad insert as the NVDA modifier, if you have it set as such. If you want that feature, please let me know.
+
 ## WARNING!
 
 There is one point of caution of which you should be aware before installing this add-on.
@@ -32,4 +34,4 @@ I encourage you to email with any feature suggestions, or other use cases that I
 
 ## Release history:
 
-* V1.0: September, 2020. Initial release.
+* V1.0: September, 2020. Initial release. Based on various user requests, and ultimately a discussion in [#9549](https://github.com/nvaccess/nvda/issues/9549). With thanks to @Qchristensen and @feerrenrut.

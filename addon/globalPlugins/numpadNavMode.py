@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Numpad Nav Mode (numpadNavMode.py), version 0.1-dev
+# Numpad Nav Mode (numpadNavMode.py), version 0.2-dev
 # An NVDA global plugin which allows toggling the numpad between NVDA navigation and Windows navigation modes.
 # Written by Luke Davis, based on gesture modifications described by NV Access (specifically @Qchristensen and @feerrenrut) in issue #9549.
 
@@ -25,7 +25,7 @@ import addonHandler
 import globalVars
 import ui
 from scriptHandler import script
-#from inputCore import manager	# Needed for the manager.userGestureMap object
+from inputCore import manager	# Needed for the manager.userGestureMap object
 from logHandler import log
 
 addonHandler.initTranslation()
@@ -88,17 +88,16 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	}
 
 
-	def __init(self, *args, **kwargs):
+	def __init__(self):
+		super(GlobalPlugin, self).__init__()
 		# FixMe (feature): Warn the user that custom gestures effecting the numpad will be lost.
 		# FixMe (feature): Determine if gestures are set to anything non-default, and save them/warn the user.
 		# Initialize the startup mode, or log it if we're already in one (I.E. a plugin reload)
-		ui.message("Pappa can you hear me?")
 		try:
-			log.debug("Numpad mode already set to {0}.".format(self.getMode()))
-		except IndeterminateNumpadState:
+			log.debug("Numpad mode already set to {0}.".format(self.getModeText()))
+		except AttributeError:	# Raised if this is the first run
 			self.setMode(self.NVDA)
-			log.debug("numpadNavMode: initialized numpad to {0} mode.".format(self.getMode()))
-		super(GlobalPlugin, self).__init__(*args, **kwargs)
+			log.debug("numpadNavMode: initialized numpad to {0} mode.".format(self.getModeText()))
 
 	def terminate(self):
 		#self.setMode(self.NVDA)
@@ -129,7 +128,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			else:
 				raise AttributeError
 		except AttributeError:	# Raised above, or if the global isn't set at all
-			raise Exception("IndeterminateNumpadState")
+			raise AttributeError("Unknown numpad state or state was never set")
 
 
 	@script(
@@ -165,7 +164,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 		# Walk the dict of known gestures, and assign each based on the preferred mode
 		for gestureFragment in self.numpadGestures:
-			inputCore.manager.userGestureMap.add(
+			manager.userGestureMap.add(
 				"kb:" + gestureFragment,
 				*self.numpadGestures[gestureFragment][mode][self.MOD_AND_CLS].split(sep='.'),
 				self.numpadGestures[gestureFragment][mode][self.SCR],

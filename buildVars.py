@@ -20,9 +20,9 @@ addon_info = {
 	"addon_description": _("""Allows switching the numpad between NVDA navigation mode, and Windows navigation mode.
 This can be especially useful for laptop users who prefer laptop mode, but who have a numpad and want to use it for arrow keys, page up/down, and home/end.
 And since the mode can be changed with a keypress (Alt+NVDA+NumpadPlus, by default), the numpad can easily be used for object navigation or review when desired.
-I welcome feature requests and other use-case examples."""),
+Feature requests and use-case examples welcome."""),
 	# version
-	"addon_version": "0.3-dev",
+	"addon_version": "0.04-dev",
 	# Author(s)
 	"addon_author": u"Luke Davis (Open Source Systems, Ltd.) <newanswertech@gmail.com>",
 	# URL for the add-on documentation support

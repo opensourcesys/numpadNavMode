@@ -16,7 +16,6 @@
 import addonHandler
 import gui
 import wx
-import config
 
 addonHandler.initTranslation()
 

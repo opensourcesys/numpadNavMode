@@ -45,7 +45,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	# gesture: [ ( module, script ), ( module, script ) ]
 	# Note that these are prefix-free gestures. I.E. not including the "kb:", or "kb(laptop):" portions.
 	numpadGestures = {
-		"numpad0": [ ("globalCommands.GlobalCommands", None ), ( "globalCommands.GlobalCommands", None ) ],
 		"numpad1": [ ("globalCommands.GlobalCommands", "kb:end" ), ( "globalCommands.GlobalCommands", "review_previousCharacter" ) ],
 		"nvda+numpad1": [ ("globalCommands.GlobalCommands", None ), ( "globalCommands.GlobalCommands", "reviewMode_previous" ) ],
 		"shift+numpad1": [ ("globalCommands.GlobalCommands", None ), ( "globalCommands.GlobalCommands", "review_startOfLine" ) ],

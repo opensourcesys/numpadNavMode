@@ -16,7 +16,7 @@
 # This add-on complies with Semantic Versioning: https://semver.org/
 
 # For compatibility with NVDA 2017.3 and other pre-Python 3 versions
-# (Backporting is a work in progress)
+# (Backporting is a work in progress, may not try until V1.0 is released.)
 #from __future__ import unicode_literals
 #from globalCommands import SCRCAT_TOOLS
 
@@ -35,7 +35,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	# Constants for accessing the "columns" of the lists and tuples in the dict below
 	WIN = 0		# The Windows nav command index of the lists
 	NVDA = 1		# The NVDA nav command index of the lists
-	MOD_AND_CLS = 0	# Index of the module.Class string of the tuples
+	MOD_CLS = 0	# Index of the module.Class string of the tuples
 	SCR = 1			# Index of the script string of the tuples
 
 	# These are the gestures we care about.
@@ -90,7 +90,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def __init__(self):
 		super(GlobalPlugin, self).__init__()
-		# FixMe (feature): Warn the user that custom gestures effecting the numpad will be lost.
 		# FixMe (feature): Determine if gestures are set to anything non-default, and save them/warn the user.
 		# Initialize the startup mode, or log it if we're already in one (I.E. a plugin reload)
 		try:
@@ -135,8 +134,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		gesture="kb:alt+NVDA+numpadPlus",
 		# Translators: description of the toggle gesture for keyboard help
 		description=_("Toggles the numpad between NVDA navigation and Windows navigation modes."),
-		category="keyboard",
-		bypassInputHelp=True
+		category="keyboard"
 	)
 	def script_numpadNavModeToggle(self, gesture):
 		"""Checks the current mode of the numpad, and switches to the opposite one
@@ -166,7 +164,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		for gestureFragment in self.numpadGestures:
 			manager.userGestureMap.add(
 				"kb:" + gestureFragment,
-				*self.numpadGestures[gestureFragment][mode][self.MOD_AND_CLS].split(sep='.'),
+				*self.numpadGestures[gestureFragment][mode][self.MOD_CLS].split(sep='.'),
 				self.numpadGestures[gestureFragment][mode][self.SCR],
 				True
 			)

@@ -31,6 +31,6 @@ def onInstall():
 		A future version of the add-on will avoid this problem.
 		Do you want to continue using this add-on?"""),
 		wx.YES | wx.NO | wx.ICON_WARNING
-	) is wx.NO:
+	) == wx.NO:
 		# Translators: an exception raised when the user wants to stop installation
 		raise AddonError(_("User requested installation abort."))

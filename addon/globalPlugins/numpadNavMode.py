@@ -28,67 +28,65 @@ addonHandler.initTranslation()
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
-	# Constants for accessing the "columns" of the lists and tuples in the dict below
-	WIN = 0		# The Windows nav command index of the lists
-	NVDA = 1		# The NVDA nav command index of the lists
-	MOD_CLS = 0	# Index of the module.Class string of the tuples
-	SCR = 1			# Index of the script string of the tuples
+	#: Used to indicate a return status of getMode(), and therefore to track state in various places.
+	WIN = 0
+	#: Used to indicate a return status of getMode(), and therefore to track state in various places.
+	NVDA = 1
 
 	#: Each gesture we store will have these three fields, not including the gesture itself.
 	G = namedtuple('G', 'mod cls scr')
 
-	# These are the gestures we care about.
-	# The lists are their values in various modes of the add-on.
-	# The nested tuples are the module and the script applicable to each mode.
-	# gesture: [ WIN, NVDA ]
-	# gesture: [ ( module, script ), ( module, script ) ]
-	# Note that these are prefix-free gestures. I.E. not including the "kb:", or "kb(laptop):" portions.
-	gMap = {
-		"numpad1": [ G("globalCommands", "GlobalCommands", "kb:end"), G("globalCommands", "GlobalCommands", "review_previousCharacter") ],
-		"nvda+numpad1": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "reviewMode_previous") ],
-		"shift+numpad1": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "review_startOfLine") ],
-		"control+numpad1": [ G("globalCommands", "GlobalCommands", "kb:control+end"), G("globalCommands", "GlobalCommands", None ) ],
-		"numpad2": [ G("globalCommands", "GlobalCommands", "kb:downarrow"), G("globalCommands", "GlobalCommands", "review_currentCharacter") ],
-		"nvda+numpad2": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "navigatorObject_firstChild") ],
-		"control+numpad2": [ G("globalCommands", "GlobalCommands", "kb:control+downarrow"), G("globalCommands", "GlobalCommands", None ) ],
-		"numpad3": [ G("globalCommands", "GlobalCommands", "kb:pagedown"), G("globalCommands", "GlobalCommands", "review_nextCharacter") ],
-		"shift+numpad3": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "review_endOfLine") ],
-		"control+numpad3": [ G("globalCommands", "GlobalCommands", "kb:control+pagedown"), G("globalCommands", "GlobalCommands", None ) ],
-		"numpad4": [ G("globalCommands", "GlobalCommands", "kb:leftarrow"), G("globalCommands", "GlobalCommands", "review_previousWord") ],
-		"nvda+numpad4": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "navigatorObject_previous") ],
-		"control+numpad4": [ G("globalCommands", "GlobalCommands", "kb:control+leftarrow"), G("globalCommands", "GlobalCommands", None ) ],
-		"numpad5": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "review_currentWord") ],
-		"nvda+numpad5": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "navigatorObject_current") ],
-		"numpad6": [ G("globalCommands", "GlobalCommands", "kb:rightarrow"), G("globalCommands", "GlobalCommands", "review_nextWord") ],
-		"nvda+numpad6": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "navigatorObject_next") ],
-		"control+numpad6": [ G("globalCommands", "GlobalCommands", "kb:control+rightarrow"), G("globalCommands", "GlobalCommands", None ) ],
-		"numpad7": [ G("globalCommands", "GlobalCommands", "kb:home"), G("globalCommands", "GlobalCommands", "review_previousLine") ],
-		"nvda+numpad7": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "reviewMode_next") ],
-		"shift+numpad7": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "review_top") ],
-		"control+numpad7": [ G("globalCommands", "GlobalCommands", "kb:control+home"), G("globalCommands", "GlobalCommands", None ) ],
-		"numpad8": [ G("globalCommands", "GlobalCommands", "kb:uparrow"), G("globalCommands", "GlobalCommands", "review_currentLine") ],
-		"nvda+numpad8": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "navigatorObject_parent") ],
-		"control+numpad8": [ G("globalCommands", "GlobalCommands", "kb:control+uparrow"), G("globalCommands", "GlobalCommands", None ) ],
-		"numpad9": [ G("globalCommands", "GlobalCommands", "kb:pageup"), G("globalCommands", "GlobalCommands", "review_nextLine") ],
-		"shift+numpad9": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "review_bottom") ],
-		"control+numpad9": [ G("globalCommands", "GlobalCommands", "kb:control+pageup"), G("globalCommands", "GlobalCommands", None ) ],
-		"nvda+numpadMinus": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "navigatorObject_toFocus") ],
-		"nvda+shift+numpadMinus": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "navigatorObject_moveFocus") ],
-		"numpadmultiply": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "rightMouseClick") ],
-		"nvda+numpadmultiply": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "moveNavigatorObjectToMouse") ],
-		"shift+numpadmultiply": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "toggleRightMouseButton") ],
-		"numpadDivide": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "leftMouseClick") ],
-		"nvda+numpadDivide": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "moveMouseToNavigatorObject") ],
-		"shift+numpadDivide": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "toggleLeftMouseButton") ],
-		"nvda+numpadEnter": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "review_activate") ],
-		"numpadPlus": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "review_sayAll") ],
-		"nvda+numpadDelete": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "navigatorObject_currentDimensions") ]
+	#: A dict of user assigned gestures, containing their values in G form
+	userGestures = {}
+
+	#: These are the gestures we override to make the numpad perform Windows nav.
+	#: The G objects are namedtuples holding the module, class, and the script applicable to each gesture.
+	#: Note that these are prefix-free gestures. I.E. not including the "kb:", or "kb(laptop):" portions.
+	numpadGestures = {
+		"numpad1": G("globalCommands", "GlobalCommands", "kb:end"),
+		"nvda+numpad1": G("globalCommands", "GlobalCommands", None ),
+		"shift+numpad1": G("globalCommands", "GlobalCommands", None ),
+		"control+numpad1": G("globalCommands", "GlobalCommands", "kb:control+end"),
+		"numpad2": G("globalCommands", "GlobalCommands", "kb:downarrow"),
+		"nvda+numpad2": G("globalCommands", "GlobalCommands", None ),
+		"control+numpad2": G("globalCommands", "GlobalCommands", "kb:control+downarrow"),
+		"numpad3": G("globalCommands", "GlobalCommands", "kb:pagedown"),
+		"shift+numpad3": G("globalCommands", "GlobalCommands", None ),
+		"control+numpad3": G("globalCommands", "GlobalCommands", "kb:control+pagedown"),
+		"numpad4": G("globalCommands", "GlobalCommands", "kb:leftarrow"),
+		"nvda+numpad4": G("globalCommands", "GlobalCommands", None ),
+		"control+numpad4": G("globalCommands", "GlobalCommands", "kb:control+leftarrow"),
+		"numpad5": G("globalCommands", "GlobalCommands", None ),
+		"nvda+numpad5": G("globalCommands", "GlobalCommands", None ),
+		"numpad6": G("globalCommands", "GlobalCommands", "kb:rightarrow"),
+		"nvda+numpad6": G("globalCommands", "GlobalCommands", None ),
+		"control+numpad6": G("globalCommands", "GlobalCommands", "kb:control+rightarrow"),
+		"numpad7": G("globalCommands", "GlobalCommands", "kb:home"),
+		"nvda+numpad7": G("globalCommands", "GlobalCommands", None ),
+		"shift+numpad7": G("globalCommands", "GlobalCommands", None ),
+		"control+numpad7": G("globalCommands", "GlobalCommands", "kb:control+home"),
+		"numpad8": G("globalCommands", "GlobalCommands", "kb:uparrow"),
+		"nvda+numpad8": G("globalCommands", "GlobalCommands", None ),
+		"control+numpad8": G("globalCommands", "GlobalCommands", "kb:control+uparrow"),
+		"numpad9": G("globalCommands", "GlobalCommands", "kb:pageup"),
+		"shift+numpad9": G("globalCommands", "GlobalCommands", None ),
+		"control+numpad9": G("globalCommands", "GlobalCommands", "kb:control+pageup"),
+		"nvda+numpadMinus": G("globalCommands", "GlobalCommands", None ),
+		"nvda+shift+numpadMinus": G("globalCommands", "GlobalCommands", None ),
+		"numpadmultiply": G("globalCommands", "GlobalCommands", None ),
+		"nvda+numpadmultiply": G("globalCommands", "GlobalCommands", None ),
+		"shift+numpadmultiply": G("globalCommands", "GlobalCommands", None ),
+		"numpadDivide": G("globalCommands", "GlobalCommands", None ),
+		"nvda+numpadDivide": G("globalCommands", "GlobalCommands", None ),
+		"shift+numpadDivide": G("globalCommands", "GlobalCommands", None ),
+		"nvda+numpadEnter": G("globalCommands", "GlobalCommands", None ),
+		"numpadPlus": G("globalCommands", "GlobalCommands", None ),
+		"nvda+numpadDelete": G("globalCommands", "GlobalCommands", None )
 	}
 
 
 	def __init__(self):
 		super(GlobalPlugin, self).__init__()
-		# FixMe (feature): Determine if gestures are set to anything non-default, and save them/warn the user.
 		# Initialize the startup mode, or log it if we're already in one (I.E. a plugin reload)
 		try:
 			log.debug("Numpad mode already set to {0}.".format(self.getModeText()))
@@ -96,31 +94,32 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			self.setMode(self.NVDA)
 			log.debug("numpadNavMode: initialized numpad to {0} mode.".format(self.getModeText()))
 
+
 	def terminate(self):
 		#self.setMode(self.NVDA)
 		pass
 
 
-	def getModeText(self):
+	def getModeText(self) -> str:
 		"""Returns a text string representing the current mode of the numpad.
 		Warning: Does nothing to make sure that the returned mode is actually the configuration of the numpad!
 		Relies on getMode() to throw an exception if the mode is unrecognized
 		"""
-		if self.getMode() is self.NVDA:
+		if self.getMode() == self.NVDA:
 			return "NVDA"
 		else:
 			return "Windows"
 
 
-	def getMode(self):
+	def getMode(self) -> int:
 		"""Returns the mode of the numpad as understood by the global variable.
 		Throws an exception if the mode is unrecognized.
 		Warning: Does nothing to make sure that the returned mode is actually the configuration of the numpad!
 		"""
 		try:
-			if globalVars.numpadNavMode is self.NVDA:
+			if globalVars.numpadNavMode == self.NVDA:
 				return self.NVDA
-			elif globalVars.numpadNavMode is self.WIN:
+			elif globalVars.numpadNavMode == self.WIN:
 				return self.WIN
 			else:
 				raise AttributeError
@@ -134,10 +133,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		description=_("Toggles the numpad between NVDA navigation and Windows navigation modes."),
 		category="keyboard"
 	)
-	def script_numpadNavModeToggle(self, gesture):
+	def script_toggleNumpadNavMode(self, gesture):
 		"""Checks the current mode of the numpad, and switches to the opposite one
 		"""
-		if self.getMode() is self.NVDA:
+		if self.getMode() == self.NVDA:
 			self.setMode(self.WIN)
 		else:	# Mode is Windows
 			self.setMode(self.NVDA)
@@ -146,7 +145,17 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		log.debug("Numpad set to {0} nav mode.".format(self.getModeText()))
 
 
-	def setMode(self, mode):
+	@classmethod
+	def _getAllGesturesAsGDict(cls) -> dict:
+		"""Returns a dict of all currently configured user gestures, using G objects.
+		"""
+		return {
+			gest : cls.G(mc.__module__, mc.__name__, scr)
+			for mc, gest, scr in manager.userGestureMap.getScriptsForAllGestures()
+		}
+
+
+	def setMode(self, mode : int):
 		"""Iterates the dict of gestures we know about, and sets them to the values for the provided mode.
 		It overrides any existing settings for those gestures.
 		The values associated with the mode are taken from the hard-coded dict ov gesture mappings included in the add-on.
@@ -154,19 +163,48 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		@param mode: the mode we want the numpad to switch into. This should be provided with the constants self.NVDA or self.WIN.
 		@type mode: int
 		"""
-		# Check the validity of the mode we were given
-		if not mode is self.NVDA and not mode is self.WIN:
-			raise ValueError("Can not set numpad mode to unknown value '{0}'.".format(mode))
+		# if we're switching to Windows mode
+		if mode == self.WIN:
+			# Acquire all configured userGestures
+			self.userGestures = self._getAllGesturesAsDict()
+			# Assign the Windows emmulations
+			for gFrag, action in self.numpadGestures.items():
+				# We only want to use the main gesture, not desktop or laptop
+				manager.userGestureMap.add("kb(desktop):" + str(gFrag), action.mod, action.cls, None, True)
+				manager.userGestureMap.add("kb(laptop):" + str(gFrag), action.mod, action.cls, None, True)
+				manager.userGestureMap.add("kb:" + str(gFrag), action.mod, action.cls, action.scr, True)
 
-		# Walk the dict of known gestures, and assign each based on the preferred mode
-		for gestureFragment, action in self.gMap.items():
-			manager.userGestureMap.add(
-				"kb:" + gestureFragment,
-				action[mode].mod,
-				action[mode].cls,
-				action[mode].scr,
-				True
-			)
+		# if we're switching to NVDA mode
+		elif mode == self.NVDA:
+			# Overview: for each numpad gesture, check whether:
+			# - There is a script for it; and
+			# - Whether it is our script, which will be an emmulated gesture or None.
+			# If so, remove it. If not (meaning it has been reassigned) leave it alone.
+			# Do the same for laptop and desktop versions of the gestures, which should all be None.
+			checkThese = {}	#: Mungible dict of gestures we use
+			# Build the checkables
+			for gFrag, action in self.numpadGestures.items():
+				checkThese.append("kb:" + str(gFrag), action)
+				# For these, we know that the script should be None
+				checkThese.append("kb(desktop):" + str(gFrag), self.G(action.mod, action.cls, None))
+				checkThese.append("kb(laptop):" + str(gFrag), self.G(action.mod, action.cls, None))
+			# For each user gesture, check:
+			# - Whether it is one of ours, or a layout-varient version of one of ours, and
+			# - if so, whether it is set as we set it (meaning it hasn't been remapped):
+			# then we can delete it.
+			for gest, action in self._getAllGesturesAsGDict():
+				try:
+					# If it matches, we delete the gesture.
+					# We skip it if it doesn't match, or if there's a KeyError.
+					if checkThese[gest] == action:
+						manager.userGestureMap.remove(gest, *action)
+						del checkThese[gest]
+				except KeyError:
+					pass
+			# For our next trick: we need to check whether all former user gestures got reset
+
+		else:	# An invalid mode was provided
+			raise ValueError("Can not set numpad mode to unknown value '{0}'.".format(mode))
 
 		# If we made it here, we should be safe to set the mode we just configured as the mode we're in
 		globalVars.numpadNavMode = mode

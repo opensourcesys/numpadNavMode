@@ -15,11 +15,6 @@
 
 # This add-on complies with Semantic Versioning: https://semver.org/
 
-# For compatibility with NVDA 2017.3 and other pre-Python 3 versions
-# (Backporting is a work in progress, may not try until V1.0 is released.)
-#from __future__ import unicode_literals
-#from globalCommands import SCRCAT_TOOLS
-
 import globalPluginHandler
 import addonHandler
 import globalVars
@@ -170,9 +165,3 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 		# If we made it here, we should be safe to set the mode we just configured as the mode we're in
 		globalVars.numpadNavMode = mode
-
-# FixMe: Backporting
-	#script_numpadNavModeToggle.category=SCRCAT_TOOLS
-	# Translators: input help message for the numpad mode toggle command
-	#script_numpadNavModeToggle_doc__ = _("Toggles the numpad mode between NVDA navigation and Windows navigation")
-	#__gestures = { "kb:alt+NVDA+numpadPlus" : "numpadNavModeToggle" }

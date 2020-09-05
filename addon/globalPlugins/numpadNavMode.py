@@ -159,11 +159,12 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			raise ValueError("Can not set numpad mode to unknown value '{0}'.".format(mode))
 
 		# Walk the dict of known gestures, and assign each based on the preferred mode
-		for gestureFragment in self.gMap:
+		for gestureFragment, action in self.gMap.items():
 			manager.userGestureMap.add(
 				"kb:" + gestureFragment,
-				*self.gMap[gestureFragment][mode][self.MOD_CLS].split(sep='.'),
-				self.gMap[gestureFragment][mode][self.SCR],
+				action[mode].mod,
+				action[mode].cls,
+				action[mode].scr,
 				True
 			)
 

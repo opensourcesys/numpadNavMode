@@ -22,6 +22,7 @@ import ui
 from scriptHandler import script
 from inputCore import manager	# Needed for the manager.userGestureMap object
 from logHandler import log
+from collections import namedtuple
 
 addonHandler.initTranslation()
 
@@ -33,52 +34,55 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	MOD_CLS = 0	# Index of the module.Class string of the tuples
 	SCR = 1			# Index of the script string of the tuples
 
+	#: Each gesture we store will have these three fields, not including the gesture itself.
+	G = namedtuple('G', 'mod cls scr')
+
 	# These are the gestures we care about.
 	# The lists are their values in various modes of the add-on.
 	# The nested tuples are the module and the script applicable to each mode.
 	# gesture: [ WIN, NVDA ]
 	# gesture: [ ( module, script ), ( module, script ) ]
 	# Note that these are prefix-free gestures. I.E. not including the "kb:", or "kb(laptop):" portions.
-	numpadGestures = {
-		"numpad1": [ ("globalCommands.GlobalCommands", "kb:end" ), ( "globalCommands.GlobalCommands", "review_previousCharacter" ) ],
-		"nvda+numpad1": [ ("globalCommands.GlobalCommands", None ), ( "globalCommands.GlobalCommands", "reviewMode_previous" ) ],
-		"shift+numpad1": [ ("globalCommands.GlobalCommands", None ), ( "globalCommands.GlobalCommands", "review_startOfLine" ) ],
-		"control+numpad1": [ ("globalCommands.GlobalCommands", "kb:control+end" ), ( "globalCommands.GlobalCommands", None ) ],
-		"numpad2": [ ("globalCommands.GlobalCommands", "kb:downarrow" ), ( "globalCommands.GlobalCommands", "review_currentCharacter" ) ],
-		"nvda+numpad2": [ ("globalCommands.GlobalCommands", None ), ( "globalCommands.GlobalCommands", "navigatorObject_firstChild" ) ],
-		"control+numpad2": [ ("globalCommands.GlobalCommands", "kb:control+downarrow" ), ( "globalCommands.GlobalCommands", None ) ],
-		"numpad3": [ ("globalCommands.GlobalCommands", "kb:pagedown" ), ( "globalCommands.GlobalCommands", "review_nextCharacter" ) ],
-		"shift+numpad3": [ ("globalCommands.GlobalCommands", None ), ( "globalCommands.GlobalCommands", "review_endOfLine" ) ],
-		"control+numpad3": [ ("globalCommands.GlobalCommands", "kb:control+pagedown" ), ( "globalCommands.GlobalCommands", None ) ],
-		"numpad4": [ ("globalCommands.GlobalCommands", "kb:leftarrow" ), ( "globalCommands.GlobalCommands", "review_previousWord" ) ],
-		"nvda+numpad4": [ ("globalCommands.GlobalCommands", None ), ( "globalCommands.GlobalCommands", "navigatorObject_previous" ) ],
-		"control+numpad4": [ ("globalCommands.GlobalCommands", "kb:control+leftarrow" ), ( "globalCommands.GlobalCommands", None ) ],
-		"numpad5": [ ("globalCommands.GlobalCommands", None ), ( "globalCommands.GlobalCommands", "review_currentWord" ) ],
-		"nvda+numpad5": [ ("globalCommands.GlobalCommands", None ), ( "globalCommands.GlobalCommands", "navigatorObject_current" ) ],
-		"numpad6": [ ("globalCommands.GlobalCommands", "kb:rightarrow" ), ( "globalCommands.GlobalCommands", "review_nextWord" ) ],
-		"nvda+numpad6": [ ("globalCommands.GlobalCommands", None ), ( "globalCommands.GlobalCommands", "navigatorObject_next" ) ],
-		"control+numpad6": [ ("globalCommands.GlobalCommands", "kb:control+rightarrow" ), ( "globalCommands.GlobalCommands", None ) ],
-		"numpad7": [ ("globalCommands.GlobalCommands", "kb:home" ), ( "globalCommands.GlobalCommands", "review_previousLine" ) ],
-		"nvda+numpad7": [ ("globalCommands.GlobalCommands", None ), ( "globalCommands.GlobalCommands", "reviewMode_next" ) ],
-		"shift+numpad7": [ ("globalCommands.GlobalCommands", None ), ( "globalCommands.GlobalCommands", "review_top" ) ],
-		"control+numpad7": [ ("globalCommands.GlobalCommands", "kb:control+home" ), ( "globalCommands.GlobalCommands", None ) ],
-		"numpad8": [ ("globalCommands.GlobalCommands", "kb:uparrow" ), ( "globalCommands.GlobalCommands", "review_currentLine" ) ],
-		"nvda+numpad8": [ ("globalCommands.GlobalCommands", None ), ( "globalCommands.GlobalCommands", "navigatorObject_parent" ) ],
-		"control+numpad8": [ ("globalCommands.GlobalCommands", "kb:control+uparrow" ), ( "globalCommands.GlobalCommands", None ) ],
-		"numpad9": [ ("globalCommands.GlobalCommands", "kb:pageup" ), ( "globalCommands.GlobalCommands", "review_nextLine" ) ],
-		"shift+numpad9": [ ("globalCommands.GlobalCommands", None ), ( "globalCommands.GlobalCommands", "review_bottom" ) ],
-		"control+numpad9": [ ("globalCommands.GlobalCommands", "kb:control+pageup" ), ( "globalCommands.GlobalCommands", None ) ],
-		"nvda+numpadMinus": [ ("globalCommands.GlobalCommands", None ), ( "globalCommands.GlobalCommands", "navigatorObject_toFocus" ) ],
-		"nvda+shift+numpadMinus": [ ("globalCommands.GlobalCommands", None ), ( "globalCommands.GlobalCommands", "navigatorObject_moveFocus" ) ],
-		"numpadmultiply": [ ("globalCommands.GlobalCommands", None ), ( "globalCommands.GlobalCommands", "rightMouseClick" ) ],
-		"nvda+numpadmultiply": [ ("globalCommands.GlobalCommands", None ), ( "globalCommands.GlobalCommands", "moveNavigatorObjectToMouse" ) ],
-		"shift+numpadmultiply": [ ("globalCommands.GlobalCommands", None ), ( "globalCommands.GlobalCommands", "toggleRightMouseButton" ) ],
-		"numpadDivide": [ ("globalCommands.GlobalCommands", None ), ( "globalCommands.GlobalCommands", "leftMouseClick" ) ],
-		"nvda+numpadDivide": [ ("globalCommands.GlobalCommands", None ), ( "globalCommands.GlobalCommands", "moveMouseToNavigatorObject" ) ],
-		"shift+numpadDivide": [ ("globalCommands.GlobalCommands", None ), ( "globalCommands.GlobalCommands", "toggleLeftMouseButton" ) ],
-		"nvda+numpadEnter": [ ("globalCommands.GlobalCommands", None ), ( "globalCommands.GlobalCommands", "review_activate" ) ],
-		"numpadPlus": [ ("globalCommands.GlobalCommands", None ), ( "globalCommands.GlobalCommands", "review_sayAll" ) ],
-		"nvda+numpadDelete": [ ("globalCommands.GlobalCommands", None ), ( "globalCommands.GlobalCommands", "navigatorObject_currentDimensions" ) ]
+	gMap = {
+		"numpad1": [ G("globalCommands", "GlobalCommands", "kb:end"), G("globalCommands", "GlobalCommands", "review_previousCharacter") ],
+		"nvda+numpad1": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "reviewMode_previous") ],
+		"shift+numpad1": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "review_startOfLine") ],
+		"control+numpad1": [ G("globalCommands", "GlobalCommands", "kb:control+end"), G("globalCommands", "GlobalCommands", None ) ],
+		"numpad2": [ G("globalCommands", "GlobalCommands", "kb:downarrow"), G("globalCommands", "GlobalCommands", "review_currentCharacter") ],
+		"nvda+numpad2": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "navigatorObject_firstChild") ],
+		"control+numpad2": [ G("globalCommands", "GlobalCommands", "kb:control+downarrow"), G("globalCommands", "GlobalCommands", None ) ],
+		"numpad3": [ G("globalCommands", "GlobalCommands", "kb:pagedown"), G("globalCommands", "GlobalCommands", "review_nextCharacter") ],
+		"shift+numpad3": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "review_endOfLine") ],
+		"control+numpad3": [ G("globalCommands", "GlobalCommands", "kb:control+pagedown"), G("globalCommands", "GlobalCommands", None ) ],
+		"numpad4": [ G("globalCommands", "GlobalCommands", "kb:leftarrow"), G("globalCommands", "GlobalCommands", "review_previousWord") ],
+		"nvda+numpad4": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "navigatorObject_previous") ],
+		"control+numpad4": [ G("globalCommands", "GlobalCommands", "kb:control+leftarrow"), G("globalCommands", "GlobalCommands", None ) ],
+		"numpad5": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "review_currentWord") ],
+		"nvda+numpad5": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "navigatorObject_current") ],
+		"numpad6": [ G("globalCommands", "GlobalCommands", "kb:rightarrow"), G("globalCommands", "GlobalCommands", "review_nextWord") ],
+		"nvda+numpad6": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "navigatorObject_next") ],
+		"control+numpad6": [ G("globalCommands", "GlobalCommands", "kb:control+rightarrow"), G("globalCommands", "GlobalCommands", None ) ],
+		"numpad7": [ G("globalCommands", "GlobalCommands", "kb:home"), G("globalCommands", "GlobalCommands", "review_previousLine") ],
+		"nvda+numpad7": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "reviewMode_next") ],
+		"shift+numpad7": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "review_top") ],
+		"control+numpad7": [ G("globalCommands", "GlobalCommands", "kb:control+home"), G("globalCommands", "GlobalCommands", None ) ],
+		"numpad8": [ G("globalCommands", "GlobalCommands", "kb:uparrow"), G("globalCommands", "GlobalCommands", "review_currentLine") ],
+		"nvda+numpad8": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "navigatorObject_parent") ],
+		"control+numpad8": [ G("globalCommands", "GlobalCommands", "kb:control+uparrow"), G("globalCommands", "GlobalCommands", None ) ],
+		"numpad9": [ G("globalCommands", "GlobalCommands", "kb:pageup"), G("globalCommands", "GlobalCommands", "review_nextLine") ],
+		"shift+numpad9": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "review_bottom") ],
+		"control+numpad9": [ G("globalCommands", "GlobalCommands", "kb:control+pageup"), G("globalCommands", "GlobalCommands", None ) ],
+		"nvda+numpadMinus": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "navigatorObject_toFocus") ],
+		"nvda+shift+numpadMinus": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "navigatorObject_moveFocus") ],
+		"numpadmultiply": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "rightMouseClick") ],
+		"nvda+numpadmultiply": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "moveNavigatorObjectToMouse") ],
+		"shift+numpadmultiply": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "toggleRightMouseButton") ],
+		"numpadDivide": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "leftMouseClick") ],
+		"nvda+numpadDivide": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "moveMouseToNavigatorObject") ],
+		"shift+numpadDivide": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "toggleLeftMouseButton") ],
+		"nvda+numpadEnter": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "review_activate") ],
+		"numpadPlus": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "review_sayAll") ],
+		"nvda+numpadDelete": [ G("globalCommands", "GlobalCommands", None ), G("globalCommands", "GlobalCommands", "navigatorObject_currentDimensions") ]
 	}
 
 
@@ -155,11 +159,11 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			raise ValueError("Can not set numpad mode to unknown value '{0}'.".format(mode))
 
 		# Walk the dict of known gestures, and assign each based on the preferred mode
-		for gestureFragment in self.numpadGestures:
+		for gestureFragment in self.gMap:
 			manager.userGestureMap.add(
 				"kb:" + gestureFragment,
-				*self.numpadGestures[gestureFragment][mode][self.MOD_CLS].split(sep='.'),
-				self.numpadGestures[gestureFragment][mode][self.SCR],
+				*self.gMap[gestureFragment][mode][self.MOD_CLS].split(sep='.'),
+				self.gMap[gestureFragment][mode][self.SCR],
 				True
 			)
 

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Numpad Nav Mode (numpadNavMode.py), version 0.04-dev
+# Numpad Nav Mode (numpadNavMode.py), version 0.4-dev
 # An NVDA global plugin which allows toggling the numpad between NVDA navigation and Windows navigation modes.
 # Written by Luke Davis, based on gesture modifications described by NV Access (specifically @Qchristensen and @feerrenrut) in issue #9549.
 
@@ -15,22 +15,23 @@
 
 # This add-on complies with Semantic Versioning: https://semver.org/
 
+from collections import namedtuple
+
 import globalPluginHandler
 import addonHandler
 import globalVars
 import ui
 from scriptHandler import script
-from inputCore import manager	# Needed for the manager.userGestureMap object
+from inputCore import manager
 from logHandler import log
-from collections import namedtuple
 
 addonHandler.initTranslation()
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
-	#: Used to indicate a return status of getMode(), and therefore to track state in various places.
+	#: Used to indicate a value of the mode property, and therefore to track state in various places.
 	WIN = 0
-	#: Used to indicate a return status of getMode(), and therefore to track state in various places.
+	#: Used to indicate a value of the mode property, and therefore to track state in various places.
 	NVDA = 1
 
 	#: Each gesture we store will have these three fields, not including the gesture itself.
@@ -86,32 +87,47 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 
 	def __init__(self):
+		"""Initializes the add-on by checking whether there is an existing numpad nav mode set, and if not,
+		by setting one.  A mode may be already set because plugins have been reloaded, in which case the
+		user would not expect a reload to change it.
+		"""
 		super(GlobalPlugin, self).__init__()
 		# Initialize the startup mode, or log it if we're already in one (I.E. a plugin reload)
 		try:
-			log.debug("Numpad mode already set to {0}.".format(self.getModeText()))
-		except AttributeError:	# Raised if this is the first run
+			initialMode = self.modeTextEN  # Because PEP8 likes exception raisers to be their own line
+			log.debug(f"Numpad mode already set to {initialMode}.")
+		except AttributeError as err:  # Raised if this is the first run
 			self.setMode(self.NVDA)
-			log.debug("numpadNavMode: initialized numpad to {0} mode.".format(self.getModeText()))
+			log.debug(f"numpadNavMode: initialized numpad to {self.modeTextEN} mode.")
 
+	def terminate(self): pass
 
-	def terminate(self):
-		#self.setMode(self.NVDA)
-		pass
-
-
-	def getModeText(self) -> str:
-		"""Returns a text string representing the current mode of the numpad.
+	@property
+	def modeText(self) -> str:
+		"""Returns a translated text string representing the current mode of the numpad.
 		Warning: Does nothing to make sure that the returned mode is actually the configuration of the numpad!
-		Relies on getMode() to throw an exception if the mode is unrecognized
+		Relies on the mode accessor to throw an exception if the mode is unrecognized
 		"""
-		if self.getMode() == self.NVDA:
+		if self.mode == self.NVDA:
+			# Translators: returned as part of some user messages
+			return _("NVDA")
+		else:
+			# Translators: returned as part of some user messages
+			return _("Windows")
+
+	@property
+	def modeTextEN(self) -> str:
+		"""Returns an untranslated text string representing the current mode of the numpad.
+		Warning: Does nothing to make sure that the returned mode is actually the configuration of the numpad!
+		Relies on the mode accessor to throw an exception if the mode is unrecognized
+		"""
+		if self.mode == self.NVDA:
 			return "NVDA"
 		else:
 			return "Windows"
 
-
-	def getMode(self) -> int:
+	@property
+	def mode(self) -> int:
 		"""Returns the mode of the numpad as understood by the global variable.
 		Throws an exception if the mode is unrecognized.
 		Warning: Does nothing to make sure that the returned mode is actually the configuration of the numpad!
@@ -122,10 +138,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			elif globalVars.numpadNavMode == self.WIN:
 				return self.WIN
 			else:
-				raise AttributeError
+				raise AttributeError("Unknown numpad nav mode or mode was never set")
 		except AttributeError:	# Raised above, or if the global isn't set at all
-			raise AttributeError("Unknown numpad state or state was never set")
-
+			raise
 
 	@script(
 		gesture="kb:alt+NVDA+numpadPlus",
@@ -134,77 +149,94 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		category="keyboard"
 	)
 	def script_toggleNumpadNavMode(self, gesture):
-		"""Checks the current mode of the numpad, and switches to the opposite one
-		"""
-		if self.getMode() == self.NVDA:
+		"""Checks the current nav mode of the numpad, and switches to the opposite one."""
+		if self.mode == self.NVDA:
 			self.setMode(self.WIN)
-		else:	# Mode is Windows
+		else:  # Mode is Windows
 			self.setMode(self.NVDA)
-
-		ui.message("Numpad mode {0}.".format(self.getModeText()))
-		log.debug("Numpad set to {0} nav mode.".format(self.getModeText()))
-
+		# Translators: message given to the user when the numpad's mode changes between NVDA and Windows nav
+		ui.message(_("Numpad mode {}.".format(self.modeText)))
+		log.debug(f"Numpad set to {self.modeTextEN} nav mode.")
 
 	@classmethod
 	def _getAllGesturesAsGDict(cls) -> dict:
-		"""Returns a dict of all currently configured user gestures, using G objects.
-		"""
+		"""Returns a dict of all currently configured user gestures, using G objects."""
 		return {
-			gest : cls.G(mc.__module__, mc.__name__, scr)
+			gest: cls.G(mc.__module__, mc.__name__, scr) \
 			for mc, gest, scr in manager.userGestureMap.getScriptsForAllGestures()
 		}
 
-
-	def setMode(self, mode : int):
+	def setMode(self, mode: int):
 		"""Iterates the dict of gestures we know about, and sets them to the values for the provided mode.
 		It overrides any existing settings for those gestures.
-		The values associated with the mode are taken from the hard-coded dict ov gesture mappings included in the add-on.
-		The dict will provide None values for some of them, which the manager scripts already know means to unset them completely.
-		@param mode: the mode we want the numpad to switch into. This should be provided with the constants self.NVDA or self.WIN.
+		The values associated with the mode are taken from the hard-coded dict of gesture mappings included
+		in the add-on.
+		The dict will provide None values for some of them, which the manager scripts already know means to
+		disable them completely.
+		@param mode: the mode we want the numpad to enter. Provide with the constants self.NVDA or self.WIN.
 		@type mode: int
 		"""
-		# if we're switching to Windows mode
 		if mode == self.WIN:
-			# Acquire all configured userGestures
-			self.userGestures = self._getAllGesturesAsDict()
-			# Assign the Windows emmulations
-			for gFrag, action in self.numpadGestures.items():
-				# We only want to use the main gesture, not desktop or laptop
-				manager.userGestureMap.add("kb(desktop):" + str(gFrag), action.mod, action.cls, None, True)
-				manager.userGestureMap.add("kb(laptop):" + str(gFrag), action.mod, action.cls, None, True)
-				manager.userGestureMap.add("kb:" + str(gFrag), action.mod, action.cls, action.scr, True)
-
-		# if we're switching to NVDA mode
+			self._setWindowsNavMode()
 		elif mode == self.NVDA:
-			# Overview: for each numpad gesture, check whether:
-			# - There is a script for it; and
-			# - Whether it is our script, which will be an emmulated gesture or None.
-			# If so, remove it. If not (meaning it has been reassigned) leave it alone.
-			# Do the same for laptop and desktop versions of the gestures, which should all be None.
-			checkThese = {}	#: Mungible dict of gestures we use
-			# Build the checkables
-			for gFrag, action in self.numpadGestures.items():
-				checkThese.append("kb:" + str(gFrag), action)
-				# For these, we know that the script should be None
-				checkThese.append("kb(desktop):" + str(gFrag), self.G(action.mod, action.cls, None))
-				checkThese.append("kb(laptop):" + str(gFrag), self.G(action.mod, action.cls, None))
-			# For each user gesture, check:
-			# - Whether it is one of ours, or a layout-varient version of one of ours, and
-			# - if so, whether it is set as we set it (meaning it hasn't been remapped):
-			# then we can delete it.
-			for gest, action in self._getAllGesturesAsGDict():
-				try:
-					# If it matches, we delete the gesture.
-					# We skip it if it doesn't match, or if there's a KeyError.
-					if checkThese[gest] == action:
-						manager.userGestureMap.remove(gest, *action)
-						del checkThese[gest]
-				except KeyError:
-					pass
-			# For our next trick: we need to check whether all former user gestures got reset
-
+			self._setNVDANavMode()
 		else:	# An invalid mode was provided
-			raise ValueError("Can not set numpad mode to unknown value '{0}'.".format(mode))
-
+			raise ValueError(f"Can not set numpad mode to unknown value '{mode}'.")
 		# If we made it here, we should be safe to set the mode we just configured as the mode we're in
 		globalVars.numpadNavMode = mode
+
+	def _setWindowsNavMode(self):
+		# A setMode() helper method, to put the numpad in Windows mode.
+		#
+		# Obtain all configured userGestures for use later
+		self.userGestures = self._getAllGesturesAsGDict()
+		# Assign the Windows emmulations
+		for gFrag, action in self.numpadGestures.items():
+			# We only want to use the main gesture, not desktop or laptop
+			manager.userGestureMap.add("kb(desktop):" + gFrag, action.mod, action.cls, None, True)
+			manager.userGestureMap.add("kb(laptop):" + gFrag, action.mod, action.cls, None, True)
+			manager.userGestureMap.add("kb:" + gFrag, action.mod, action.cls, action.scr, True)
+
+	def _setNVDANavMode(self):
+		# A setMode() helper method, to put the numpad back in NVDA mode.
+		# Overview: for each numpad gesture, check whether:
+		# - There is a script for it; and
+		# - Whether it is our script, which will be an emmulated gesture or None.
+		# If so, remove it.
+		# If not (meaning it has been reassigned by the user or an add-on), leave it alone.
+		# Do the same for laptop and desktop versions of the gestures, which should both be set to None.
+		checkThese = {}	#: Mungible dict of gestures we use
+		# Build the checkables
+		for gFrag, action in self.numpadGestures.items():
+			checkThese["kb:" + gFrag] = action
+			# For these, we know that the script should be None
+			checkThese["kb(desktop):" + gFrag] = self.G(action.mod, action.cls, None)
+			checkThese["kb(laptop):" + gFrag] = self.G(action.mod, action.cls, None)
+
+		# For each user gesture, check:
+		# - Whether it is one of ours, or a layout-varient version of one of ours, and
+		# - if so, whether it is set as we set it (meaning it hasn't been remapped).
+		# in which case we can delete it.
+		for gest, action in self._getAllGesturesAsGDict().items():
+			try:
+				# If it matches, we delete the gesture.
+				# We skip it if it doesn't match, or if there's a KeyError.
+				if checkThese[gest] == action:
+					manager.userGestureMap.remove(gest, *action)
+					del checkThese[gest]
+			except KeyError:
+				pass
+
+		# FixMe: integrate the below code into the above, so we only have to loop the list once.
+
+		# For our next trick, we need to check whether all former user gestures got reset.
+		# We do that by checking each one against currently set gestures, and setting any that are missing.
+		# We don't overwrite any gesture that has been set in the meantime, so a user gesture could still
+		# conceivably get lost, but presumably not by this add-on's activity, so not our problem.
+		#: A map of the currently set user gestures, after Windows nav commands have been removed
+		currentGestures = self._getAllGesturesAsGDict()
+		for gest, action in self.userGestures.items():
+			# If the gesture isn't set, we need to put it back.
+			if not gest in currentGestures:
+				manager.userGestureMap.add(gest, *action, True)
+	

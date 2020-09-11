@@ -27,6 +27,13 @@ from logHandler import log
 
 addonHandler.initTranslation()
 
+# These methods and associated variables will be removed in version 1.0; do not review.
+_internalLog = []
+_internalLogPosition = 0
+def _l_(message):
+	global _internalLog
+	_internalLog.append(message)
+
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	#: Used to indicate a value of the mode property, and therefore to track state in various places.
@@ -151,20 +158,42 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_toggleNumpadNavMode(self, gesture):
 		"""Checks the current nav mode of the numpad, and switches to the opposite one."""
 		if self.mode == self.NVDA:
+			_l_("Toggling to Windows.")
 			self.setMode(self.WIN)
 		else:  # Mode is Windows
+			_l_('Toggling to NVDA.')
 			self.setMode(self.NVDA)
 		# Translators: message given to the user when the numpad's mode changes between NVDA and Windows nav
 		ui.message(_("Numpad mode {}.".format(self.modeText)))
 		log.debug(f"Numpad set to {self.modeTextEN} nav mode.")
 
+	# This script will not be in production versions; do not review.
+	@script(
+		gesture="kb:NVDA+control+NumpadPlus",
+		description="Calls a non-production debugging command for the numpadNavMode add-on."
+	)
+	def script_showDebuggingWindow(self, gesture):
+		global _internalLog
+		global _internalLogPosition
+		contents = "<html><body><p>\n"
+		for i in range(0, len(_internalLog)):
+			if i == _internalLogPosition:
+				contents += "<h1>Most recent:</h1>\n"
+			contents += _internalLog[i] + "<br>\n"
+		_internalLogPosition = len(_internalLog) + 1
+		ui.browseableMessage(contents, isHtml=True, title="Internal Log")
+
 	@classmethod
 	def _getAllGesturesAsGDict(cls) -> dict:
 		"""Returns a dict of all currently configured user gestures, using G objects."""
-		return {
+		_l_('In _getAllGesturesAsGDict()')
+		gDict = {
 			gest: cls.G(mc.__module__, mc.__name__, scr) \
 			for mc, gest, scr in manager.userGestureMap.getScriptsForAllGestures()
 		}
+		_l_(f"gDict is a {type(gDict)}")
+		for gest, action in gDict.items(): _l_(f"Gesture: {type(gest)} {gest}, action: {type(action)} {action}.")
+		return gDict
 
 	def setMode(self, mode: int):
 		"""Iterates the dict of gestures we know about, and sets them to the values for the provided mode.
@@ -176,20 +205,27 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		@param mode: the mode we want the numpad to enter. Provide with the constants self.NVDA or self.WIN.
 		@type mode: int
 		"""
+		_l_("In setMode()")
 		if mode == self.WIN:
+			_l_("Setting Windows nav mode")
 			self._setWindowsNavMode()
 		elif mode == self.NVDA:
+			_l_("Setting NVDA nav mode")
 			self._setNVDANavMode()
 		else:	# An invalid mode was provided
+			_l_("Invalid mode")
 			raise ValueError(f"Can not set numpad mode to unknown value '{mode}'.")
 		# If we made it here, we should be safe to set the mode we just configured as the mode we're in
+		_l_("Setting global var.")
 		globalVars.numpadNavMode = mode
 
 	def _setWindowsNavMode(self):
 		# A setMode() helper method, to put the numpad in Windows mode.
 		#
+		_l_("In _setWindowsNavMode()")
 		# Obtain all configured userGestures for use later
 		self.userGestures = self._getAllGesturesAsGDict()
+		_l_(f"self.userGestures set to (next heading to skip):\n{self.userGestures}\n<h2>End user gestures</h2>")
 		# Assign the Windows emmulations
 		for gFrag, action in self.numpadGestures.items():
 			# We only want to use the main gesture, not desktop or laptop
@@ -205,6 +241,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		# If so, remove it.
 		# If not (meaning it has been reassigned by the user or an add-on), leave it alone.
 		# Do the same for laptop and desktop versions of the gestures, which should both be set to None.
+		_l_("In _setNVDANavMode()")
 		checkThese = {}	#: Mungible dict of gestures we use
 		# Build the checkables
 		for gFrag, action in self.numpadGestures.items():
@@ -212,19 +249,24 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			# For these, we know that the script should be None
 			checkThese["kb(desktop):" + gFrag] = self.G(action.mod, action.cls, None)
 			checkThese["kb(laptop):" + gFrag] = self.G(action.mod, action.cls, None)
+		_l_(f"checkThese set to (next heading to skip):\n{checkThese}\n<h2>End checkThese</h2>")
 
 		# For each user gesture, check:
 		# - Whether it is one of ours, or a layout-varient version of one of ours, and
 		# - if so, whether it is set as we set it (meaning it hasn't been remapped).
 		# in which case we can delete it.
+		_l_("Deleting gestures.")
 		for gest, action in self._getAllGesturesAsGDict().items():
+			_l_(f"Trying gest: {type(gest)} {gest}, {type(action)} {action}")
 			try:
 				# If it matches, we delete the gesture.
 				# We skip it if it doesn't match, or if there's a KeyError.
 				if checkThese[gest] == action:
+					_l_("It matched!")
 					manager.userGestureMap.remove(gest, *action)
 					del checkThese[gest]
 			except KeyError:
+				_l_("KeyError")
 				pass
 
 		# FixMe: integrate the below code into the above, so we only have to loop the list once.

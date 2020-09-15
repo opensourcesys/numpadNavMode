@@ -25,5 +25,5 @@ I encourage you to email with any feature suggestions, or other use cases that I
 
 ## Release history:
 
-* V0.4 (dev): 15 September, 2020. Complete rewrite based on user feedback and better design ideas.
+* V0.5 (dev): 15 September, 2020. Complete rewrite based on user feedback and better design ideas.
 * V0.3 (dev): 1 September, 2020. Initial release. Based on various user requests, and ultimately a discussion in [#9549](https://github.com/nvaccess/nvda/issues/9549). With thanks to @Qchristensen and @feerrenrut.

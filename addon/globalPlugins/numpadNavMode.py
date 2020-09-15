@@ -173,7 +173,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		else:  # Mode is Windows
 			self.setMode(self.NVDA)
 		# Translators: message given to the user when the numpad's mode changes between NVDA and Windows nav
-		ui.message(_("Numpad mode {}.".format(self.modeText)))
+		ui.message(_("Numpad mode {}.").format(self.modeText))
 		log.debug(f"Numpad set to {self.modeTextEN} nav mode.")
 
 	@classmethod

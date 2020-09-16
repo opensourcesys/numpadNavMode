@@ -1,4 +1,4 @@
-# Numpad Nav Mode (numpadNavMode.py), version 0.5-dev
+# Numpad Nav Mode (numpadNavMode.py), version 0.6-dev
 # An NVDA global plugin which allows toggling the numpad between NVDA navigation and Windows navigation modes.
 # Written by Luke Davis, based on gesture modifications described by NV Access (specifically @Qchristensen and @feerrenrut) in issue #9549.
 
@@ -20,12 +20,42 @@ from collections import namedtuple
 import globalPluginHandler
 import addonHandler
 import globalVars
+import config
+import gui
+import wx
 import ui
 from scriptHandler import script
 from inputCore import manager, normalizeGestureIdentifier
 from logHandler import log
 
 addonHandler.initTranslation()
+
+#: numpadNavMode Add-on config database
+config.conf.spec["numpadNavMode"] = {
+	"startInWindowsMode": "boolean(default=False)",
+}
+
+class NumpadNavModeSettings (gui.settingsDialogs.SettingsPanel):
+	"""NVDA configuration panel based configurator  for numpadNavMode."""
+
+	# Translators: This is the label for the Numpad Nav Mode settings category in NVDA Settings screen.
+	title = _("Numpad Nav Mode")
+
+	def makeSettings(self, settingsSizer):
+		"""Creates a settings panel."""
+		helper = gui.guiHelper.BoxSizerHelper(self, sizer=settingsSizer)
+		self.startInWindowsModeCB = helper.addItem(
+			wx.CheckBox(
+				self,
+				# Translators: The label for a checkbox in Numpad Nav Mode settings panel
+				label=_("Start NVDA with the numpad set to Windows nav mode")
+			)
+		)
+		self.startInWindowsModeCB.SetValue(config.conf["numpadNavMode"]["startInWindowsMode"])
+
+	def onSave(self):
+		config.conf["numpadNavMode"]["startInWindowsMode"] = self.startInWindowsModeCB.Value
+
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
@@ -85,22 +115,31 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	#: A dict of user assigned gestures, containing their values in G form
 	userGestures = {}
 
-
 	def __init__(self):
-		"""Initializes the add-on by checking whether there is an existing numpad nav mode set, and if not,
-		by setting one.  A mode may be already set because plugins have been reloaded, in which case the
-		user would not expect a reload to change it.
-		It also wraps the manager.userGestureMap.save method, to prevent saving of Windows nav mode gestures.
+		"""Initializes the add-on by performing the following tasks:
+		- If the NVDA config is set to enter Windows nav mode on startup, we enter it here.
+		- Otherwise, checks whether there is an existing numpad nav mode set, and if not, sets to NVDA mode.
+		The mode may be already set because plugins have been reloaded, in which case the user would not
+		expect a reload to change it.
+		- Wraps (monkey patches) the manager.userGestureMap.save method, to prevent saving of Windows nav
+		mode gestures.
+		- Sets up the NVDA config mechanism that we use.
 		"""
 		super(GlobalPlugin, self).__init__()
+		# Establish the add-on's NVDA config
+		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.append(NumpadNavModeSettings)
 		# Initialize the startup mode, or log it if we're already in one (I.E. a plugin reload)
 		try:
 			initialMode = self.modeTextEN
 			log.debug(f"Numpad mode already set to {initialMode}.")
 		except AttributeError:  # Raised if this is the first run
-			# There is no mode set, so we're in NVDA mode.
-			# We don't want to try to switch to it, so we just set the global flag.
-			globalVars.numpadNavMode = self.NVDA
+			# There is no mode set.  The config will tell us which mode to start in.
+			if config.conf["numpadNavMode"]["startInWindowsMode"] is True:
+				self.setMode(self.WIN)
+			else:  # Start in NVDA mode
+				# We're effectively already in it, so we just establish the global flag.
+				globalVars.numpadNavMode = self.NVDA
+			# In either case, we log it
 			log.debug(f"numpadNavMode: initialized numpad to {self.modeTextEN} mode.")
 
 		# Monkey patch manager.userGestureMap.save()
@@ -118,7 +157,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				originalManagerSave()
 		manager.userGestureMap.save = types.MethodType(numpadNavModeVersionOfSave, self)
 
-	def terminate(self): pass
+	def terminate(self):
+		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.remove(NumpadNavModeSettings)
 
 	@property
 	def modeText(self) -> str:

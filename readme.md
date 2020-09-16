@@ -13,17 +13,21 @@ Additionally, some desktop users may sometimes find it convenient to use the num
 
 ## How it works
 
-With numlock off, no matter what keyboard layout you are using, this add-on will let you press Alt+NVDA+NumpadPlus (which is usually the long key second up on the right), and quickly and easily switch between the normal NVDA navigation controls, and the classical Windows navigation controls. This key can be remapped under Input Gestures, in the Input section.
+With numlock off, no matter what keyboard layout you are using, this add-on will let you press Alt+NVDA+NumpadPlus (which is usually the long key second up on the right), to quickly and easily switch between the normal NVDA navigation controls, and the classical Windows navigation controls. This key can be remapped under Input Gestures, in the Input section.
 
 Note that this add-on doesn't disable the use of numpad insert as an NVDA modifier, if you have it set as such. If you want that feature, please let me know, although you can manually turn off numpad insert as a modifier in NVDA keyboard settings.
 
+If you would prefer to have NVDA start with the Windows nav mode active by default, you can configure that in NVDA configuration.  Go to NVDA's preferences, then settings, and find the Numpad Nav Mode settings panel.  There you will be able to select a checkbox to turn Windows Nav Mode on by default when you start NVDA.
+To get there quickly, press NVDA+N, P, S, then N one or more times until you hear "Numpad Nav Mode".
+
 ## New features
 
-Some further features are planned for this add-on, such as a configuration dialog which will enable using Windows numpad navigation automatically, whenever you are in laptop keyboard mode, or whenever you start NVDA.
+Some further features are planned for this add-on, such as a configuration dialog which will enable using Windows numpad navigation automatically, whenever you switch to laptop keyboard mode.
 
 I encourage you to email with any feature suggestions, or other use cases that I haven't listed here, or just to let me know you find the add-on useful!
 
 ## Release history:
 
+* 0.6 (dev): 16 September, 2020. Added a configuration feature, to allow starting NVDA in Windows nav mode.
 * V0.5 (dev): 15 September, 2020. Complete rewrite based on user feedback and better design ideas.
 * V0.3 (dev): 1 September, 2020. Initial release. Based on various user requests, and ultimately a discussion in [#9549](https://github.com/nvaccess/nvda/issues/9549). With thanks to @Qchristensen and @feerrenrut.

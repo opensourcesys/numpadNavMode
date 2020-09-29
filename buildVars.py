@@ -22,7 +22,7 @@ This can be especially useful for laptop users who prefer laptop mode, but who h
 And since the mode can be changed with a keypress (Alt+NVDA+NumpadPlus, by default), the numpad can easily be used for object navigation or review when desired.
 Feature requests, use-cases, and feedback welcome."""),
 	# version
-	"addon_version": "0.6-dev",
+	"addon_version": "0.7-dev",
 	# Author(s)
 	"addon_author": u"Luke Davis (Open Source Systems, Ltd.) <newanswertech@gmail.com>",
 	# URL for the add-on documentation support
@@ -30,7 +30,7 @@ Feature requests, use-cases, and feedback welcome."""),
 	# Documentation file name
 	"addon_docFileName": "readme.html",
 	# Minimum NVDA version supported (e.g. "2018.3.0", minor version is optional)
-	"addon_minimumNVDAVersion": "2020.1",
+	"addon_minimumNVDAVersion": "2019.3",
 	# Last NVDA version supported/tested (e.g. "2018.4.0", ideally more recent than minimum version)
 	"addon_lastTestedNVDAVersion": "2020.3",
 	# Add-on update channel (default is None, denoting stable releases, and for development releases, use "dev"; do not change unless you know what you are doing)

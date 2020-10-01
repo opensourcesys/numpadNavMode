@@ -1,4 +1,4 @@
-# Numpad Nav Mode (numpadNavMode.py), version 1.0
+# Numpad Nav Mode (numpadNavMode.py), version 1.1-dev.1
 # An NVDA global plugin which allows toggling the numpad between NVDA navigation and Windows navigation modes.
 # Written by Luke Davis, based on gesture modifications described by NV Access (specifically @Qchristensen and @feerrenrut) in issue #9549.
 
@@ -11,8 +11,6 @@
 # FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 # You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-
-# This add-on complies with Semantic Versioning: https://semver.org/
 
 import types
 from collections import namedtuple
@@ -72,31 +70,33 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	#: Note that these are prefix-free gestures. I.E. not including the "kb:", or "kb(laptop):" portions.
 	numpadGestures = {
 		"numpad1": G("globalCommands", "GlobalCommands", "kb:end"),
-		"nvda+numpad1": G("globalCommands", "GlobalCommands", None ),
+		"nvda+numpad1": G("globalCommands", "GlobalCommands", "kb:nvda+end" ),
 		"shift+numpad1": G("globalCommands", "GlobalCommands", None ),
 		"control+numpad1": G("globalCommands", "GlobalCommands", "kb:control+end"),
 		"numpad2": G("globalCommands", "GlobalCommands", "kb:downarrow"),
-		"nvda+numpad2": G("globalCommands", "GlobalCommands", None ),
+		"nvda+numpad2": G("globalCommands", "GlobalCommands", "kb:nvda+downarrow" ),
 		"control+numpad2": G("globalCommands", "GlobalCommands", "kb:control+downarrow"),
 		"numpad3": G("globalCommands", "GlobalCommands", "kb:pagedown"),
+		"nvda+numpad3": G("globalCommands", "GlobalCommands", "kb:nvda+pagedown"),
 		"shift+numpad3": G("globalCommands", "GlobalCommands", None ),
 		"control+numpad3": G("globalCommands", "GlobalCommands", "kb:control+pagedown"),
 		"numpad4": G("globalCommands", "GlobalCommands", "kb:leftarrow"),
-		"nvda+numpad4": G("globalCommands", "GlobalCommands", None ),
+		"nvda+numpad4": G("globalCommands", "GlobalCommands", "kb:nvda+leftarrow" ),
 		"control+numpad4": G("globalCommands", "GlobalCommands", "kb:control+leftarrow"),
 		"numpad5": G("globalCommands", "GlobalCommands", None ),
 		"nvda+numpad5": G("globalCommands", "GlobalCommands", None ),
 		"numpad6": G("globalCommands", "GlobalCommands", "kb:rightarrow"),
-		"nvda+numpad6": G("globalCommands", "GlobalCommands", None ),
+		"nvda+numpad6": G("globalCommands", "GlobalCommands", "kb:nvda+rightarrow" ),
 		"control+numpad6": G("globalCommands", "GlobalCommands", "kb:control+rightarrow"),
 		"numpad7": G("globalCommands", "GlobalCommands", "kb:home"),
-		"nvda+numpad7": G("globalCommands", "GlobalCommands", None ),
+		"nvda+numpad7": G("globalCommands", "GlobalCommands", "kb:nvda+home" ),
 		"shift+numpad7": G("globalCommands", "GlobalCommands", None ),
 		"control+numpad7": G("globalCommands", "GlobalCommands", "kb:control+home"),
 		"numpad8": G("globalCommands", "GlobalCommands", "kb:uparrow"),
-		"nvda+numpad8": G("globalCommands", "GlobalCommands", None ),
+		"nvda+numpad8": G("globalCommands", "GlobalCommands", "kb:nvda+uparrow" ),
 		"control+numpad8": G("globalCommands", "GlobalCommands", "kb:control+uparrow"),
 		"numpad9": G("globalCommands", "GlobalCommands", "kb:pageup"),
+		"nvda+numpad9": G("globalCommands", "GlobalCommands", "kb:nvda+pageup"),
 		"shift+numpad9": G("globalCommands", "GlobalCommands", None ),
 		"control+numpad9": G("globalCommands", "GlobalCommands", "kb:control+pageup"),
 		"nvda+numpadMinus": G("globalCommands", "GlobalCommands", None ),

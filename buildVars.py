@@ -22,7 +22,7 @@ This can be especially useful for laptop users who prefer laptop mode, but who h
 And since the mode can be changed with a keypress (Alt+NVDA+NumpadPlus, by default), the numpad can easily be used for object navigation or review when desired.
 Feature requests, use-cases, and feedback welcome."""),
 	# version
-	"addon_version": "1.1-dev.1",
+	"addon_version": "1.1",
 	# Author(s)
 	"addon_author": u"Luke Davis (Open Source Systems, Ltd.) <newanswertech@gmail.com>",
 	# URL for the add-on documentation support

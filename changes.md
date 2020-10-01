@@ -1,6 +1,6 @@
 ## Changelog
 
-* 1.1: 1 October, 2020. After user requests, enabled NVDA, Shift, and Control modifiers on the Windows nav mode commands.
+* 1.3: 1 October, 2020. After user requests, enabled NVDA, Shift, and Control modifiers on the Windows nav mode commands, along with some combinations.
 * 1.0: 30 September, 2020. Initial stable release.
 * 0.7 (dev): 29 September, 2020. Confirmed works with 2019.3, and updated manifest accordingly.
 * 0.6 (dev): 16 September, 2020. Added a configuration feature, to allow starting NVDA in Windows nav mode.

@@ -1,15 +1,16 @@
 # Numpad Nav Mode
 
 * Author: Luke Davis (Open Source Systems, Ltd.)
-* Download [stable version](https://addons.nvda-project.org/files/get.php?file=numpadNav)
+* Download [stable version](https://github.com/opensourcesys/numpadNavMode/releases/download/1.1/numpadNavMode-1.1.nvda-addon)
 
 Numpad Nav Mode is an [NVDA](https://nvaccess.org/) add-on, which allows you to easily switch your keyboard's numpad between NVDA's navigation controls and the non-screenreader Windows navigation controls.
 
 The normal functions of the PC number pad, with numlock off, are: page up, page down, home, end, four-way arrow keys, and a delete key.
-But NVDA completely takes over the numpad, to provide review keys, mouse controls, and object navigation controls. This is true even in laptop keyboard mode, which duplicates those functions on non-numpad keys for those who do not have a numpad.
+But NVDA completely takes over the numpad, to provide review keys, mouse controls, and object navigation controls. This is true even in laptop keyboard mode, which also duplicates those functions on non-numpad keys.
 
 However some users do have a numpad on their laptop, and would prefer to use it for Windows navigation purposes, especially because some laptops do not provide home, end, or other such keys.  That is where this add-on can help.
-Additionally, some desktop users may sometimes find it convenient to use the numpad for those keyboard functions rather than the normal keys, which this add-on enables.
+Additionally, some desktop users, for example those used to the way the numpad works in JAWS, may sometimes find it convenient to use the numpad for those keyboard functions rather than the normal keys, which this add-on enables.
+This includes the popular JAWS command NumpadInsert+Numpad2, for read to end, which was a specific feature request from some early users of this add-on.
 
 ### How it works
 

@@ -214,7 +214,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	@script(
 		gesture="kb:alt+NVDA+numpadPlus",
-		# Translators: description of the toggle gesture for keyboard help
+		# Translators: description of the Numpad Nav Mode toggle gesture for keyboard help
 		description=_("Toggles the numpad between NVDA navigation and Windows navigation modes."),
 		category="keyboard"
 	)

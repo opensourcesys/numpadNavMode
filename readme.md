@@ -1,7 +1,7 @@
 # Numpad Nav Mode
 
 * Author: Luke Davis (Open Source Systems, Ltd.)
-* Download [stable version](https://github.com/opensourcesys/numpadNavMode/releases/download/1.1/numpadNavMode-1.1.nvda-addon)
+* Download [stable version](https://github.com/opensourcesys/numpadNavMode/releases/download/1.4/numpadNavMode-1.4.nvda-addon)
 
 Numpad Nav Mode is an [NVDA](https://nvaccess.org/) add-on, which allows you to easily switch your keyboard's numpad between NVDA's navigation controls and the non-screenreader Windows navigation controls.
 

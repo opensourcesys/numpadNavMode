@@ -1,8 +1,8 @@
-# Numpad Nav Mode (numpadNavMode.py), version 1.3
+# Numpad Nav Mode (numpadNavMode.py), version 1.4
 # An NVDA global plugin which allows toggling the numpad between NVDA navigation and Windows navigation modes.
 # Written by Luke Davis, based on gesture modifications described by NV Access (specifically @Qchristensen and @feerrenrut) in issue #9549.
 
-#    Copyright (C) 2020 Open Source Systems, Ltd. <newanswertech@gmail.com>
+#    Copyright (C) 2020-2021 Open Source Systems, Ltd. <newanswertech@gmail.com>
 #
 # This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
 # as published by    the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
@@ -137,7 +137,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		mode gestures.
 		- Sets up the NVDA config mechanism that we use.
 		"""
-		super(GlobalPlugin, self).__init__()
+		super().__init__()
 		# Establish the add-on's NVDA config
 		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.append(NumpadNavModeSettings)
 		# Initialize the startup mode, or log it if we're already in one (I.E. a plugin reload)

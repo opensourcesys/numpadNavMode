@@ -1,9 +1,10 @@
 version: "{branch}-{build}"
 max_jobs: 1
+clone_depth: 1
 
 branches:
   only:
-    - master
+    #- master
     - /test|alpha|beta|dev/
     - /^\d+\.\d+(\.\d+)?$/
     - /^v?\d+\.\d+\.\d+(-[a-zA-Z0-9\.]+)?$/ # Because it applies to tags as well

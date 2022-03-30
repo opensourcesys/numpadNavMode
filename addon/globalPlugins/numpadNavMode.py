@@ -1,8 +1,8 @@
-# Numpad Nav Mode (numpadNavMode.py), version 1.4
+# Numpad Nav Mode (numpadNavMode.py), version 1.5
 # An NVDA global plugin which allows toggling the numpad between NVDA navigation and Windows navigation modes.
 # Written by Luke Davis, based on gesture modifications described by NV Access (specifically @Qchristensen and @feerrenrut) in issue #9549.
 
-#    Copyright (C) 2020-2021 Open Source Systems, Ltd. <newanswertech@gmail.com>
+#    Copyright (C) 2020-2022 Luke Davis and Open Source Systems, Ltd. <newanswertech@gmail.com>
 #
 # This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
 # as published by    the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
@@ -14,17 +14,17 @@
 
 import types
 from collections import namedtuple
+import wx
 
-import globalPluginHandler
-import addonHandler
+import gui
 import globalVars
 import config
-import gui
-import wx
+import addonHandler
+import globalPluginHandler
 import ui
-from scriptHandler import script
 from inputCore import manager, normalizeGestureIdentifier
 from logHandler import log
+from scriptHandler import script
 
 addonHandler.initTranslation()
 
@@ -56,6 +56,7 @@ class NumpadNavModeSettings (gui.settingsDialogs.SettingsPanel):
 
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
+	"""Class providing the Numpad Nav Mode add-on global plugin."""
 
 	#: Used to indicate a value of the mode property, and therefore to track state in various places.
 	WIN = 0
@@ -67,7 +68,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	#: These are the gestures we override to make the numpad perform Windows nav.
 	#: The G objects are namedtuples holding the module, class, and the script applicable to each gesture.
-	#: Note that these are prefix-free gestures. I.E. not including the "kb:", or "kb(laptop):" portions.
+	#: Note that these are prefix-free gestures. E.G. not including the "kb:", or "kb(laptop):" portions.
 	numpadGestures = {
 		"numpad1": G("globalCommands", "GlobalCommands", "kb:end"),
 		"nvda+numpad1": G("globalCommands", "GlobalCommands", "kb:nvda+end" ),
@@ -146,17 +147,17 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			log.debug(f"Numpad mode already set to {initialMode}.")
 		except AttributeError:  # Raised if this is the first run
 			# There is no mode set.  The config will tell us which mode to start in.
-			if config.conf["numpadNavMode"]["startInWindowsMode"] is True:
+			if config.conf["numpadNavMode"]["startInWindowsMode"]:
 				self.setMode(self.WIN)
 			else:  # Start in NVDA mode
 				# We're effectively already in it, so we just establish the global flag.
 				globalVars.numpadNavMode = self.NVDA
 			# In either case, we log it
-			log.debug(f"numpadNavMode: initialized numpad to {self.modeTextEN} mode.")
+			log.info(f"numpadNavMode: initialized numpad to {self.modeTextEN} mode.")
 
 		# Monkey patch manager.userGestureMap.save()
 		originalManagerSave = manager.userGestureMap.save
-		def numpadNavModeVersionOfSave(self):
+		def numpadNavModePatchedSave(self):
 			if self.mode == self.WIN:
 				# Reset our idea of user gestures, since the user may have just added/removed some
 				self.userGestures = {}
@@ -167,7 +168,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				log.debug("Restored Windows nav mode after saving user gestures.")
 			else:
 				originalManagerSave()
-		manager.userGestureMap.save = types.MethodType(numpadNavModeVersionOfSave, self)
+		manager.userGestureMap.save = types.MethodType(numpadNavModePatchedSave, self)
 
 	def terminate(self):
 		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.remove(NumpadNavModeSettings)
@@ -225,8 +226,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		else:  # Mode is Windows
 			self.setMode(self.NVDA)
 		# Translators: message given to the user when the numpad's mode changes between NVDA and Windows nav
+		# Note: the variable given to format() is already translated.
 		ui.message(_("Numpad mode {}.").format(self.modeText))
-		log.debug(f"Numpad set to {self.modeTextEN} nav mode.")
+		log.info(f"Numpad set to {self.modeTextEN} nav mode.")
 
 	@classmethod
 	def _getAllGesturesAsGDict(cls) -> dict:
@@ -254,8 +256,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		globalVars.numpadNavMode = mode
 
 	def _setWindowsNavMode(self):
-		# A setMode() helper method, to put the numpad in Windows mode.
-		#
+		"""A setMode() helper method, to put the numpad in Windows mode."""
 		# Obtain all configured userGestures for use later
 		self.userGestures = self._getAllGesturesAsGDict()
 		# Assign the Windows emulations
@@ -266,12 +267,13 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			manager.userGestureMap.add("kb:" + gFrag, action.mod, action.cls, None, True)
 
 	def _setNVDANavMode(self):
-		# A setMode() helper method, to put the numpad back in NVDA mode.
-		# Overview: for each numpad gesture, check whether:
-		# - There is a script for it; and
-		# - Whether it is our script, which will be an emulated gesture or None.
-		# If so, remove it.
-		# If not (meaning it has been reassigned by the user or an add-on), leave it alone.
+		"""A setMode() helper method, to put the numpad back in NVDA mode.
+		Overview: for each numpad gesture, check whether:
+		- There is a script for it; and
+		- Whether it is our script, which will be an emulated gesture or None.
+		If so, remove it.
+		If not (meaning it has been reassigned by the user or an add-on), leave it alone.
+		"""
 		checkThese = {}	#: Mungible dict of gestures we use
 		# Build the checkables
 		for gFrag, action in self.numpadGestures.items():

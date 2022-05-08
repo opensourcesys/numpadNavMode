@@ -3,11 +3,8 @@ max_jobs: 1
 clone_depth: 1
 
 branches:
-  only:
-    #- master
-    - /test|alpha|beta|dev/
-    - /^\d+\.\d+(\.\d+)?$/
-    - /^v?\d+\.\d+\.\d+(-[a-zA-Z0-9\.]+)?$/ # Because it applies to tags as well
+  except:
+    - master
 
 environment:
  PY_PYTHON: 3.7-32

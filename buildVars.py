@@ -28,7 +28,7 @@ It may also be valuable for desktop users coming from JAWS, who prefer commands 
 And since the mode can be changed with a keypress (Alt+NVDA+NumpadPlus, by default), the numpad can easily be used for object navigation or review when desired.
 Feature requests, use-cases, and feedback welcome."""),
 	# version
-	"addon_version": "1.5",
+	"addon_version": "999",
 	# Author(s)
 	"addon_author": "Luke Davis (Open Source Systems, Ltd.) <XLTechie@newanswertech.com>",
 	# URL for the add-on documentation support
@@ -36,9 +36,9 @@ Feature requests, use-cases, and feedback welcome."""),
 	# Documentation file name
 	"addon_docFileName": "readme.html",
 	# Minimum NVDA version supported (e.g. "2018.3.0", minor version is optional)
-	"addon_minimumNVDAVersion": "2019.3.1",
+	"addon_minimumNVDAVersion": "2030.1.0",
 	# Last NVDA version supported/tested (e.g. "2018.4.0", ideally more recent than minimum version)
-	"addon_lastTestedNVDAVersion": "2022.1",
+	"addon_lastTestedNVDAVersion": "2032.3.1",
 	# Add-on update channel (default is None, denoting stable releases,
 	# and for development releases, use "dev".)
 	# Do not change unless you know what you are doing!

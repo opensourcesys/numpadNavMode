@@ -24,6 +24,7 @@ import ui
 from inputCore import manager, normalizeGestureIdentifier
 from logHandler import log
 from scriptHandler import script
+from globalCommands import SCRCAT_INPUT
 
 addonHandler.initTranslation()
 
@@ -217,7 +218,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		gesture="kb:alt+NVDA+numpadPlus",
 		# Translators: description of the Numpad Nav Mode toggle gesture for keyboard help
 		description=_("Toggles the numpad between NVDA navigation and Windows navigation modes."),
-		category="keyboard"
+		category=SCRCAT_INPUT
 	)
 	def script_toggleNumpadNavMode(self, gesture):
 		"""Checks the current nav mode of the numpad, and switches to the opposite one."""

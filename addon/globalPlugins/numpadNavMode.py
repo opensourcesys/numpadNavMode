@@ -1,4 +1,4 @@
-# Numpad Nav Mode (numpadNavMode.py), version 2.0
+# Numpad Nav Mode (numpadNavMode.py), version 23.0
 # An NVDA global plugin which allows toggling the numpad between NVDA navigation and Windows navigation modes.
 # Written by Luke Davis, based on gesture modifications described by NV Access (specifically @Qchristensen and @feerrenrut) in issue #9549.
 #    Copyright (C) 2020-2023 Luke Davis and Open Source Systems, Ltd. <XLTechie@newanswertech.com>
@@ -240,12 +240,11 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		}
 		return gDict
 
-	def setMode(self, mode: int):
+	def setMode(self, mode: int) -> None:
 		"""Checks the validity of the given mode.  If it's one of the two valid modes, calls a
 		helper method to configure the numpad as desired.
 		Raises a ValueError if an invalid mode is provided.
 		@param mode: the mode we want the numpad to enter. Provide with the constants self.NVDA or self.WIN.
-		@type mode: int
 		"""
 		if mode == self.WIN:
 			self._setWindowsNavMode()
@@ -256,7 +255,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		# If we made it here, we should be safe to set the mode we just configured as the mode we're in
 		globalVars.numpadNavMode = mode
 
-	def _setWindowsNavMode(self):
+	def _setWindowsNavMode(self) -> None:
 		"""A setMode() helper method, to put the numpad in Windows mode."""
 		# Obtain all configured userGestures for use later
 		self.userGestures = self._getAllGesturesAsGDict()
@@ -267,7 +266,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			manager.userGestureMap.add("kb(laptop):" + gFrag, *action, True)
 			manager.userGestureMap.add("kb:" + gFrag, action.mod, action.cls, None, True)
 
-	def _setNVDANavMode(self):
+	def _setNVDANavMode(self) -> None:
 		"""A setMode() helper method, to put the numpad back in NVDA mode.
 		Overview: for each numpad gesture, check whether:
 		- There is a script for it; and

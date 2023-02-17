@@ -35,7 +35,7 @@ config.conf.spec["numpadNavMode"] = {
 class NumpadNavModeSettings (gui.settingsDialogs.SettingsPanel):
 	"""NVDA configuration panel based configurator  for numpadNavMode."""
 
-	# Translators: This is the label for the Numpad Nav Mode settings category in NVDA Settings screen.
+	# Translators: This is the label for the Numpad Nav Mode settings category in NVDA Settings panel.
 	title = _("Numpad Nav Mode")
 
 	def makeSettings(self, settingsSizer):
@@ -171,6 +171,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def terminate(self):
 		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.remove(NumpadNavModeSettings)
+		super().terminate()
 
 	@property
 	def modeText(self) -> str:

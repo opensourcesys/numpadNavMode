@@ -32,7 +32,7 @@ Feature requests, use-cases, and feedback welcome."""),
 	# Author(s)
 	"addon_author": "Luke Davis (Open Source Systems, Ltd.) <XLTechie@newanswertech.com>",
 	# URL for the add-on documentation support
-	"addon_url": None,
+	"addon_url": "https://github.com/opensourcesys/numpadNavMode/blob/master/readme.md#readme",
 	# URL for the add-on repository where the source code can be found
 	"addon_sourceURL": "https://github.com/openSourceSys/numpadNavMode",
 	# Documentation file name

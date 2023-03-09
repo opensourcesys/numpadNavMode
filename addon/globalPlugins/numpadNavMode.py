@@ -1,4 +1,4 @@
-# Numpad Nav Mode (numpadNavMode.py), version 23.0
+# Numpad Nav Mode (numpadNavMode.py), version 23.1
 # An NVDA global plugin which allows toggling the numpad between NVDA navigation and Windows navigation modes.
 # Written by Luke Davis, based on gesture modifications described by NV Access (specifically @Qchristensen and @feerrenrut) in issue #9549.
 #    Copyright (C) 2020-2023 Luke Davis and Open Source Systems, Ltd. <XLTechie@newanswertech.com>
@@ -12,25 +12,34 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 import types
+import winUser  # NLM
 from collections import namedtuple
 import wx
 
 import gui
+import ui
 import globalVars
 import config
 import addonHandler
 import globalPluginHandler
-import ui
 from inputCore import manager, normalizeGestureIdentifier
+from keyboardHandler import KeyboardInputGesture  # NLM
 from logHandler import log
 from scriptHandler import script
 from globalCommands import SCRCAT_INPUT
 
 addonHandler.initTranslation()
 
+# NLM
+# FixMe: from original, I question necessity
+#numLockByLayoutDefault = "0" if config.conf['keyboard']['keyboardLayout'] == "desktop" else "2"
+numLockByLayoutDefault = "0"
+
 #: numpadNavMode Add-on config database
 config.conf.spec["numpadNavMode"] = {
 	"startInWindowsMode": "boolean(default=False)",
+	"initialNumlockState": f"integer(default={numLockByLayoutDefault})",
+	"profilesUseInitialNumlockState": "boolean(default=False)",
 }
 
 class NumpadNavModeSettings (gui.settingsDialogs.SettingsPanel):
@@ -50,9 +59,38 @@ class NumpadNavModeSettings (gui.settingsDialogs.SettingsPanel):
 			)
 		)
 		self.startInWindowsModeCB.SetValue(config.conf["numpadNavMode"]["startInWindowsMode"])
+		listLabel = _(
+			# Translators: Label of the list which allows configuring initial numlock state
+			"State of numlock when NVDA starts or profile loads"
+		)
+		listChoices = (
+			# Translators: Option not to change numlock state when NVDA starts/profile is loaded
+			_("Do not change"),
+			# Translators: Option to turn numlock off when NVDA starts/profile is loaded
+			_("Turn numlock off"),
+			# Translators: Option to turn numlock on when NVDA starts/profile is loaded
+			_("Turn numlock on")
+		)
+		self.initialNumlockStateList = helper.addLabeledControl(listLabel, wx.Choice, choices=listChoices)
+		self.initialNumlockStateList.SetSelection(config.conf["numpadNavMode"]["initialNumlockState"])
+		self.profilesUseInitialNumlockStateCB = helper.addItem(
+			wx.CheckBox(
+				self,
+				# Translators: The label for a checkbox in Numpad Nav Mode settings panel
+				label=_("Initial numlock state is configuration profile dependent")
+			)
+		)
+		self.profilesUseInitialNumlockStateCB.SetValue(
+			config.conf["numpadNavMode"]["profilesUseInitialNumlockState"]
+		)
+		# If this isn't the default profile, don't let this option be changed
+		if config.conf.profiles[-1].name is not None or len(config.conf.profiles) != 1:
+			self.profilesUseInitialNumlockStateCB.Disable()
 
 	def onSave(self):
 		config.conf["numpadNavMode"]["startInWindowsMode"] = self.startInWindowsModeCB.Value
+		config.conf["numpadNavMode"]["initialNumlockState"] = self.initialNumlockStateList.Selection
+		config.conf["numpadNavMode"]["profilesUseInitialNumlockState"] = self.profilesUseInitialNumlockStateCB.Value
 
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
@@ -134,9 +172,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		- Otherwise, checks whether there is an existing numpad nav mode set, and if not, sets to NVDA mode.
 		The mode may be already set because plugins have been reloaded, in which case the user would not
 		expect a reload to change it.
+		- Turns the numlock on/off, if configuration says to.
 		- Wraps (monkey patches) the manager.userGestureMap.save method, to prevent saving of Windows nav
 		mode gestures.
-		- Sets up the NVDA config mechanism that we use.
+		- Sets up the NVDA config mechanism that we use, and registers profile switch handlers.
 		"""
 		super().__init__()
 		# Establish the add-on's NVDA config
@@ -154,7 +193,15 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				globalVars.numpadNavMode = self.NVDA
 			# In either case, we log it
 			log.info(f"numpadNavMode: initialized numpad to {self.modeTextEN} mode.")
-
+		# Record the numlock state when we start, so we can restore it on shutdown
+		self.numlockState = winUser.getKeyState(winUser.VK_NUMLOCK)
+		log.debug(f"Recorded numlock state: {'off' if self.numlockState == 0 else 'on'}")
+		# FixMe: move more of the above into helper functions to call here and from handleConfigProfileSwitch
+		self.handleNumlockInitialState()
+		# Register the extension point to handle config profile switches
+		# FixMe: should do something similar for reload handling.
+		config.post_configProfileSwitch.register(self.handleConfigProfileSwitch)
+			
 		# Monkey patch manager.userGestureMap.save()
 		originalManagerSave = manager.userGestureMap.save
 		def numpadNavModePatchedSave(self):
@@ -172,6 +219,20 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def terminate(self):
 		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.remove(NumpadNavModeSettings)
+		# NLM
+		numlockState = winUser.getKeyState(winUser.VK_NUMLOCK)
+		log.debug(
+			f"Numlock is: {'off' if numlockState == 0 else 'on'}. "
+			f"Recorded state was: {'off' if self.numlockState == 0 else 'on'}."
+		)
+		# If we aren't supposed to touch the numlock, log it.
+		if config.conf["numpadNavMode"]["initialNumlockState"] == 0:
+			log.debug("Configured not to touch numlock.")
+		# Otherwise, reset numlock to pre-NVDA condition if it isn't already in that state
+		elif numlockState != self.numlockState:
+			KeyboardInputGesture.fromName("numLock").send()
+			log.info(f"Reset numlock to recorded state: {'off' if self.numlockState == 0 else 'on'}.")
+		config.post_configProfileSwitch.unregister(self.handleConfigProfileSwitch)  # NLM (but changed extPoint name)
 		super().terminate()
 
 	@property
@@ -306,3 +367,27 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			# If the gesture isn't set, we need to put it back.
 			if not gest in currentGestures:
 				manager.userGestureMap.add(gest, *action, True)
+
+	def handleConfigProfileSwitch(self):
+		if config.conf["numpadNavMode"]["profilesUseInitialNumlockState"]:
+			log.debug("Configured to adjust numlock based on profile, calling handleNumlockInitialState().")
+			self.handleNumlockInitialState()
+		else:
+			log.debug("Not changing numlock initial state during profile change.")
+
+	def handleNumlockInitialState(self) -> None:
+		"""Used to adjust numlock to preferred state,
+		during initialization and sometimes during config profile changes.
+		"""
+		desiredState = int(config.conf["numpadNavMode"]["initialNumlockState"])
+		currentState = winUser.getKeyState(winUser.VK_NUMLOCK)
+		# If the desired state isn't 0 (don't touch), then
+		# Subtract 1 from it, so it is either 0 (off) or 1 (on), and comp against current state.
+		# If not matching, make the current state match the desired state.
+		if (
+			desiredState > 0
+			and currentState != (desiredState - 1)
+		):
+			KeyboardInputGesture.fromName("numLock").send()
+			# currentState holds the old state, so the names are inverted in the log call below
+			log.info(f"Turned numlock {'on' if currentState == 0 else 'off'}.")

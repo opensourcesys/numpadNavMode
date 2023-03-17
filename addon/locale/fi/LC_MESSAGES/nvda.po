@@ -1,0 +1,87 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the numpadNavMode package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: numpadNavMode\n"
+"Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
+"POT-Creation-Date: 2023-03-10 14:03+0000\n"
+"PO-Revision-Date: 2023-03-11 13:32+0200\n"
+"Last-Translator: Jani Kinnunen <janikinnunen340@gmail.com>\n"
+"Language-Team: fi_FI <janikinnunen340@gmail.com>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.11\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Translators: This is the label for the Numpad Nav Mode settings category in NVDA Settings panel.
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on
+#. to be shown on installation and add-on information found in Add-ons Manager.
+msgid "Numpad Nav Mode"
+msgstr "Laskinnäppäimistön navigointitila"
+
+#. Translators: The label for a checkbox in Numpad Nav Mode settings panel
+msgid "Start NVDA with the numpad set to Windows nav mode"
+msgstr "Käynnistä NVDA ja määritä laskinnäppäimistö Windows-navigointitilaan"
+
+#. Translators: Label of the list which allows configuring initial numlock state
+msgid "State of numlock when NVDA starts or profile loads"
+msgstr "Numlockin tila NVDA:n käynnistyessä tai profiilin latautuessa"
+
+#. Translators: Option not to change numlock state when NVDA starts/profile is loaded
+msgid "Do not change"
+msgstr "Älä vaihda"
+
+#. Translators: Option to turn numlock off when NVDA starts/profile is loaded
+msgid "Turn numlock off"
+msgstr "Poista Numlock käytöstä"
+
+#. Translators: Option to turn numlock on when NVDA starts/profile is loaded
+msgid "Turn numlock on"
+msgstr "Ota Numlock käyttöön"
+
+#. Translators: The label for a checkbox in Numpad Nav Mode settings panel
+msgid "Initial numlock state is configuration profile dependent"
+msgstr "Numlockin alkutila on riippuvainen asetusprofiilista"
+
+#. Translators: returned as part of some user messages
+msgid "NVDA"
+msgstr "NVDA"
+
+#. Translators: returned as part of some user messages
+msgid "Windows"
+msgstr "Windows"
+
+#. Translators: description of the Numpad Nav Mode toggle gesture for keyboard help
+msgid ""
+"Toggles the numpad between NVDA navigation and Windows navigation modes."
+msgstr "Vaihtaa laskinnäppäimistön NVDA- ja Windows-navigointitilojen välillä."
+
+#. Translators: message given to the user when the numpad's mode changes between NVDA and Windows nav
+#. Note: the variable given to format() is already translated.
+msgid "Numpad mode {}."
+msgstr "Laskinnäppäimistön tila {}."
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+msgid ""
+"Allows switching the numpad between NVDA navigation mode, and Windows "
+"navigation mode.\n"
+"Especially useful if migrating from Jaws; or for laptop users preferring "
+"laptop mode, but who have a numpad and want to use it for arrow keys, etc.\n"
+"The add-on also gives control of numlock state when starting NVDA or "
+"changing profiles.."
+msgstr ""
+"Mahdollistaa laskinnäppäimistön vaihtamisen NVDA- ja Windows-"
+"navigointitilojen välillä.\n"
+"Erityisen hyödyllistä JAWSista siirryttäessä tai kannettavien tietokoneiden "
+"käyttäjille, jotka käyttävät mieluummin kannettavan näppäimistöasettelua, "
+"mutta joilla on laskinnäppäimistö ja haluavat käyttää sitä nuolinäppäimiä "
+"varten jne.\n"
+"Lisäosa voi myös hallita Numlockin tilaa NVDA:ta käynnistettäessä tai "
+"profiilia vaihdettaessa."

@@ -26,7 +26,7 @@ addon_info = {
 Especially useful if migrating from Jaws; or for laptop users preferring laptop mode, but who have a numpad and want to use it for arrow keys, etc.
 The add-on also gives control of numlock state when starting NVDA or changing profiles.."""),
 	# version
-	"addon_version": "23.1.3",
+	"addon_version": "23.1.4",
 	# Author(s)
 	"addon_author": "Luke Davis (Open Source Systems, Ltd.) <XLTechie@newanswertech.com>",
 	# URL for the add-on documentation support

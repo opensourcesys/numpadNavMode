@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: numpadNavMode 23.1.1\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2023-03-31 14:03+0000\n"
-"PO-Revision-Date: 2023-04-17 21:57+0100\n"
+"PO-Revision-Date: 2023-07-28 14:41+0100\n"
 "Last-Translator: Ângelo Abrantes <ampa4374@gmail.com>\n"
 "Language-Team: \n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #. Translators: This is the label for the Numpad Nav Mode settings category in NVDA Settings panel.
 #. Add-on summary, usually the user visible name of the addon.

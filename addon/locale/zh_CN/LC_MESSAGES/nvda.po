@@ -1,0 +1,83 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the numpadNavMode package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: numpadNavMode 23.1.9\n"
+"Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
+"POT-Creation-Date: 2023-08-18 14:03+0000\n"
+"PO-Revision-Date: 2024-02-12 14:52+0800\n"
+"Last-Translator: 完美很难 <1872265132@qq.com>\n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#. Translators: This is the label for the Numpad Nav Mode settings category in NVDA Settings panel.
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on
+#. to be shown on installation and add-on information found in Add-ons Manager.
+msgid "Numpad Nav Mode"
+msgstr "数字键盘模式切换"
+
+#. Translators: The label for a checkbox in Numpad Nav Mode settings panel
+msgid "Start NVDA with the numpad set to Windows nav mode"
+msgstr "启动 NVDA 时将数字键盘设置为 Windows 编辑模式"
+
+#. Translators: Label of the list which allows configuring initial numlock state
+msgid "State of numlock when NVDA starts or profile loads"
+msgstr "NVDA 启动或配置文件加载时数字键盘的锁定状态"
+
+#. Translators: Option not to change numlock state when NVDA starts/profile is loaded
+msgid "Do not change"
+msgstr "不更改"
+
+#. Translators: Option to turn numlock off when NVDA starts/profile is loaded
+msgid "Turn numlock off"
+msgstr "数字 关"
+
+#. Translators: Option to turn numlock on when NVDA starts/profile is loaded
+msgid "Turn numlock on"
+msgstr "数字 开"
+
+#. Translators: The label for a checkbox in Numpad Nav Mode settings panel
+msgid "Initial numlock state is configuration profile dependent"
+msgstr "初始数字锁定状态取决于配置文件"
+
+#. Translators: returned as part of some user messages
+msgid "NVDA"
+msgstr "NVDA 导航"
+
+#. Translators: returned as part of some user messages
+msgid "Windows"
+msgstr "Windows 编辑"
+
+#. Translators: description of the Numpad Nav Mode toggle gesture for keyboard help
+msgid ""
+"Toggles the numpad between NVDA navigation and Windows navigation modes."
+msgstr "将数字键盘在 NVDA 导航和 Windows 编辑模式之间切换。"
+
+#. Translators: message given to the user when the numpad's mode changes between NVDA and Windows nav
+#. Note: the variable given to format() is already translated.
+msgid "Numpad mode {}."
+msgstr "{}模式。"
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+msgid ""
+"Allows switching the numpad between NVDA navigation mode, and Windows "
+"navigation mode.\n"
+"Especially useful if migrating from Jaws; or for laptop users preferring "
+"laptop mode, but who have a numpad and want to use it for arrow keys, "
+"etc.\n"
+"The add-on also gives control of numlock state when starting NVDA or "
+"changing profiles.."
+msgstr ""
+"允许将数字键盘在 NVDA 导航和 Windows 编辑模式之间切换。\n"
+"此插件对于喜欢笔记本键盘布局且希望将数字键盘用作箭头键的用户十分有用。\n"
+"此插件还可在启动 NVDA 或更改配置文件时控制数字锁定状态。"

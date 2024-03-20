@@ -66,7 +66,7 @@ The basic implementation of the numlock features was borrowed from the legacy Nu
 * 23.1.0: Added numlock management features. Better logging. Improved config profile handling (WIP).
 * 23.0: NVDA 2023.X compatibility.
 
-[1]: https://github.com/opensourcesys/numpadNavMode/releases/download/v24.1.0/numpadNavMode-24.1.0.nvda-addon
+[1]: https://www.nvaccess.org/addonStore/legacy?file=numpadNavMode
 [2]: https://nvaccess.org/
 [3]: https://github.com/opensourcesys/numpadNavMode/issues/new
 [4]: https://github.com/nvaccess/addon-datastore/discussions/2630

@@ -1,9 +1,9 @@
 # Numpad Nav Mode
 
 * Author: Luke Davis (Open Source Systems, Ltd.)
-* Download [stable version](https://github.com/opensourcesys/numpadNavMode/releases/download/v23.1.0/numpadNavMode-23.1.0.nvda-addon)
+* Download [stable version][1]
 
-Numpad Nav Mode is an [NVDA](https://nvaccess.org/) add-on, which allows you to easily switch your keyboard's numpad between NVDA's navigation controls and the non-screenreader Windows navigation controls. This can be especially useful for users migrating from Jaws to NVDA. This add-on also gives granular control over the numlock key toggle, both when NVDA starts, and optionally in profiles.
+Numpad Nav Mode is an [NVDA][2] add-on, which allows you to easily switch your keyboard's numpad between NVDA's navigation controls and the non-screenreader Windows navigation controls. This can be especially useful for users migrating from Jaws to NVDA. This add-on also gives granular control over the numlock key toggle, both when NVDA starts, and optionally in profiles.
 
 ### Navigation modes explanation and features
 
@@ -43,20 +43,30 @@ If you use NVDA's powerful configuration profiles, and you would like the numloc
 * Go back to the Numpad Nav Mode settings panel, and select the option to Turn numlock off or on, as you prefer.
 * Then select OK. Now, whenever you enter this profile, the numlock will automatically change to the desired state.
 
-Note that this is a new feature, and I don't know if anyone has use for this feature. If you find one, please send an email or open [an issue](https://github.com/opensourcesys/numpadNavMode/issues/new), to let me know how you have found to make use of it.
+Note that this is a new feature, and I don't know if anyone has use for this feature. If you find one, please send an email or open [an issue][3], to let me know how you have found to make use of it.
+
+Or, better yet, leave a [review][4] for the add-on, and comment on it there!
+Reviews are very helpful, whether or not you use that feature.
 
 ### New features
 
-I encourage you to post an [issue](https://github.com/openSourceSys/numpadNavMode/issues/new), or email with any feature suggestions, or other use cases that I haven't listed here, or just to let me know you find the add-on useful!
+I encourage you to post an [issue][3], or email with any feature suggestions, or other use cases that I haven't listed here, or just to let me know you find the add-on useful!
+But as mentioned above, if you do find it useful, please leave a [review][4].
 
 ### History
 
-This add-on was the direct result of requests I've seen from users over the years, and a GitHub discussion in [#9549](https://github.com/nvaccess/nvda/issues/9549). With thanks to @Qchristensen and @feerrenrut.
+This add-on was the direct result of requests I've heard from users over the years, and a GitHub discussion in [#9549](https://github.com/nvaccess/nvda/issues/9549). With thanks to @Qchristensen and @feerrenrut.
 The basic implementation of the numlock features was borrowed from the legacy NumLock Manager add-on, by Noelia Ruiz (@nvdaes on GitHub), and others. Used with permission.
 
 ### Changelog
 
 (This changelog is incomplete. See Git log for full details.)
 
-* 23.0: NVDA 2023.X compatibility.
+* 24.1.0: NVDA 2024.X compatibility.
 * 23.1.0: Added numlock management features. Better logging. Improved config profile handling (WIP).
+* 23.0: NVDA 2023.X compatibility.
+
+[1]: https://github.com/opensourcesys/numpadNavMode/releases/download/v24.1.0/numpadNavMode-24.1.0.nvda-addon
+[2]: https://nvaccess.org/
+[3]: https://github.com/opensourcesys/numpadNavMode/issues/new
+[4]: https://github.com/nvaccess/addon-datastore/discussions/2630

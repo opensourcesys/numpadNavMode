@@ -1,15 +1,16 @@
 # Numpad Nav Mode (Режим навігації за допомогою цифрової клавіатури) #
 
+# Numpad Nav Mode
+
 * Автор: Luke Davis (Open Source Systems, Ltd.)
 * Завантажити [стабільну версію][1]
 
-Режим навігації за допомогою цифрової клавіатури — це додаток
-[NVDA](https://nvaccess.org/), який дозволяє вам легко перемикати цифрову
-клавіатуру між елементами керування навігацією NVDA та елементами керування
-навігацією Windows без програми зчитування з екрана. Це може бути особливо
-корисним для користувачів, які переходять з Jaws на NVDA. Цей додаток також
-надає детальний контроль над перемиканням клавіші numlock як під час запуску
-NVDA, так і за бажанням у профілях.
+Numpad Nav Mode is an [NVDA][2] add-on, which allows you to easily switch
+your keyboard's numpad between NVDA's navigation controls and the
+non-screenreader Windows navigation controls. This can be especially useful
+for users migrating from Jaws to NVDA. This add-on also gives granular
+control over the numlock key toggle, both when NVDA starts, and optionally
+in profiles.
 
 ### Пояснення та особливості режимів навігації
 
@@ -58,69 +59,62 @@ Windows, ви можете налаштувати це в налаштуванн
 
 Початково клавіша numlock нічого не робить.
 
-Однак, якщо ви ділите комп'ютер зі зрячим користувачем, який вважає за
-краще, щоб numlock завжди був увімкнений, але вам подобається, коли він
-вимкнений, щоб цифрова клавіатура працювала з NVDA, ви можете зробити так,
-щоб numlock автоматично вимикався при запуску NVDA.  Крім того, ви можете
-вводити багато даних, тому краще, щоб numlock завжди був увімкненим, коли ви
-запускаєте NVDA.
+However, if you share your computer with a sighted user who prefers that
+numlock always be turned on, but you like having it off so that the numpad
+works with NVDA, you may want the numlock to automatically turned off when
+NVDA starts.  Alternatively, you may enter a lot of data, and so prefer the
+numlock to always be on when you start NVDA.
 
  Перейдіть до меню NVDA, Параметри, Налаштування, Режим навігації за допомогою цифрової клавіатури і скористайтеся комбінованим списком "Стан numlock під час запуску NVDA або завантаження профілю". Тут є три варіанти. Перший, початково "не змінювати" не стосується numloc. Він залишиться у тому стані, у якому був до запуску NVDA.  Другий варіант — «вимкнути numlock», який завжди вимикатиме numlock під час запуску NVDA. Третій варіант, «Увімкнути numlock», увімкне numlock, якщо він був вимкнений під час запуску NVDA.  Якщо ви виберете другий або третій варіант, numlock буде відновлено до того стану, у якому він був раніше, коли ви вийдете з NVDA. Наприклад, якщо ви вибрали «Вимкнути numlock», а numlock було ввімкнено під час запуску NVDA: він буде вимкнений, поки ви використовуєте NVDA, але знову ввімкнеться, коли ви вийдете з NVDA.
 
 #### Розширені варіанти використання
 
-Якщо ви використовуєте профілі конфігурації NVDA і хочете, щоб numlock
-автоматично вмикався при вході в певні профілі, зробіть наступне:
+If you use NVDA's powerful configuration profiles, and you would like the
+numlock to automatically turn on when you enter certain profiles, do the
+following: * While in the "normal profile", go to the Numpad Nav Mode
+settings panel described above. Check the box for "Initial numlock state is
+configuration profile dependent". This option is unchecked by default.  *
+Select OK.  * Change to the profile where you want numlock to be always
+turned off or on.  * Go back to the Numpad Nav Mode settings panel, and
+select the option to Turn numlock off or on, as you prefer.  * Then select
+OK. Now, whenever you enter this profile, the numlock will automatically
+change to the desired state.
 
-* Перебуваючи у "звичайному профілі", перейдіть на панель налаштувань Режим
-  навігації за допомогою цифрової клавіатури, описану вище. Встановіть
-  прапорець біля пункту "Початковий стан numlock залежить від профілю
-  конфігурації". Початково цей прапорець знято.
+Note that this is a new feature, and I don't know if anyone has use for this
+feature. If you find one, please send an email or open [an issue][3], to let
+me know how you have found to make use of it.
 
-* Натисніть Гаразд.
-
-* Перейдіть до профілю, де ви хочете, щоб numlock завжди був вимкнений або
-  увімкнений.
-
-* Поверніться на панель налаштувань Режим навігації за допомогою цифрової
-  клавіатури і виберіть опцію Вимкнути або увімкнути numlock, як вам
-  зручніше.
-
-* Потім натисніть Гаразд. Тепер щоразу, коли ви входитимете в цей профіль,
-  numlock автоматично змінюватиметься на потрібний стан.
-
-Зверніть увагу, що це нова функція, і я не знаю, чи хтось нею
-користується. Якщо ви знайшли таку можливість, будь ласка, надішліть
-електронного листа або відкрийте
-[питання](https://github.com/opensourcesys/numpadNavMode/issues/new), щоб
-повідомити мені, як ви знайшли спосіб її використання.
+Or, better yet, leave a [review][4] for the add-on, and comment on it there!
+Reviews are very helpful, whether or not you use that feature.
 
 ### Нові функції
 
-Я заохочую вас написати
-[питання](https://github.com/openSourceSys/numpadNavMode/issues/new) або
-електронного листа з будь-якими пропозиціями щодо функцій або інших випадків
-використання, які я не перерахував тут, або просто дати мені знати, що ви
-вважаєте  додаток корисним!
+I encourage you to post an [issue][3], or email with any feature
+suggestions, or other use cases that I haven't listed here, or just to let
+me know you find the add-on useful! But as mentioned above, if you do find
+it useful, please leave a [review][4].
 
 ### Історія
 
-Цей додаток став прямим результатом запитів, які я бачив від користувачів
-протягом багатьох років, і обговорення на GitHub в
-[#9549](https://github.com/nvaccess/nvda/issues/9549). З вдячністю
-@Qchristensen та @feerrenrut.  Базова реалізація функцій numlock була
-запозичена із застарілого додатка NumLock Manager, авторства Noelia Ruiz
-(@nvdaes на GitHub) та інших. Використовується з дозволу.
+This add-on was the direct result of requests I've heard from users over the
+years, and a GitHub discussion in
+[#9549](https://github.com/nvaccess/nvda/issues/9549). With thanks to
+@Qchristensen and @feerrenrut.  The basic implementation of the numlock
+features was borrowed from the legacy NumLock Manager add-on, by Noelia Ruiz
+(@nvdaes on GitHub), and others. Used with permission.
 
 ### Журнал змін
 
 (Цей журнал змін неповний. Дивіться журнал Git для повної інформації.)
 
-* 23.0: NVDA 2023.X compatibility.
-
+* 24.1.0: NVDA 2024.X compatibility.
 * 23.1.0: Added numlock management features. Better logging. Improved config
   profile handling (WIP).
+* 23.0: NVDA 2023.X compatibility.
 
 [[!tag dev stable]]
 
-[1]: https://www.nvaccess.org/addonStore/legacy?file=numpadNavMode
+[1]: https://www.nvaccess.org/addonStore/legacy?file=numpadNavMode [2]:
+https://nvaccess.org/ [3]:
+https://github.com/opensourcesys/numpadNavMode/issues/new [4]:
+https://github.com/nvaccess/addon-datastore/discussions/2630

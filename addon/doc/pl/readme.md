@@ -1,14 +1,16 @@
 # Numpad Nav Mode #
 
+# Numpad Nav Mode
+
 * Autor: Luke Davis (Open Source Systems, Ltd.)
 * Pobierz [wersja stabilna][1]
 
-Numpad Nav Mode to dodatek [NVDA](https://nvaccess.org/), który umożliwia
-łatwe przełączanie klawiatury między kontrolkami nawigacyjnymi NVDA a
-kontrolkami nawigacji systemu Windows bez czytnika ekranu. Może to być
-szczególnie przydatne dla użytkowników migrujących z Jaws do NVDA. Ten
-dodatek zapewnia również szczegółową kontrolę nad przełączaniem numlock,
-zarówno podczas uruchamiania NVDA, jak i opcjonalnie w profilach.
+Numpad Nav Mode is an [NVDA][2] add-on, which allows you to easily switch
+your keyboard's numpad between NVDA's navigation controls and the
+non-screenreader Windows navigation controls. This can be especially useful
+for users migrating from Jaws to NVDA. This add-on also gives granular
+control over the numlock key toggle, both when NVDA starts, and optionally
+in profiles.
 
 ### Objaśnienie i funkcje trybów nawigacji
 
@@ -59,11 +61,11 @@ usłyszysz "Numpad Nav Mode".
 
 Domyślnie nic nie jest wykonywane za pomocą numlock.
 
-Jeśli jednak dzielisz swój komputer z widzącym użytkownikiem, który woli,
-aby numlock był zawsze włączony, ale wolisz, aby klawiatura numeryczna
-działała z NVDA, możesz chcieć, aby numlock był automatycznie wyłączany
-podczas uruchamiania NVDA.  Alternatywnie, możesz wprowadzić wiele danych,
-więc wolisz, aby numlock był zawsze włączony podczas uruchamiania NVDA.
+However, if you share your computer with a sighted user who prefers that
+numlock always be turned on, but you like having it off so that the numpad
+works with NVDA, you may want the numlock to automatically turned off when
+NVDA starts.  Alternatively, you may enter a lot of data, and so prefer the
+numlock to always be on when you start NVDA.
 
  Przejdź do menu NVDA, Preferencje, Ustawienia, Tryb Numpad Nav i użyj selektora "stan numlock podczas uruchamiania NVDA lub ładowania profilu". Ma trzy opcje. Pierwszy, "nie zmieniaj", jest domyślny i nie dotyka numlocka. Będzie w takim stanie, w jakim był przed rozpoczęciem NVDA.
 Drugą opcją jest "turn numlock off", która zawsze wyłączy numlock po uruchomieniu NVDA. Trzecia opcja, "Włącz numlock", włączy numlock, jeśli był wyłączony podczas uruchamiania NVDA.
@@ -71,55 +73,53 @@ Jeśli wybierzesz drugą lub trzecią opcję, numlock zostanie przywrócony do s
 
 #### Zaawansowane przypadki użycia
 
-Jeśli używasz potężnych profili konfiguracyjnych NVDA i chcesz, aby numlock
-włączał się automatycznie po wprowadzeniu niektórych profili, wykonaj
-następujące czynności:
+If you use NVDA's powerful configuration profiles, and you would like the
+numlock to automatically turn on when you enter certain profiles, do the
+following: * While in the "normal profile", go to the Numpad Nav Mode
+settings panel described above. Check the box for "Initial numlock state is
+configuration profile dependent". This option is unchecked by default.  *
+Select OK.  * Change to the profile where you want numlock to be always
+turned off or on.  * Go back to the Numpad Nav Mode settings panel, and
+select the option to Turn numlock off or on, as you prefer.  * Then select
+OK. Now, whenever you enter this profile, the numlock will automatically
+change to the desired state.
 
-* W "normalnym profilu" przejdź do panelu ustawień trybu Numpad Nav
-  opisanego powyżej. Zaznacz pole wyboru "Początkowy stan numlock jest
-  zależny od profilu konfiguracji". Ta opcja nie jest domyślnie zaznaczona.
+Note that this is a new feature, and I don't know if anyone has use for this
+feature. If you find one, please send an email or open [an issue][3], to let
+me know how you have found to make use of it.
 
-* Wybierz przycisk OK.
-
-* Przejdź do profilu, w którym numlock ma być zawsze wyłączony lub włączony.
-
-* Wróć do panelu ustawień trybu Numpad Nav i wybierz opcję Wyłącz lub włącz
-  numlock, jak wolisz.
-
-* Następnie wybierz przycisk OK. Teraz, za każdym razem, gdy wejdziesz do
-  tego profilu, numlock automatycznie zmieni się na żądany stan.
-
-Zauważ, że jest to nowa funkcja i nie wiem, czy ktoś ma z niej
-skorzystać. Jeśli go znajdziesz, wyślij e-mail lub otwórz
-[problem](https://github.com/opensourcesys/numpadNavMode/issues/new), aby
-dać mi znać, jak znalazłeś, aby z niego skorzystać.
+Or, better yet, leave a [review][4] for the add-on, and comment on it there!
+Reviews are very helpful, whether or not you use that feature.
 
 ### Nowe funkcje
 
-Zachęcam do opublikowania [problemu]
-(https://github.com/openSourceSys/numpadNavMode/issues/new) lub e-maila z
-sugestiami funkcji lub innymi przypadkami użycia, których tutaj nie
-wymieniłem, lub po prostu dać mi znać, że dodatek jest przydatny!
+I encourage you to post an [issue][3], or email with any feature
+suggestions, or other use cases that I haven't listed here, or just to let
+me know you find the add-on useful! But as mentioned above, if you do find
+it useful, please leave a [review][4].
 
 ### Historia
 
-Ten dodatek był bezpośrednim wynikiem próśb, które widziałem od użytkowników
-na przestrzeni lat, oraz dyskusji na GitHub w
-[#9549](https://github.com/nvaccess/nvda/issues/9549). Z podziękowaniami dla
-@Qchristensen i @feerrenrut.  Podstawowa implementacja funkcji numlock
-została zapożyczona ze starszego dodatku NumLock Manager przez Noelię Ruiz
-(@nvdaes na GitHub) i innych. Użyte za zgodą.
+This add-on was the direct result of requests I've heard from users over the
+years, and a GitHub discussion in
+[#9549](https://github.com/nvaccess/nvda/issues/9549). With thanks to
+@Qchristensen and @feerrenrut.  The basic implementation of the numlock
+features was borrowed from the legacy NumLock Manager add-on, by Noelia Ruiz
+(@nvdaes on GitHub), and others. Used with permission.
 
 ### Lista zmian
 
 (Ten dziennik zmian jest niekompletny. Zobacz Dziennik Git, aby uzyskać
 szczegółowe informacje).
 
-* 23.0: Zgodność z NVDA 2023.X.
-
+* 24.1.0: NVDA 2024.X compatibility.
 * 23.1.0: Dodano funkcje zarządzania numlock. Lepsze
   rejestrowanie. Ulepszona obsługa profili konfiguracji (WIP).
+* 23.0: Zgodność z NVDA 2023.X.
 
 [[!tag dev stable]]
 
-[1]: https://www.nvaccess.org/addonStore/legacy?file=numpadNavMode
+[1]: https://www.nvaccess.org/addonStore/legacy?file=numpadNavMode [2]:
+https://nvaccess.org/ [3]:
+https://github.com/opensourcesys/numpadNavMode/issues/new [4]:
+https://github.com/nvaccess/addon-datastore/discussions/2630

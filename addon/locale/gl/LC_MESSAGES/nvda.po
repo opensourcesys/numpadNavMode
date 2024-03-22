@@ -65,8 +65,8 @@ msgstr "Windows"
 msgid ""
 "Toggles the numpad between NVDA navigation and Windows navigation modes."
 msgstr ""
-"Conmuta o bloque numérico entre os modos navegación de NVDA e navegación "
-"de Windows."
+"Conmuta o bloque numérico entre os modos navegación de NVDA e navegación de "
+"Windows."
 
 #. Translators: message given to the user when the numpad's mode changes between NVDA and Windows nav
 #. Note: the variable given to format() is already translated.
@@ -75,19 +75,19 @@ msgstr "Modo do bloque numérico {}."
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#, fuzzy
 msgid ""
 "Allows switching the numpad between NVDA navigation mode, and Windows "
 "navigation mode.\n"
 "Especially useful if migrating from Jaws; or for laptop users preferring "
-"laptop mode, but who have a numpad and want to use it for arrow keys, "
-"etc.\n"
+"laptop mode, but who have a numpad and want to use it for arrow keys, etc.\n"
 "The add-on also gives control of numlock state when starting NVDA or "
-"changing profiles.."
+"changing profiles."
 msgstr ""
 "Permite cambiar o bloque numérico entre o modo de navegación de NVDA e o "
 "modo de navegación de Windows.\n"
-"Especialmente útil se se migra dende Jaws, ou para usuarios de "
-"portátiles que prefiren o modo portátil, pero que teñen un bloque "
-"numérico e queren usalo para premer as frechas, etc.\n"
-"O complemento tamén da o control do estado do bloqueo numérico ao "
-"arrancar o NVDA ou cando se cargan perfiles."
+"Especialmente útil se se migra dende Jaws, ou para usuarios de portátiles "
+"que prefiren o modo portátil, pero que teñen un bloque numérico e queren "
+"usalo para premer as frechas, etc.\n"
+"O complemento tamén da o control do estado do bloqueo numérico ao arrancar o "
+"NVDA ou cando se cargan perfiles."

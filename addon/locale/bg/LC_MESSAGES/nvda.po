@@ -32,8 +32,7 @@ msgstr ""
 
 #. Translators: Label of the list which allows configuring initial numlock state
 msgid "State of numlock when NVDA starts or profile loads"
-msgstr ""
-"Състояние на Num Lock при стартиране на NVDA или зареждане на профил"
+msgstr "Състояние на Num Lock при стартиране на NVDA или зареждане на профил"
 
 #. Translators: Option not to change numlock state when NVDA starts/profile is loaded
 msgid "Do not change"
@@ -49,8 +48,7 @@ msgstr "Включване на Num Lock"
 
 #. Translators: The label for a checkbox in Numpad Nav Mode settings panel
 msgid "Initial numlock state is configuration profile dependent"
-msgstr ""
-"Първоначалното състояние на Num Lock зависи от конфигурационния профил"
+msgstr "Първоначалното състояние на Num Lock зависи от конфигурационния профил"
 
 #. Translators: returned as part of some user messages
 msgid "NVDA"
@@ -74,19 +72,19 @@ msgstr "Режим на цифровия блок {}."
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#, fuzzy
 msgid ""
 "Allows switching the numpad between NVDA navigation mode, and Windows "
 "navigation mode.\n"
 "Especially useful if migrating from Jaws; or for laptop users preferring "
-"laptop mode, but who have a numpad and want to use it for arrow keys, "
-"etc.\n"
+"laptop mode, but who have a numpad and want to use it for arrow keys, etc.\n"
 "The add-on also gives control of numlock state when starting NVDA or "
-"changing profiles.."
+"changing profiles."
 msgstr ""
-"Позволява превключване на цифровата клавиатура между режима на навигация "
-"на NVDA и режима на навигация на Windows.\n"
+"Позволява превключване на цифровата клавиатура между режима на навигация на "
+"NVDA и режима на навигация на Windows.\n"
 "Особено полезно, ако преминавате от JAWS. Или за потребители на лаптопи, "
-"предпочитащи лаптоп клавиатурната подредба, но които имат цифрова "
-"клавиатура и искат да я използват за навигация със стрелки и т.н.\n"
+"предпочитащи лаптоп клавиатурната подредба, но които имат цифрова клавиатура "
+"и искат да я използват за навигация със стрелки и т.н.\n"
 "Добавката също така дава контрол върху състоянието на Num Lock при "
 "стартиране на NVDA или при промяна на конфигурационния профил."

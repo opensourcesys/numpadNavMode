@@ -1,15 +1,16 @@
 # Numpad Nav Mode #
 
+# Numpad Nav Mode
+
 * Auteur : Luke Davis (Open Source Systems, Ltd.)
 * Télécharger [version stable][1]
 
-Numpad Nav Mode est une extension [NVDA](https://nvaccess.org/), qui vous
-permet de basculer facilement le pavé numérique de votre clavier entre les
-commandes de navigation de NVDA et les commandes de navigation Windows sans
-lecteur d'écran. Cela peut être particulièrement utile pour les utilisateurs
-migrant de Jaws vers NVDA. Cette extension donne également un contrôle de
-finesse sur la bascule de la touche verrouillage numérique, à la fois
-lorsque NVDA démarre, et éventuellement dans les profils.
+Numpad Nav Mode is an [NVDA][2] add-on, which allows you to easily switch
+your keyboard's numpad between NVDA's navigation controls and the
+non-screenreader Windows navigation controls. This can be especially useful
+for users migrating from Jaws to NVDA. This add-on also gives granular
+control over the numlock key toggle, both when NVDA starts, and optionally
+in profiles.
 
 ### Modes de navigation, explication et fonctionnalités
 
@@ -65,13 +66,11 @@ NVDA+N, P, S, puis sur N jusqu'à ce que vous entendiez "Numpad Nav Mode".
 
 Par défaut, rien n'est fait avec la touche verrouillage numérique.
 
-Cependant, si vous partagez votre ordinateur avec un utilisateur qui voit
-préférant que la touche verrouillage numérique soit toujours activée, mais
-vous aimeriez l'avoir  désactivée pour que le pavé numérique fonctionne avec
-NVDA, vous pouvez vouloir que le verrouillage numérique  soit
-automatiquement désactivé lorsque NVDA démarre. Alternativement, vous pouvez
-saisir beaucoup de données, et préférez donc que le verrouillage numérique
-soit toujours activé lorsque vous démarrez NVDA.
+However, if you share your computer with a sighted user who prefers that
+numlock always be turned on, but you like having it off so that the numpad
+works with NVDA, you may want the numlock to automatically turned off when
+NVDA starts.  Alternatively, you may enter a lot of data, and so prefer the
+numlock to always be on when you start NVDA.
 
  Allez dans le menu NVDA, Préférences,  Paramètres, Numpad Nav Mode et utilisez le sélecteur "État du verrouillage numérique lorsque NVDA démarre ou le profil se charge". Cela a trois options. Le premier, "Ne changez pas", celui-ci est par défaut, et ne touchera pas le verrouillage numérique. Ce sera dans quel que soit le state dans lequel il se trouvait avant le démarrage de NVDA.
 La deuxième option, est "Basculer verrouillage numérique désactivé", ce qui désactivera toujours le verrouillage numérique lorsque NVDA démarre. La troisième option "Basculer verrouillage numérique activé", ce qui activera le verrouillage numérique s'il était désactivé lorsque NVDA a démarré.
@@ -79,61 +78,54 @@ Si vous choisissez soit la deuxième ou la troisième option, le verrouillage nu
 
 #### Cas d'utilisation avancée
 
-Si vous utilisez les puissants profils de configuration de NVDA et que vous
-souhaitez que le verrouillage numérique s'active automatiquement pendant le
-basculement lorsque vous entrez certains profils, procédez comme suit :
+If you use NVDA's powerful configuration profiles, and you would like the
+numlock to automatically turn on when you enter certain profiles, do the
+following: * While in the "normal profile", go to the Numpad Nav Mode
+settings panel described above. Check the box for "Initial numlock state is
+configuration profile dependent". This option is unchecked by default.  *
+Select OK.  * Change to the profile where you want numlock to be always
+turned off or on.  * Go back to the Numpad Nav Mode settings panel, and
+select the option to Turn numlock off or on, as you prefer.  * Then select
+OK. Now, whenever you enter this profile, the numlock will automatically
+change to the desired state.
 
-* Pendant que dans le "profil normal", accédez au panneau de paramètres
-  Numpad Nav Mode décrit ci-dessus. Cochez la case pour "L'état de
-  verrouillage numérique initial est dépendant du profil de
-  configuration". Cette option n'est pas cochée par défaut.
+Note that this is a new feature, and I don't know if anyone has use for this
+feature. If you find one, please send an email or open [an issue][3], to let
+me know how you have found to make use of it.
 
-* Sélectionnez OK.
-
-* Passez au profil où vous voulez que le verrouillage numérique soit
-  toujours basculé entre désactivé ou activé.
-
-* Retournez au panneau des paramètres Numpad Nav Mode et sélectionnez
-  l'option pour Basculer verrouillage numérique désactivé ou activé, comme
-  vous préférez.
-
-* Puis sélectionnez OK. Maintenant, chaque fois que vous entrez ce profil,
-  le verrouillage numérique passera automatiquement à l'état souhaité.
-
-Notez qu'il s'agit d'une nouvelle fonctionnalité, et je ne sais pas si
-quelqu'un l'a utilisé pour cette fonctionnalité. Si vous en trouvez une,
-veuillez envoyer un courriel ou ouvrez [un
-issue](https://github.com/opensourcesys/numpadNavMode/issues/new), pour me
-faire savoir comment vous l'avez trouvé celle-ci.
+Or, better yet, leave a [review][4] for the add-on, and comment on it there!
+Reviews are very helpful, whether or not you use that feature.
 
 ### Nouvelles fonctionnalités
 
-Je vous encourage à envoyer un
-[issue](https://github.com/openSourceSys/numpadNavMode/issues/new), ou un
-courriel des suggestions de fonctionnalités ou d'autres cas d'utilisation
-que je n'ai pas répertoriés ici, ou simplement pour me faire savoir que vous
-trouvez l'extension utile !
+I encourage you to post an [issue][3], or email with any feature
+suggestions, or other use cases that I haven't listed here, or just to let
+me know you find the add-on useful! But as mentioned above, if you do find
+it useful, please leave a [review][4].
 
 ### Histoire
 
-Cette extension est le résultat direct des demandes que j'ai reçues
-d'utilisateurs au fil des ans et d'une discussion GitHub dans
-[#9549](https://github.com/nvaccess/nvda/issues/9549). Remerciements à
-@Qchristensen et @feerrenrut.  L'implémentation de base des fonctionnalités
-de numlock  a été empruntée à l'extension  legacy NumLock Manager, par
-Noelia Ruiz (@nvdaes sur GitHub), et autres. Utilisé avec permission.
+This add-on was the direct result of requests I've heard from users over the
+years, and a GitHub discussion in
+[#9549](https://github.com/nvaccess/nvda/issues/9549). With thanks to
+@Qchristensen and @feerrenrut.  The basic implementation of the numlock
+features was borrowed from the legacy NumLock Manager add-on, by Noelia Ruiz
+(@nvdaes on GitHub), and others. Used with permission.
 
 ### Journal des changements
 
 (Ce journal des changements est incomplet. Voir le journal de Git pour plus
 de détails.)
 
-* 23.0 : compatibilité NVDA 2023.X.
-
+* 24.1.0: NVDA 2024.X compatibility.
 * 23.1.0 : Ajout des fonctionnalités de gestion de verrouillage
   numérique. Meilleur journalisation. Manipulation améliorée du profil de
   configuration (WIP).
+* 23.0 : compatibilité NVDA 2023.X.
 
 [[!tag dev stable]]
 
-[1]: https://www.nvaccess.org/addonStore/legacy?file=numpadNavMode
+[1]: https://www.nvaccess.org/addonStore/legacy?file=numpadNavMode [2]:
+https://nvaccess.org/ [3]:
+https://github.com/opensourcesys/numpadNavMode/issues/new [4]:
+https://github.com/nvaccess/addon-datastore/discussions/2630

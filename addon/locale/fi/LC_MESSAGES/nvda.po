@@ -69,13 +69,14 @@ msgstr "Laskinnäppäimistön tila {}."
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#, fuzzy
 msgid ""
 "Allows switching the numpad between NVDA navigation mode, and Windows "
 "navigation mode.\n"
 "Especially useful if migrating from Jaws; or for laptop users preferring "
 "laptop mode, but who have a numpad and want to use it for arrow keys, etc.\n"
 "The add-on also gives control of numlock state when starting NVDA or "
-"changing profiles.."
+"changing profiles."
 msgstr ""
 "Mahdollistaa laskinnäppäimistön vaihtamisen NVDA- ja Windows-"
 "navigointitilojen välillä.\n"

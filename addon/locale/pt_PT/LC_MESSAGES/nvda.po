@@ -26,8 +26,7 @@ msgstr "Modo Numpad Nav"
 
 #. Translators: The label for a checkbox in Numpad Nav Mode settings panel
 msgid "Start NVDA with the numpad set to Windows nav mode"
-msgstr ""
-"Iniciar o NVDA com o numpad definido para o modo de navegação Windows"
+msgstr "Iniciar o NVDA com o numpad definido para o modo de navegação Windows"
 
 #. Translators: Label of the list which allows configuring initial numlock state
 msgid "State of numlock when NVDA starts or profile loads"
@@ -69,19 +68,19 @@ msgstr "Modo numpad {}."
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#, fuzzy
 msgid ""
 "Allows switching the numpad between NVDA navigation mode, and Windows "
 "navigation mode.\n"
 "Especially useful if migrating from Jaws; or for laptop users preferring "
-"laptop mode, but who have a numpad and want to use it for arrow keys, "
-"etc.\n"
+"laptop mode, but who have a numpad and want to use it for arrow keys, etc.\n"
 "The add-on also gives control of numlock state when starting NVDA or "
-"changing profiles.."
+"changing profiles."
 msgstr ""
 "Permite alternar o numpad entre o modo de navegação NVDA, e o modo de "
 "navegação Windows.\n"
-"Especialmente útil se migrar de jaws; ou para utilizadores de portáteis "
-"que preferem o modo portátil, mas que têm um numpad e o querem utilizar "
-"para teclas de setas, etc.\n"
-"O extra também dá o controlo do estado do numlock ao iniciar o NVDA ou "
-"ao alterar perfis..."
+"Especialmente útil se migrar de jaws; ou para utilizadores de portáteis que "
+"preferem o modo portátil, mas que têm um numpad e o querem utilizar para "
+"teclas de setas, etc.\n"
+"O extra também dá o controlo do estado do numlock ao iniciar o NVDA ou ao "
+"alterar perfis..."

@@ -32,8 +32,7 @@ msgstr ""
 
 #. Translators: Label of the list which allows configuring initial numlock state
 msgid "State of numlock when NVDA starts or profile loads"
-msgstr ""
-"Estado del bloqueo numérico cuando se inicia NVDA o se carga un perfil"
+msgstr "Estado del bloqueo numérico cuando se inicia NVDA o se carga un perfil"
 
 #. Translators: Option not to change numlock state when NVDA starts/profile is loaded
 msgid "Do not change"
@@ -50,8 +49,7 @@ msgstr "Activar bloqueo numérico"
 #. Translators: The label for a checkbox in Numpad Nav Mode settings panel
 msgid "Initial numlock state is configuration profile dependent"
 msgstr ""
-"El estado inicial del bloqueo numérico depende del perfil de "
-"configuración"
+"El estado inicial del bloqueo numérico depende del perfil de configuración"
 
 #. Translators: returned as part of some user messages
 msgid "NVDA"
@@ -65,8 +63,8 @@ msgstr "Windows"
 msgid ""
 "Toggles the numpad between NVDA navigation and Windows navigation modes."
 msgstr ""
-"Conmuta el bloque numérico entre los modos navegación de NVDA y "
-"navegación de Windows."
+"Conmuta el bloque numérico entre los modos navegación de NVDA y navegación "
+"de Windows."
 
 #. Translators: message given to the user when the numpad's mode changes between NVDA and Windows nav
 #. Note: the variable given to format() is already translated.
@@ -75,19 +73,19 @@ msgstr "Modo del bloque numérico {}."
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#, fuzzy
 msgid ""
 "Allows switching the numpad between NVDA navigation mode, and Windows "
 "navigation mode.\n"
 "Especially useful if migrating from Jaws; or for laptop users preferring "
-"laptop mode, but who have a numpad and want to use it for arrow keys, "
-"etc.\n"
+"laptop mode, but who have a numpad and want to use it for arrow keys, etc.\n"
 "The add-on also gives control of numlock state when starting NVDA or "
-"changing profiles.."
+"changing profiles."
 msgstr ""
-"Permite alternar el bloque numérico entre el modo de navegación de NVDA "
-"y el modo de navegación de Windows.\n"
-"Especialmente útil si se migra desde Jaws, o para usuarios de portátiles "
-"que prefieren el modo portátil, pero que tienen un bloque numérico y "
-"quieren usarlo para pulsar las flechas, etc.\n"
+"Permite alternar el bloque numérico entre el modo de navegación de NVDA y el "
+"modo de navegación de Windows.\n"
+"Especialmente útil si se migra desde Jaws, o para usuarios de portátiles que "
+"prefieren el modo portátil, pero que tienen un bloque numérico y quieren "
+"usarlo para pulsar las flechas, etc.\n"
 "El complemento también da control del estado del bloqueo numérico al "
 "arrancar NVDA o cuando se cargan perfiles."

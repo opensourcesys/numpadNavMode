@@ -69,14 +69,14 @@ msgstr "{}模式。"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#, fuzzy
 msgid ""
 "Allows switching the numpad between NVDA navigation mode, and Windows "
 "navigation mode.\n"
 "Especially useful if migrating from Jaws; or for laptop users preferring "
-"laptop mode, but who have a numpad and want to use it for arrow keys, "
-"etc.\n"
+"laptop mode, but who have a numpad and want to use it for arrow keys, etc.\n"
 "The add-on also gives control of numlock state when starting NVDA or "
-"changing profiles.."
+"changing profiles."
 msgstr ""
 "允许将数字键盘在 NVDA 导航和 Windows 编辑模式之间切换。\n"
 "此插件对于喜欢笔记本键盘布局且希望将数字键盘用作箭头键的用户十分有用。\n"

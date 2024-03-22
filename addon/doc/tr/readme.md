@@ -1,15 +1,16 @@
 # NumaratörGezinme Modu #
 
+# Numaratör Gezinme Modu
+
 * Yazar: Luke Davis (Open Source Systems, Ltd.)
 * [Kararlı sürüm][1]ü indir
 
-Sayısal Tuş Takımı Gezinme Modu, klavyenizin sayısal tuş takımını NVDA'nın
-gezinme kontrolleri ile ekran okuyucu olmayan Windows gezinme kontrolleri
-arasında kolayca değiştirmenize olanak tanıyan bir
-[NVDA](https://nvaccess.org/) eklentisidir. Bu özellikle Jaws'tan NVDA'ya
-geçiş yapan kullanıcılar için yararlı olabilir. Bu eklenti aynı zamanda hem
-NVDA başladığında hem de isteğe bağlı olarak profillerde numara kilidi tuşu
-üzerinde ayrıntılı kontrol sağlar.
+Sayısal Tuş  Gezinme Modu, klavyenizin sayısal tuş takımını NVDA'nın gezinme
+kontrolleri ile ekran okuyucu olmayan Windows gezinme kontrolleri arasında
+kolayca değiştirmenize olanak tanıyan bir [NVDA][2] eklentisidir. Bu
+özellikle Jaws'tan NVDA'ya geçiş yapan kullanıcılar için yararlı
+olabilir. Bu eklenti aynı zamanda hem NVDA başladığında hem de isteğe bağlı
+olarak profillerde numlock tuşu geçişi üzerinde ayrıntılı kontrol sağlar.
 
 ### Gezinme modları açıklama ve özellikleri
 
@@ -58,12 +59,12 @@ Modunu varsayılan olarak etkinleştir onay kutusunu işaretleyin.
 
 Varsayılan olarak, numara kilidi tuşuyla hiçbir şey yapılmaz.
 
-Ancak, bilgisayarınızı numara kilidinin her zaman açık olmasını tercih eden
-gören bir kullanıcıyla paylaşıyor ve sayısal tuş takımının NVDA ile
-çalışması için kapalı olmasını istiyorsanız NVDA başladığında numara
-kilidinin otomatik olarak kapatılmasını isteyebilirsiniz.  Alternatif
-olarak, çok fazla veri girebilirsiniz ve bu nedenle NVDA'yı başlattığınızda
-numara kilidinin her zaman açık olmasını tercih edebilirsiniz.
+Ancak, bilgisayarınızı Numara kilidinin her zaman açık olmasını tercih eden
+gören bir kullanıcıyla paylaşıyorsanız, fakat Sayısal Tuş takımının NVDA ile
+çalışması için onu kapatmaktan hoşlanıyorsanız, NVDA başladığında Numara
+kilidinin otomatik olarak kapatılmasını isteyebilirsiniz. Alternatif olarak,
+çok fazla veri girebilir ve bu nedenle NVDA'yı başlattığınızda Numara
+kilidinin her zaman açık olmasını tercih edebilirsiniz.
 
  NVDA menüsü, Tercihler, Ayarlar, Sayısal Tuş Takımı Moduna gidin ve "NVDA başladığında veya profil yüklendiğinde numara kilidiğ durumu" seçicisini kullanın. Bunun üç seçeneği vardır. İlki, "değiştirme", varsayılandır ve numara kilidine dokunmaz. NVDA başlamadan önce hangi durumdaysa o durumda kalacaktır.
 İkinci seçenek, NVDA başladığında Numara kilidini her zaman kapatacak olan "Numara kilidini kapat" seçeneğidir. Üçüncü seçenek olan "Numara Kilidini Aç" NVDA başladığında numara kilidi kapalıysa açacaktır.
@@ -72,52 +73,54 @@ numara kilidinin her zaman açık olmasını tercih edebilirsiniz.
 #### Gelişmiş kullanım durumları
 
 NVDA'nın güçlü yapılandırma profillerini kullanıyorsanız ve belirli
-profillere girdiğinizde numara kilidinin otomatik olarak açılmasını
-istiyorsanız, aşağıdakileri yapın:
+profillere girdiğinizde Numara kilidinin otomatik olarak açılmasını
+istiyorsanız aşağıdakileri yapın: * "Normal profil"deyken, yukarıda
+açıklanan Numaratör Gezinme Modu ayarlar paneline gidin. "İlk Numara kilidi
+durumu yapılandırma profiline bağlıdır" kutusunu işaretleyin. Bu seçenek
+varsayılan olarak işaretli değildir. * Tamam'ı seçin. * Numara kilidinin her
+zaman kapalı veya açık olmasını istediğiniz profile geçin. * Numaratör
+Gezinme Modu ayarları paneline geri dönün ve tercihinize göre Numra kilidini
+kapatma veya açma seçeneğini seçin. * Ardından Tamam'ı seçin. Artık bu
+profile her girdiğinizde Numara kilidi otomatik olarak istenilen duruma
+geçecektir.
 
-* "Normal profil"deyken, yukarıda açıklanan Sayısal tuş takımı Gezinme Modu
-  ayarları paneline gidin. "İlk numlock durumu yapılandırma profiline
-  bağlıdır" kutusunu işaretleyin. Bu seçenek varsayılan olarak işaretli
-  değildir.
+Bu yeni bir özellik ve bu özelliği kullanan var mı bilmiyorum. Eğer bir tane
+bulursanız, lütfen bir e-posta gönderin veya [bir sorun][3] dosyasını açarak
+onu nasıl kullanabileceğinizi bulduğunuzu bana bildirin.
 
-* Tamam'ı seçin.
-
-* Numara kilidinin her zaman kapalı veya açık olmasını istediğiniz profile
-  geçin.
-
-* Sayısal Tuş Takımı Gezinme Modu ayarları paneline geri dönün ve
-  tercihinize göre numara kilidini kapatma veya açma seçeneğini seçin.
-
-* Ardından Tamam'ı seçin. Şimdi, bu profile her girdiğinizde, numara kilidi
-  otomatik olarak istenen duruma geçecektir.
-
-Bunun yeni bir özellik olduğunu ve kimsenin bu özelliği kullanıp
-kullanmadığını bilmiyorum. Bir tane bulursanız, onu kullanmayı nasıl
-bulduğunuzu bana bildirmek için lütfen bir e-posta gönderin veya [bir
-sorun](https://github.com/opensourcesys/numpadNavMode/issues/new) açın.
+Veya daha da iyisi, eklenti için bir [inceleme][4] bırakın ve orada yorum
+yapın! Bu özelliği kullansanız da kullanmasanız da incelemeler çok
+faydalıdır.
 
 ### Yeni özellikler
 
-Bir [sorunu](https://github.com/openSourceSys/numpadNavMode/issues/new)
-yayınlamanızı tavsiye ederim. Ayrıca, herhangi bir özellik önerisini, burada
-listelemediğim diğer kullanım durumlarını e-posta ile gönderin veya yalnızca
-eklentiyi yararlı bulduğunuzu bana bildirin!
+Bir [sorun][3] yayınlamanızı, herhangi bir özellik önerisini veya burada
+listelemediğim diğer kullanım örneklerini e-postayla göndermenizi ya da
+eklentiyi yararlı bulduğunuzu bana bildirmenizi öneririm! Ancak yukarıda da
+belirtildiği gibi, eğer faydalı bulursanız lütfen bir [inceleme][4]
+bırakın.
 
 ### Geçmiş
 
-Bu eklenti, yıllar boyunca kullanıcılardan gördüğüm isteklerin ve
+Bu eklenti, yıllar boyunca kullanıcılardan duyduğum isteklerin ve
 [#9549](https://github.com/nvaccess/nvda/issues/9549) adresindeki GitHub
-meselesinin sonucu oldu. @Qchristensen ve @feerrenrut'a teşekkürler.
+tartışmasının doğrudan sonucuydu. @Qchristensen ve @feerrenrut'a
+teşekkürler. Numara kilidi özelliklerinin temel uygulaması, Noelia Ruiz
+(@GitHub'da nvdaes) ve diğerleri tarafından eski NumLock Manager
+eklentisinden ödünç alınmıştır. İzin alınarak kullanılmıştır.
 
 ### Değişiklik günlüğü
 
 (Bu değişiklik günlüğü eksik. Tüm ayrıntılar için Git günlüğüne bakın.)
 
-* 23.0: NVDA 2023.X uyumluluğu.
-
+* 24.1.0: NVDA 2024.X uyumluluğu.
 * 23.1.0: Numara kilidi yönetim özellikleri eklendi. Daha iyi günlük
   kaydı. Geliştirilmiş yapılandırma profili işleme (WIP).
+* 23.0: NVDA 2023.X uyumluluğu.
 
 [[!tag dev stable]]
 
-[1]: https://www.nvaccess.org/addonStore/legacy?file=numpadNavMode
+[1]: https://www.nvaccess.org/addonStore/legacy?file=numpadNavMode [2]:
+https://nvaccess.org/ [3]:
+https://github.com/opensourcesys/numpadNavMode/issues/new [4]:
+https://github.com/nvaccess/addon-datastore/discussions/2630

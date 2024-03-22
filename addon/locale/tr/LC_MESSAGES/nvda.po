@@ -32,8 +32,7 @@ msgstr "NVDA'yı Windows'un Sayısal tuş takımı gezinme modunda başlat"
 #. Translators: Label of the list which allows configuring initial numlock state
 msgid "State of numlock when NVDA starts or profile loads"
 msgstr ""
-"NVDA başladığında veya profil yüklendiğinde Numara kilidinin(NumLock) "
-"durumu"
+"NVDA başladığında veya profil yüklendiğinde Numara kilidinin(NumLock) durumu"
 
 #. Translators: Option not to change numlock state when NVDA starts/profile is loaded
 msgid "Do not change"
@@ -72,20 +71,20 @@ msgstr "Sayısal Tuş Takımı modu {}."
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#, fuzzy
 msgid ""
 "Allows switching the numpad between NVDA navigation mode, and Windows "
 "navigation mode.\n"
 "Especially useful if migrating from Jaws; or for laptop users preferring "
-"laptop mode, but who have a numpad and want to use it for arrow keys, "
-"etc.\n"
+"laptop mode, but who have a numpad and want to use it for arrow keys, etc.\n"
 "The add-on also gives control of numlock state when starting NVDA or "
-"changing profiles.."
+"changing profiles."
 msgstr ""
-"NVDA gezinme modu ile Windows gezinme modu arasında sayısal tuş "
-"takımının değiştirilmesine izin verir.\n"
+"NVDA gezinme modu ile Windows gezinme modu arasında sayısal tuş takımının "
+"değiştirilmesine izin verir.\n"
 "Özellikle daha önce Jaws kullananlar için kullanışlıdır; veya dizüstü "
-"bilgisayar modunu tercih eden ancak sayısal tuş takımına sahip olan ve "
-"onu ok tuşları vb. için kullanmak isteyen dizüstü bilgisayar "
-"kullanıcıları için.\n"
+"bilgisayar modunu tercih eden ancak sayısal tuş takımına sahip olan ve onu "
+"ok tuşları vb. için kullanmak isteyen dizüstü bilgisayar kullanıcıları "
+"için.\n"
 "Eklenti ayrıca, NVDA'yı başlatırken veya profilleri değiştirirken Numara "
 "kilidi tuşunun durumunun kontrolünü sağlar."

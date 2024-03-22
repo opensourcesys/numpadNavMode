@@ -33,8 +33,7 @@ msgstr ""
 #. Translators: Label of the list which allows configuring initial numlock state
 msgid "State of numlock when NVDA starts or profile loads"
 msgstr ""
-"Zustand des Nummernblocks beim Starten von NVDA oder beim Laden des "
-"Profils"
+"Zustand des Nummernblocks beim Starten von NVDA oder beim Laden des Profils"
 
 #. Translators: Option not to change numlock state when NVDA starts/profile is loaded
 msgid "Do not change"
@@ -66,8 +65,8 @@ msgstr "Windows"
 msgid ""
 "Toggles the numpad between NVDA navigation and Windows navigation modes."
 msgstr ""
-"Schaltet den Nummernblock zwischen dem Navigationsmodus von NVDA und "
-"Windows um."
+"Schaltet den Nummernblock zwischen dem Navigationsmodus von NVDA und Windows "
+"um."
 
 #. Translators: message given to the user when the numpad's mode changes between NVDA and Windows nav
 #. Note: the variable given to format() is already translated.
@@ -76,19 +75,19 @@ msgstr "Status des Nummernblocks {}."
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#, fuzzy
 msgid ""
 "Allows switching the numpad between NVDA navigation mode, and Windows "
 "navigation mode.\n"
 "Especially useful if migrating from Jaws; or for laptop users preferring "
-"laptop mode, but who have a numpad and want to use it for arrow keys, "
-"etc.\n"
+"laptop mode, but who have a numpad and want to use it for arrow keys, etc.\n"
 "The add-on also gives control of numlock state when starting NVDA or "
-"changing profiles.."
+"changing profiles."
 msgstr ""
-"Schaltet den Nummernblock zwischen dem Navigationsmodus von NVDA und "
-"Windows um.\n"
-"Besonders nützlich bei der Umstellung von JAWS; oder für Laptop-"
-"Benutzer, die den Laptop-Modus bevorzugen, aber einen Nummernblock haben "
-"und ihn für Pfeiltasten, etc. verwenden möchten.\n"
+"Schaltet den Nummernblock zwischen dem Navigationsmodus von NVDA und Windows "
+"um.\n"
+"Besonders nützlich bei der Umstellung von JAWS; oder für Laptop-Benutzer, "
+"die den Laptop-Modus bevorzugen, aber einen Nummernblock haben und ihn für "
+"Pfeiltasten, etc. verwenden möchten.\n"
 "Die NVDA-Erweiterung ermöglicht auch die Kontrolle über den Status des "
 "Nummernblocks beim Starten von NVDA oder beim Wechsel des Profils..."

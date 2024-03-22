@@ -21,81 +21,67 @@ msgstr ""
 #. Add-on summary, usually the user visible name of the addon.
 #. Translators: Summary for this add-on
 #. to be shown on installation and add-on information found in Add-ons Manager.
-#: addon\globalPlugins\numpadNavMode.py:49 buildVars.py:22
 msgid "Numpad Nav Mode"
 msgstr "Режим навігації за допомогою цифрової клавіатури"
 
 #. Translators: The label for a checkbox in Numpad Nav Mode settings panel
-#: addon\globalPlugins\numpadNavMode.py:58
 msgid "Start NVDA with the numpad set to Windows nav mode"
 msgstr ""
-"Запускати NVDA з цифровою клавіатурою, встановленою в режим навігації "
-"Windows"
+"Запускати NVDA з цифровою клавіатурою, встановленою в режим навігації Windows"
 
 #. Translators: Label of the list which allows configuring initial numlock state
-#: addon\globalPlugins\numpadNavMode.py:64
 msgid "State of numlock when NVDA starts or profile loads"
 msgstr "Стан numlock під час запуску NVDA або завантаження профілю"
 
 #. Translators: Option not to change numlock state when NVDA starts/profile is loaded
-#: addon\globalPlugins\numpadNavMode.py:68
 msgid "Do not change"
 msgstr "Не змінювати"
 
 #. Translators: Option to turn numlock off when NVDA starts/profile is loaded
-#: addon\globalPlugins\numpadNavMode.py:70
 msgid "Turn numlock off"
 msgstr "Вимкнути numlock"
 
 #. Translators: Option to turn numlock on when NVDA starts/profile is loaded
-#: addon\globalPlugins\numpadNavMode.py:72
 msgid "Turn numlock on"
 msgstr "Увімкнути numlock"
 
 #. Translators: The label for a checkbox in Numpad Nav Mode settings panel
-#: addon\globalPlugins\numpadNavMode.py:80
 msgid "Initial numlock state is configuration profile dependent"
 msgstr "Початковий стан numlock залежить від профілю конфігурації"
 
 #. Translators: returned as part of some user messages
-#: addon\globalPlugins\numpadNavMode.py:246
 msgid "NVDA"
 msgstr "NVDA"
 
 #. Translators: returned as part of some user messages
-#: addon\globalPlugins\numpadNavMode.py:249
 msgid "Windows"
 msgstr "Windows"
 
 #. Translators: description of the Numpad Nav Mode toggle gesture for keyboard help
-#: addon\globalPlugins\numpadNavMode.py:281
 msgid ""
 "Toggles the numpad between NVDA navigation and Windows navigation modes."
-msgstr ""
-"Перемикає цифрову клавіатуру між режимами навігації NVDA та Windows."
+msgstr "Перемикає цифрову клавіатуру між режимами навігації NVDA та Windows."
 
 #. Translators: message given to the user when the numpad's mode changes between NVDA and Windows nav
 #. Note: the variable given to format() is already translated.
-#: addon\globalPlugins\numpadNavMode.py:292
 msgid "Numpad mode {}."
 msgstr "Режим цифрової клавіатури {}."
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
-#: buildVars.py:25
+#, fuzzy
 msgid ""
 "Allows switching the numpad between NVDA navigation mode, and Windows "
 "navigation mode.\n"
 "Especially useful if migrating from Jaws; or for laptop users preferring "
-"laptop mode, but who have a numpad and want to use it for arrow keys, "
-"etc.\n"
+"laptop mode, but who have a numpad and want to use it for arrow keys, etc.\n"
 "The add-on also gives control of numlock state when starting NVDA or "
-"changing profiles.."
+"changing profiles."
 msgstr ""
-"Дозволяє перемикати цифрову клавіатуру між режимом навігації NVDA та "
-"режимом навігації Windows.\n"
-"Особливо корисно, якщо ви переходите з Jaws; або для користувачів "
-"ноутбуків, які віддають перевагу режиму ноутбука, але мають цифрову "
-"клавіатуру і хочуть використовувати її для клавіш зі стрілками тощо.\n"
-"Додаток також дозволяє контролювати стан numlock при запуску NVDA або "
-"зміні профілю."
+"Дозволяє перемикати цифрову клавіатуру між режимом навігації NVDA та режимом "
+"навігації Windows.\n"
+"Особливо корисно, якщо ви переходите з Jaws; або для користувачів ноутбуків, "
+"які віддають перевагу режиму ноутбука, але мають цифрову клавіатуру і хочуть "
+"використовувати її для клавіш зі стрілками тощо.\n"
+"Додаток також дозволяє контролювати стан numlock при запуску NVDA або зміні "
+"профілю."

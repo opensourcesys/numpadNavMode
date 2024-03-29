@@ -73,16 +73,20 @@ kilidinin her zaman açık olmasını tercih edebilirsiniz.
 #### Gelişmiş kullanım durumları
 
 NVDA'nın güçlü yapılandırma profillerini kullanıyorsanız ve belirli
-profillere girdiğinizde Numara kilidinin otomatik olarak açılmasını
-istiyorsanız aşağıdakileri yapın: * "Normal profil"deyken, yukarıda
-açıklanan Numaratör Gezinme Modu ayarlar paneline gidin. "İlk Numara kilidi
-durumu yapılandırma profiline bağlıdır" kutusunu işaretleyin. Bu seçenek
-varsayılan olarak işaretli değildir. * Tamam'ı seçin. * Numara kilidinin her
-zaman kapalı veya açık olmasını istediğiniz profile geçin. * Numaratör
-Gezinme Modu ayarları paneline geri dönün ve tercihinize göre Numra kilidini
-kapatma veya açma seçeneğini seçin. * Ardından Tamam'ı seçin. Artık bu
-profile her girdiğinizde Numara kilidi otomatik olarak istenilen duruma
-geçecektir.
+profillere girdiğinizde numara kilidinin otomatik olarak açılmasını
+istiyorsanız, aşağıdakileri yapın:
+
+* "Normal profil"deyken, yukarıda açıklanan Sayısal tuş takımı Gezinme Modu
+  ayarları paneline gidin. "İlk numlock durumu yapılandırma profiline
+  bağlıdır" kutusunu işaretleyin. Bu seçenek varsayılan olarak işaretli
+  değildir.
+* Tamam'ı seçin.
+* Numara kilidinin her zaman kapalı veya açık olmasını istediğiniz profile
+  geçin.
+* Sayısal Tuş Takımı Gezinme Modu ayarları paneline geri dönün ve
+  tercihinize göre numara kilidini kapatma veya açma seçeneğini seçin.
+* Ardından Tamam'ı seçin. Şimdi, bu profile her girdiğinizde, numara kilidi
+  otomatik olarak istenen duruma geçecektir.
 
 Bu yeni bir özellik ve bu özelliği kullanan var mı bilmiyorum. Eğer bir tane
 bulursanız, lütfen bir e-posta gönderin veya [bir sorun][3] dosyasını açarak
@@ -120,7 +124,10 @@ eklentisinden ödünç alınmıştır. İzin alınarak kullanılmıştır.
 
 [[!tag dev stable]]
 
-[1]: https://www.nvaccess.org/addonStore/legacy?file=numpadNavMode [2]:
-https://nvaccess.org/ [3]:
-https://github.com/opensourcesys/numpadNavMode/issues/new [4]:
-https://github.com/nvaccess/addon-datastore/discussions/2630
+[1]: https://www.nvaccess.org/addonStore/legacy?file=numpadNavMode
+
+[2]: https://nvaccess.org/
+
+[3]: https://github.com/opensourcesys/numpadNavMode/issues/new
+
+[4]: https://github.com/nvaccess/addon-datastore/discussions/2630

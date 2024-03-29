@@ -1,16 +1,16 @@
 # Laskinnäppäimistön navigointitila #
 
-# Numpad Nav Mode
+# Laskinnäppäimistön navigointitila
 
 * Tekijä: Luke Davis (Open Source Systems, Ltd.)
 * Lataa [vakaa versio][1]
 
-Numpad Nav Mode is an [NVDA][2] add-on, which allows you to easily switch
-your keyboard's numpad between NVDA's navigation controls and the
-non-screenreader Windows navigation controls. This can be especially useful
-for users migrating from Jaws to NVDA. This add-on also gives granular
-control over the numlock key toggle, both when NVDA starts, and optionally
-in profiles.
+Laskinnäppäimistön navigointitila on [NVDA][2]-lisäosa, jonka avulla voit
+helposti vaihtaa näppäimistön laskinosan NVDA:n navigointikomentojen ja
+Windowsin liikkumiskomentojen välillä. Tästä voi olla hyötyä 1erityisesti
+JAWSista NVDA:han siirtyville käyttäjille. Tämä lisäosa mahdollistaa myös
+Numlock-näppäimen tilanvaihdon hallinnan sekä NVDA:n käynnistyessä että
+valinnaisesti profiileissa.
 
 ### Navigointitilojen selitykset ja ominaisuudet
 
@@ -43,7 +43,7 @@ nopeasti ja helposti normaalin NVDA-navigoinnin ja perinteisen
 Windows-navigoinnin välillä. Tämä näppäin on mahdollista uudelleenmäärittää
 Näppäinkomennot-valintaikkunan Syöttö-kategoriassa.
 
-Huom: Tämä lisäosa ei poista käytöstä numeronäppäimistön Insertiä
+Huom: Tämä lisäosa ei poista käytöstä laskinnäppäimistön Insertiä
 NVDA-näppäimenä, jos olet ottanut sen käyttöön. Ilmoita minulle, jos haluat
 tämän ominaisuuden, vaikka sen voikin poistaa käytöstä manuaalisesti NVDA:n
 näppäimistöasetuksista. Tämä lisäosa ei myöskään muuta laskinnäppäimistön
@@ -63,64 +63,74 @@ navigointitila".
 
 Oletusarvoisesti Numlock-näppäimelle ei tehdä mitään.
 
-However, if you share your computer with a sighted user who prefers that
-numlock always be turned on, but you like having it off so that the numpad
-works with NVDA, you may want the numlock to automatically turned off when
-NVDA starts.  Alternatively, you may enter a lot of data, and so prefer the
-numlock to always be on when you start NVDA.
+Jos kuitenkin jaat tietokoneen näkevän käyttäjän kanssa, joka haluaa, että
+Num Lock on aina käytössä, mutta itse pidät sitä poissa käytöstä, jotta
+laskinnäppäimistö toimisi NVDA:n kanssa, saatat haluta, että Num Lock on
+automaattisesti poissa käytöstä NVDA:n käynnistyessä. Vaihtoehtoisesti
+saatat syöttää paljon tietoja ja haluat, että Num Lock on aina käytössä
+käynnistäessäsi NVDA:n.
 
 Siirry NVDA-valikkoon, valitse Asetukset -> Asetukset -> Laskinnäppäimistön navigointitila ja käytä "Numlockin tila NVDA:n käynnistyessä tai profiilin latautuessa" -valitsinta. Siinä on kolme vaihtoehtoa. Ensimmäinen, "Älä vaihda", ei vaihda Numlockin tilaa, ja se on oletusarvoisesti valittuna. Se on siinä tilassa, jossa se oli ennen NVDA:n käynnistymistä.
 Toinen vaihtoehto on "Poista Numlock käytöstä", joka poistaa Numlocking käytöstä aina NVDA:n käynnistyessä. Kolmas vaihtoehto, "Ota Numlock käyttöön", ottaa Numlockin käyttöön, mikäli se ei ollut käytössä NVDA:n käynnistyessä.
-Jos valitset joko toisen tai kolmannen vaihtoehdon, Numlock palautetaan NVDA:ta suljettaessa siihen tilaan, jossa se oli aiemmin. Esimerkiksi jos valitset "Poista Numlock käytöstä" -vaihtoehdon ja Numlock oli käytössä käynnistäessäsi NVDA:n, se poistetaan käytöstä NVDA:ta käyttäessäsi, mutta otetaan uudelleen käyttöön, kun suljet NVDA:n.
+Jos valitset joko toisen tai kolmannen vaihtoehdon, Numlock palautetaan NVDA:ta suljettaessa siihen tilaan, jossa se oli aiemmin. Esimerkiksi jos valitset "Poista Numlock käytöstä" -vaihtoehdon ja Numlock oli käytössä käynnistäessäsi NVDA:n, se poistetaan käytöstä NVDA:ta käyttäessäsi mutta otetaan uudelleen käyttöön, kun suljet NVDA:n.
 
 #### Edistynyt käyttö
 
-If you use NVDA's powerful configuration profiles, and you would like the
-numlock to automatically turn on when you enter certain profiles, do the
-following: * While in the "normal profile", go to the Numpad Nav Mode
-settings panel described above. Check the box for "Initial numlock state is
-configuration profile dependent". This option is unchecked by default.  *
-Select OK.  * Change to the profile where you want numlock to be always
-turned off or on.  * Go back to the Numpad Nav Mode settings panel, and
-select the option to Turn numlock off or on, as you prefer.  * Then select
-OK. Now, whenever you enter this profile, the numlock will automatically
-change to the desired state.
+Jos käytät NVDA:n tehokkaita asetusprofiileja ja haluat Numlockin käyttöön
+automaattisesti tiettyjen profiilien ollessa aktiivisia, tee seuraavasti:
 
-Note that this is a new feature, and I don't know if anyone has use for this
-feature. If you find one, please send an email or open [an issue][3], to let
-me know how you have found to make use of it.
+* Kun "normaalit asetukset" -profiili on aktiivisena, siirry
+  Laskinnäppäimistön navigointitilan asetuspaneeliin, joka on kuvailtu
+  edellä. Valitse "Numlockin alkutila on riippuvainen asetusprofiilista"
+  -valintaruutu. Tämä asetus ei ole oletusarvoisesti valittuna.
+* Valitse OK.
+* Vaihda profiiliin, jossa haluat Numlockin olevan aina pois käytöstä tai
+  käytössä.
+* Siirry takaisin Laskinnäppäimistön navigointitilan asetuspaneeliin ja
+  valitse Numlockin käytöstä poistava tai käyttöön ottava asetus.
+* Valitse OK. Nyt kun otat tämän profiilin käyttöön, Numlockin tila vaihtuu
+  automaattisesti haluamaksesi.
 
-Or, better yet, leave a [review][4] for the add-on, and comment on it there!
-Reviews are very helpful, whether or not you use that feature.
+Huom: Tämä on uusi ominaisuus, enkä tiedä, onko kellään sille käyttöä. Jos
+löydät sille käyttökohteen, lähetä sähköpostia tai tee [raportti][3], jossa
+kerrot, miten käytät sitä.
+
+Vielä parempi on, jos jätät [arvostelun][4] lisäosalle ja kommentoit sitä
+siellä! Arvostelut ovat erittäin hyödyllisiä, käytitpä kyseistä ominaisuutta
+tai et.
 
 ### Uudet ominaisuudet
 
-I encourage you to post an [issue][3], or email with any feature
-suggestions, or other use cases that I haven't listed here, or just to let
-me know you find the add-on useful! But as mentioned above, if you do find
-it useful, please leave a [review][4].
+Kehotan tekemään [ongelmaraportin][3], tai lähettämään sähköpostitse
+mahdollisia ominaisuusehdotuksia tai muita käyttötapauksia, joita ei tässä
+ole lueteltu, tai vain ilmoittamaan, että lisäosa on hyödyllinen! Mutta
+kuten yllä on mainittu, jos pidät tätä lisäosaa hyödyllisenä, ole hyvä ja
+jätä [arvostelu][4].
 
 ### Historia
 
-This add-on was the direct result of requests I've heard from users over the
-years, and a GitHub discussion in
-[#9549](https://github.com/nvaccess/nvda/issues/9549). With thanks to
-@Qchristensen and @feerrenrut.  The basic implementation of the numlock
-features was borrowed from the legacy NumLock Manager add-on, by Noelia Ruiz
-(@nvdaes on GitHub), and others. Used with permission.
+Tämä lisäosa on suora tulos pyynnöistä, joita tekijä on saanut vuosien
+varrella käyttäjiltä sekä GitHub-keskustelussa
+[#9549](https://github.com/nvaccess/nvda/issues/9549). Kiitos @Qchristensen
+ja @feerrenrut. Numlock-ominaisuuksien perustoteutus on lainattu vanhasta
+NumLock Manager -lisäosasta, jonka on tehnyt Noelia Ruiz (GitHubissa
+@nvdaes) yhteistyössä muiden kanssa. Käyttölupa saatu.
 
 ### Muutosloki
 
 (Tämä muutosloki on epätäydellinen. Katso lisätietoja Git-lokista.)
 
-* 24.1.0: NVDA 2024.X compatibility.
+* 24.1.0: NVDA 2024.x -yhteensopivuus.
 * 23.1.0: Lisätty Numlockin hallintaominaisuudet. Parempi lokin
   tallennus. Paranneltu asetusprofiilien käsittely (työn alla).
 * 23.0: NVDA 2023.x -yhteensopivuus.
 
 [[!tag dev stable]]
 
-[1]: https://www.nvaccess.org/addonStore/legacy?file=numpadNavMode [2]:
-https://nvaccess.org/ [3]:
-https://github.com/opensourcesys/numpadNavMode/issues/new [4]:
-https://github.com/nvaccess/addon-datastore/discussions/2630
+[1]: https://www.nvaccess.org/addonStore/legacy?file=numpadNavMode
+
+[2]: https://nvaccess.org/
+
+[3]: https://github.com/opensourcesys/numpadNavMode/issues/new
+
+[4]: https://github.com/nvaccess/addon-datastore/discussions/2630

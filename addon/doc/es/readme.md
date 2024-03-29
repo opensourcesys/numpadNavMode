@@ -5,12 +5,13 @@
 * Autor: Luke Davis (Open Source Systems, Ltd.)
 * Descargar [versión estable][1]
 
-Numpad Nav Mode is an [NVDA][2] add-on, which allows you to easily switch
-your keyboard's numpad between NVDA's navigation controls and the
-non-screenreader Windows navigation controls. This can be especially useful
-for users migrating from Jaws to NVDA. This add-on also gives granular
-control over the numlock key toggle, both when NVDA starts, and optionally
-in profiles.
+Numpad Nav Mode es un complemento para [NVDA][2] que permite cambiar
+fácilmente el bloque numérico de tu teclado entre los controles de
+navegación de NVDA y los controles de navegación de Windows sin lector de
+pantalla. Esto puede ser especialmente útil para usuarios que migran de Jaws
+a NVDA. Este complemento también proporciona control sobre el estado de la
+tecla bloqueo numérico, tanto cuando NVDA se inicia como, opcionalmente,
+cuando se activan perfiles.
 
 ### Explicación y características de los modos de navegación
 
@@ -63,11 +64,12 @@ rápidamente, pulsa NVDA+n, p, o, y luego n una o más veces hasta que oigas
 
 Por defecto, no se hace nada con la tecla del bloqueo numérico.
 
-However, if you share your computer with a sighted user who prefers that
-numlock always be turned on, but you like having it off so that the numpad
-works with NVDA, you may want the numlock to automatically turned off when
-NVDA starts.  Alternatively, you may enter a lot of data, and so prefer the
-numlock to always be on when you start NVDA.
+Sin embargo, si compartes tu ordenador con un usuario vidente que prefiere
+que el bloque numérico siempre esté activo, pero te gusta tenerlo apagado
+para que el bloque numérico funcione con NVDA, te puede interesar que el
+bloqueo numérico se desactive cuando NVDA arranque. De forma alternativa,
+puedes querer introducir muchos datos, y preferir que el bloqueo numérico
+esté activo al iniciar NVDA.
 
  Ve al menú NVDA, Preferencias, Opciones, Numpad Nav Mode, y usa el selector "Estado del bloqueo numérico cuando arranca NVDA o se carga un perfil". Tiene tres opciones. La primera, "No modificar", es la que viene por defecto y no tocará el bloqueo numérico. Lo dejará en el estado que se encontraba cuando se inició NVDA.
 La segunda opción, "Desactivar bloqueo numérico", desactivará siempre el bloqueo numérico cuando se inicie NVDA. La tercera opción, "Activar bloqueo numérico", activará el bloqueo numérico si estaba desactivado cuando se inició NVDA.
@@ -75,53 +77,61 @@ Si eliges tanto la segunda como la tercera opción, se restaurará el bloqueo nu
 
 #### Casos de uso avanzados
 
-If you use NVDA's powerful configuration profiles, and you would like the
-numlock to automatically turn on when you enter certain profiles, do the
-following: * While in the "normal profile", go to the Numpad Nav Mode
-settings panel described above. Check the box for "Initial numlock state is
-configuration profile dependent". This option is unchecked by default.  *
-Select OK.  * Change to the profile where you want numlock to be always
-turned off or on.  * Go back to the Numpad Nav Mode settings panel, and
-select the option to Turn numlock off or on, as you prefer.  * Then select
-OK. Now, whenever you enter this profile, the numlock will automatically
-change to the desired state.
+Si utilizas los potentes perfiles de configuración de NVDA y quieres que el
+bloqueo numérico se active al entrar en ciertos perfiles, haz lo siguiente:
 
-Note that this is a new feature, and I don't know if anyone has use for this
-feature. If you find one, please send an email or open [an issue][3], to let
-me know how you have found to make use of it.
+* En el perfil "normal", ve al panel de opciones de Numpad Nav Mode descrito
+  anteriormente. Marca la casilla "El estado inicial del bloqueo numérico
+  depende del perfil de configuración". Esta opción viene desmarcada por
+  defecto.
+* Pulsa Aceptar.
+* Cambia al perfil donde quieres que el bloqueo numérico se encienda o se
+  apague siempre.
+* Vuelve al panel de opciones de Numpad Nav Mode, y selecciona la opción
+  para encender o apagar el bloqueo numérico, según prefieras.
+* Después pulsa Aceptar. Ahora, siempre que entres en este perfil, el
+  bloqueo numérico cambiará al estado deseado.
 
-Or, better yet, leave a [review][4] for the add-on, and comment on it there!
-Reviews are very helpful, whether or not you use that feature.
+Ten en cuenta que esta es una nueva función, y no sé si alguien la usará. Si
+descubres un uso útil, envía un correo o abre [una incidencia][3] para
+explicarme cómo la has usado.
+
+O, incluso mejor, deja una [reseña][4] del complemento, ¡y comenta en ella!
+Las reseñas son muy útiles, tanto si usas una característica como si no.
 
 ### Nuevas funciones
 
-I encourage you to post an [issue][3], or email with any feature
-suggestions, or other use cases that I haven't listed here, or just to let
-me know you find the add-on useful! But as mentioned above, if you do find
-it useful, please leave a [review][4].
+Te invito a que abras una [incidencia][3] o me escribas por correo
+electrónico para sugerirme nuevas funciones, o cualquier otro caso de uso
+que no se haya enumerado aquí, ¡o simplemente para decirme lo útil que
+encuentras este complemento! Pero como se mencionó anteriormente, si lo
+encuentras útil, deja una [reseña][4].
 
 ### Historial
 
-This add-on was the direct result of requests I've heard from users over the
-years, and a GitHub discussion in
-[#9549](https://github.com/nvaccess/nvda/issues/9549). With thanks to
-@Qchristensen and @feerrenrut.  The basic implementation of the numlock
-features was borrowed from the legacy NumLock Manager add-on, by Noelia Ruiz
-(@nvdaes on GitHub), and others. Used with permission.
+Este complemento es el resultado directo de peticiones que he visto de los
+usuarios a lo largo de los años, y un debate en GitHub en la incidencia
+[#9549](https://github.com/nvaccess/nvda/issues/9549). Muchas gracias a
+@Qchristensen y @feerrenrut. La implementación básica de las funciones del
+bloqueo numérico se tomó prestada del complemento antiguo Numblock Manager,
+de Noelia Ruiz (@nvdaes en GitHub) y otros. Se usa con permiso.
 
 ### Registro de cambios
 
 (Este registro de cambios está incompleto. Usa git log para obtener todos
 los detalles.)
 
-* 24.1.0: NVDA 2024.X compatibility.
+* 24.1.0: compatibilidad con NVDA 2024.x.
 * 23.1.0: se añaden funciones de gestión del bloqueo numérico. Mejorado el
   registro. Mejorado el manejo de perfiles de configuración (WIP).
 * 23.0: compatibilidad con NVDA 2023.x.
 
 [[!tag dev stable]]
 
-[1]: https://www.nvaccess.org/addonStore/legacy?file=numpadNavMode [2]:
-https://nvaccess.org/ [3]:
-https://github.com/opensourcesys/numpadNavMode/issues/new [4]:
-https://github.com/nvaccess/addon-datastore/discussions/2630
+[1]: https://www.nvaccess.org/addonStore/legacy?file=numpadNavMode
+
+[2]: https://nvaccess.org/
+
+[3]: https://github.com/opensourcesys/numpadNavMode/issues/new
+
+[4]: https://github.com/nvaccess/addon-datastore/discussions/2630

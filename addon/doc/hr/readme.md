@@ -75,14 +75,18 @@ If you choose either the second or third option, the numlock will be restored to
 
 If you use NVDA's powerful configuration profiles, and you would like the
 numlock to automatically turn on when you enter certain profiles, do the
-following: * While in the "normal profile", go to the Numpad Nav Mode
-settings panel described above. Check the box for "Initial numlock state is
-configuration profile dependent". This option is unchecked by default.  *
-Select OK.  * Change to the profile where you want numlock to be always
-turned off or on.  * Go back to the Numpad Nav Mode settings panel, and
-select the option to Turn numlock off or on, as you prefer.  * Then select
-OK. Now, whenever you enter this profile, the numlock will automatically
-change to the desired state.
+following:
+
+* While in the "normal profile", go to the Numpad Nav Mode settings panel
+  described above. Check the box for "Initial numlock state is configuration
+  profile dependent". This option is unchecked by default.
+* Select OK.
+* Change to the profile where you want numlock to be always turned off or
+  on.
+* Go back to the Numpad Nav Mode settings panel, and select the option to
+  Turn numlock off or on, as you prefer.
+* Then select OK. Now, whenever you enter this profile, the numlock will
+  automatically change to the desired state.
 
 Note that this is a new feature, and I don't know if anyone has use for this
 feature. If you find one, please send an email or open [an issue][3], to let
@@ -119,7 +123,10 @@ features was borrowed from the legacy NumLock Manager add-on, by Noelia Ruiz
 
 [[!tag dev stable]]
 
-[1]: https://www.nvaccess.org/addonStore/legacy?file=numpadNavMode [2]:
-https://nvaccess.org/ [3]:
-https://github.com/opensourcesys/numpadNavMode/issues/new [4]:
-https://github.com/nvaccess/addon-datastore/discussions/2630
+[1]: https://www.nvaccess.org/addonStore/legacy?file=numpadNavMode
+
+[2]: https://nvaccess.org/
+
+[3]: https://github.com/opensourcesys/numpadNavMode/issues/new
+
+[4]: https://github.com/nvaccess/addon-datastore/discussions/2630

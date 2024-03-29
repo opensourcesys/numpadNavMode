@@ -69,16 +69,21 @@ numlock to always be on when you start NVDA.
 
 #### Розширені варіанти використання
 
-If you use NVDA's powerful configuration profiles, and you would like the
-numlock to automatically turn on when you enter certain profiles, do the
-following: * While in the "normal profile", go to the Numpad Nav Mode
-settings panel described above. Check the box for "Initial numlock state is
-configuration profile dependent". This option is unchecked by default.  *
-Select OK.  * Change to the profile where you want numlock to be always
-turned off or on.  * Go back to the Numpad Nav Mode settings panel, and
-select the option to Turn numlock off or on, as you prefer.  * Then select
-OK. Now, whenever you enter this profile, the numlock will automatically
-change to the desired state.
+Якщо ви використовуєте профілі конфігурації NVDA і хочете, щоб numlock
+автоматично вмикався при вході в певні профілі, зробіть наступне:
+
+* Перебуваючи у "звичайному профілі", перейдіть на панель налаштувань Режим
+  навігації за допомогою цифрової клавіатури, описану вище. Встановіть
+  прапорець біля пункту "Початковий стан numlock залежить від профілю
+  конфігурації". Початково цей прапорець знято.
+* Натисніть Гаразд.
+* Перейдіть до профілю, де ви хочете, щоб numlock завжди був вимкнений або
+  увімкнений.
+* Поверніться на панель налаштувань Режим навігації за допомогою цифрової
+  клавіатури і виберіть опцію Вимкнути або увімкнути numlock, як вам
+  зручніше.
+* Потім натисніть Гаразд. Тепер щоразу, коли ви входитимете в цей профіль,
+  numlock автоматично змінюватиметься на потрібний стан.
 
 Note that this is a new feature, and I don't know if anyone has use for this
 feature. If you find one, please send an email or open [an issue][3], to let
@@ -114,7 +119,10 @@ features was borrowed from the legacy NumLock Manager add-on, by Noelia Ruiz
 
 [[!tag dev stable]]
 
-[1]: https://www.nvaccess.org/addonStore/legacy?file=numpadNavMode [2]:
-https://nvaccess.org/ [3]:
-https://github.com/opensourcesys/numpadNavMode/issues/new [4]:
-https://github.com/nvaccess/addon-datastore/discussions/2630
+[1]: https://www.nvaccess.org/addonStore/legacy?file=numpadNavMode
+
+[2]: https://nvaccess.org/
+
+[3]: https://github.com/opensourcesys/numpadNavMode/issues/new
+
+[4]: https://github.com/nvaccess/addon-datastore/discussions/2630

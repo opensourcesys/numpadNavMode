@@ -1,16 +1,16 @@
 # Modus navigacije s numeričkim blokom (Numpad Nav Mode) #
 
-# Numpad Nav Mode
+# Modus navigacije s numeričkim blokom
 
 * Autor: Luke Davis (Open Source Systems, Ltd.)
 * Preuzmi [stabilnu verziju][1]
 
-Numpad Nav Mode is an [NVDA][2] add-on, which allows you to easily switch
-your keyboard's numpad between NVDA's navigation controls and the
-non-screenreader Windows navigation controls. This can be especially useful
-for users migrating from Jaws to NVDA. This add-on also gives granular
-control over the numlock key toggle, both when NVDA starts, and optionally
-in profiles.
+„Modus navigacije s numeričkim blokom” je [NVDA][2] dodatak, koji omogućuje
+jednostavno prebacivanje numeričke tipkovnice između navigacijskih kontrola
+NVDA čitača i Windowsa. To može biti posebno korisno za korisnike koji
+migriraju s Jawsa na NVDA. Ovaj dodatak također omogućuje
+uključivanje/isključivanje numeričkog bloka kada se NVDA pokrene te
+opcionalno u profilima.
 
 ### Objašnjenje i funkcije modusa navigacije
 
@@ -61,11 +61,14 @@ mjesto, pritisni NVDA+N, P, S, a zatim N jednom ili više puta, sve dok ne
 Standardno se ništa ne radi s tipkom za uključivanje/isključivanje
 numeričkog bloka.
 
-However, if you share your computer with a sighted user who prefers that
-numlock always be turned on, but you like having it off so that the numpad
-works with NVDA, you may want the numlock to automatically turned off when
-NVDA starts.  Alternatively, you may enter a lot of data, and so prefer the
-numlock to always be on when you start NVDA.
+Međutim, ako računalo dijeliš s korisnikom koji vidi i koji radije želi da
+je tipka za uključivanje/isključivanje numeričkog bloka uvijek uključena,
+ali ti radije želiš da je isključena kako bi numerička tipkovnica radila s
+NVDA čitačem, možeš postaviti da se tipka za isključavanje/otključavanje
+numeričkog bloka automatski isključi kada se pokrene NVDA. Alternativno,
+možeš unijeti mnogo podataka, te stoga radije želiš da tipka za
+uključivanje/isključivanje numeričkog bloka uvijek bude uključena kad
+pokreneš NVDA.
 
  Go to NVDA menu, Preferences, Settings, Numpad Nav Mode, and use the "state of numlock when NVDA starts or profile loads" selector. This has three options. The first, "do not change", is the default, and won't touch the numlock. It will be in whatever state it was in before NVDA started.
 The second option, is "turn numlock off", which will always turn the numlock off when NVDA starts. The third option, "Turn numlock on", will turn the numlock on if it was off when NVDA started.
@@ -97,25 +100,25 @@ Reviews are very helpful, whether or not you use that feature.
 
 ### Nove funkcije
 
-I encourage you to post an [issue][3], or email with any feature
-suggestions, or other use cases that I haven't listed here, or just to let
-me know you find the add-on useful! But as mentioned above, if you do find
-it useful, please leave a [review][4].
+Potičem sve korisnike da prijave [problem][3] ili da pošalju e-mail s
+prijedlozima za funkcije ili za druge slučajeve korištenja koje ovdje nisam
+naveo ili čisto da znam da je dodatak koristan! Kao što je gore spomenuto,
+ako smatrate da je dodatak koristan pošaljite [recenziju][4].
 
 ### Povijest
 
-This add-on was the direct result of requests I've heard from users over the
-years, and a GitHub discussion in
-[#9549](https://github.com/nvaccess/nvda/issues/9549). With thanks to
-@Qchristensen and @feerrenrut.  The basic implementation of the numlock
-features was borrowed from the legacy NumLock Manager add-on, by Noelia Ruiz
-(@nvdaes on GitHub), and others. Used with permission.
+Ovaj je dodatak nastao na osnovi zahtjeva raznih korisnika za takvom
+funkcijom tijekom godina kao i rasprave na GitHubu u
+[#9549](https://github.com/nvaccess/nvda/issues/9549). Hvala @Qchristensen i
+@feerrenrut. Osnovna implementacija funkcije zaključavanja/otključavanja
+numeričkog bloka posuđena je iz starog dodatka NumLock Manager, stvoren od
+Noelia Ruiz (@nvdaes na GitHubu) i drugih. Koristi se uz dozvolu.
 
 ### Zapis promjena
 
 (Ovaj zapis promjena nije potpun. Pogledaj Git zapise za detalje.)
 
-* 24.1.0: NVDA 2024.X compatibility.
+* 24.1.0: NVDA 2024.X kompatibilnost.
 * 23.1.0: Dodane su funkcije upravljanja za uključivanje/isključivanje
   numeričkog bloka. Bolje zapisivanje. Poboljšano rukovanje konfiguracijskim
   profilom (rad u tijeku).

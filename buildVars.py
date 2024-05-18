@@ -26,7 +26,7 @@ addon_info = {
 Especially useful if migrating from Jaws; or for laptop users preferring laptop mode, but who have a numpad and want to use it for arrow keys, etc.
 The add-on also gives control of numlock state when starting NVDA or changing profiles."""),
 	# version
-	"addon_version": "24.1.4",
+	"addon_version": "24.1.104",
 	# Author(s)
 	"addon_author": "Luke Davis (Open Source Systems, Ltd.) <XLTechie@newanswertech.com>",
 	# URL for the add-on documentation support
@@ -38,11 +38,11 @@ The add-on also gives control of numlock state when starting NVDA or changing pr
 	# Minimum NVDA version supported (e.g. "2018.3.0", minor version is optional)
 	"addon_minimumNVDAVersion": "2019.3.0",
 	# Last NVDA version supported/tested (e.g. "2018.4.0", ideally more recent than minimum version)
-	"addon_lastTestedNVDAVersion": "2024.1",
+	"addon_lastTestedNVDAVersion": "2024.2",
 	# Add-on update channel (default is None, denoting stable releases,
 	# and for development releases, use "dev".)
 	# Do not change unless you know what you are doing!
-	"addon_updateChannel": None,
+	"addon_updateChannel": "beta",
 	# Add-on license such as GPL 2
 	"addon_license": "GPL 2",
 	# URL for the license document the ad-on is licensed under

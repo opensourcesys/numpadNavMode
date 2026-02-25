@@ -12,8 +12,8 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 import types
+from typing import Any, NamedTuple
 import winUser  # NLM
-from collections import namedtuple
 import wx
 
 import gui
@@ -102,7 +102,11 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	NVDA = 1
 
 	#: Each gesture we manipulate will have these three fields, not including the gesture itself.
-	G = namedtuple('G', 'mod cls scr')
+	G = NamedTuple('G', [
+		("mod", Any),
+		("cls", Any),
+		("scr", Any)
+	])
 
 	#: These are the gestures we override to make the numpad perform Windows nav.
 	#: The G objects are namedtuples holding the module, class, and the script applicable to each gesture.
@@ -293,7 +297,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		log.info(f"Numpad set to {self.modeTextEN} nav mode.")
 
 	@classmethod
-	def _getAllGesturesAsGDict(cls) -> dict:
+	def _getAllGesturesAsGDict(cls) -> dict[Any, Any]:
 		"""Returns a dict of all currently configured user gestures, using G objects."""
 		gDict = {
 			gest: cls.G(mc.__module__, mc.__name__, scr)
@@ -365,7 +369,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		currentGestures = self._getAllGesturesAsGDict()
 		for gest, action in self.userGestures.items():
 			# If the gesture isn't set, we need to put it back.
-			if not gest in currentGestures:
+			if gest not in currentGestures:
 				manager.userGestureMap.add(gest, *action, True)
 
 	def handleConfigProfileSwitch(self):

@@ -1,0 +1,90 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the numpadNavMode package.
+# Josevan Barbosa Fernandes <josevanfernandes@yahoo.com.br>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: numpadNavMode 23.1.1\n"
+"Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
+"POT-Creation-Date: 2023-03-31 14:03+0000\n"
+"PO-Revision-Date: 2024-12-27 20:50-0300\n"
+"Last-Translator: Josevan Fernandes <josevanfernandes@yahoo.com.br>\n"
+"Language-Team: NVDA Brazilian Portuguese translation team (Equipe de "
+"tradução do NVDA para Português Brasileiro) <clever97@gmail.com>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.5\n"
+
+#. Translators: This is the label for the Numpad Nav Mode settings category in NVDA Settings panel.
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on
+#. to be shown on installation and add-on information found in Add-ons Manager.
+msgid "Numpad Nav Mode"
+msgstr "Modo de navegação do teclado numérico"
+
+#. Translators: The label for a checkbox in Numpad Nav Mode settings panel
+msgid "Start NVDA with the numpad set to Windows nav mode"
+msgstr ""
+"Inicie o NVDA com o teclado numérico definido para o modo de navegação do "
+"Windows"
+
+#. Translators: Label of the list which allows configuring initial numlock state
+msgid "State of numlock when NVDA starts or profile loads"
+msgstr "Estado do numlock quando o NVDA é iniciado ou o perfil é carregado"
+
+#. Translators: Option not to change numlock state when NVDA starts/profile is loaded
+msgid "Do not change"
+msgstr "Não alterar"
+
+#. Translators: Option to turn numlock off when NVDA starts/profile is loaded
+msgid "Turn numlock off"
+msgstr "Desabilitar o numlock"
+
+#. Translators: Option to turn numlock on when NVDA starts/profile is loaded
+msgid "Turn numlock on"
+msgstr "Desabilitar o numlock"
+
+#. Translators: The label for a checkbox in Numpad Nav Mode settings panel
+msgid "Initial numlock state is configuration profile dependent"
+msgstr "O estado inicial do numlock depende do perfil de configuração"
+
+#. Translators: returned as part of some user messages
+msgid "NVDA"
+msgstr "NVDA"
+
+#. Translators: returned as part of some user messages
+msgid "Windows"
+msgstr "Windows"
+
+#. Translators: description of the Numpad Nav Mode toggle gesture for keyboard help
+msgid ""
+"Toggles the numpad between NVDA navigation and Windows navigation modes."
+msgstr "Alterna o teclado numérico entre os modos de navegação NVDA e Windows."
+
+#. Translators: message given to the user when the numpad's mode changes between NVDA and Windows nav
+#. Note: the variable given to format() is already translated.
+msgid "Numpad mode {}."
+msgstr "Modo Numérico {}."
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#, fuzzy
+msgid ""
+"Allows switching the numpad between NVDA navigation mode, and Windows "
+"navigation mode.\n"
+"Especially useful if migrating from Jaws; or for laptop users preferring "
+"laptop mode, but who have a numpad and want to use it for arrow keys, etc.\n"
+"The add-on also gives control of numlock state when starting NVDA or "
+"changing profiles."
+msgstr ""
+"Permite alternar o teclado numérico entre o modo de navegação do NVDA e o "
+"modo de navegação do Windows.\n"
+"Especialmente útil se estiver migrando do Jaws ou para usuários de laptop "
+"que preferem o modo laptop, mas que têm um teclado numérico e querem usá-lo "
+"para as teclas de seta, etc.\n"
+"O complemento também permite o controle do estado do teclado numérico ao "
+"iniciar o NVDA ou alterar perfis..."

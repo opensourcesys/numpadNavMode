@@ -25,13 +25,13 @@ addon_info = AddonInfo(
 Especially useful if migrating from Jaws; or for laptop users preferring laptop mode, but who have a numpad and want to use it for arrow keys, etc.
 The add-on also gives control of numlock state when starting NVDA or changing profiles."""),
 	# version
-	addon_version="26.1",
+	addon_version="26.1.2",
 	# Brief changelog for this version
 	# Translators: what's new content for the add-on version to be shown in the add-on store
 	addon_changelog=_("""* NVDA 2025.1 compatibility.
 * Made the add-on code more robust with help from Pyright (a Python static type checker)."""),
 	# Author(s)
-	addon_author="Luke Davis (Open Source Systems, Ltd.) <XLTechie@newanswertech.com>",
+	addon_author="Luke Davis <XLTechie@newanswertech.com>, Joseph Lee <joseph.lee22590@gmail.com>",
 	# URL for the add-on documentation support
 	addon_url="https://github.com/opensourcesys/numpadNavMode/blob/master/readme.md#readme",
 	# URL for the add-on repository where the source code can be found

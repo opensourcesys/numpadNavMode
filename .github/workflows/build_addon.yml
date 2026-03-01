@@ -16,7 +16,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - run: echo -e "pre-commit\nscons\nmarkdown">requirements.txt
 
     - name: Set up Python
       uses: actions/setup-python@v4

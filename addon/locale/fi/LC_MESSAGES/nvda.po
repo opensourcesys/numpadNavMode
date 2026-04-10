@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nvdaaddons\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
-"POT-Creation-Date: 2025-09-15 07:55+0000\n"
-"PO-Revision-Date: 2026-01-05 00:35\n"
+"POT-Creation-Date: 2026-03-30 04:16+0000\n"
+"PO-Revision-Date: 2026-04-06 00:45\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -18,10 +18,10 @@ msgstr ""
 "X-Crowdin-File-ID: 412\n"
 
 #. Translators: This is the label for the Numpad Nav Mode settings category in NVDA Settings panel.
-#. Add-on summary, usually the user visible name of the addon.
-#. Translators: Summary for this add-on
-#. to be shown on installation and add-on information found in Add-ons Manager.
-#: addon/globalPlugins/numpadNavMode.py:49 buildVars.py:22
+#. Add-on summary/title, usually the user visible name of the add-on
+#. Translators: Summary/title for this add-on
+#. to be shown on installation and add-on information found in add-on store
+#: addon/globalPlugins/numpadNavMode.py:49 buildVars.py:21
 msgid "Numpad Nav Mode"
 msgstr "Laskinnäppäimistön navigointitila"
 
@@ -56,33 +56,41 @@ msgid "Initial numlock state is configuration profile dependent"
 msgstr "Numlockin alkutila on riippuvainen asetusprofiilista"
 
 #. Translators: returned as part of some user messages
-#: addon/globalPlugins/numpadNavMode.py:246
+#: addon/globalPlugins/numpadNavMode.py:250
 msgid "NVDA"
 msgstr "NVDA"
 
 #. Translators: returned as part of some user messages
-#: addon/globalPlugins/numpadNavMode.py:249
+#: addon/globalPlugins/numpadNavMode.py:253
 msgid "Windows"
 msgstr "Windows"
 
 #. Translators: description of the Numpad Nav Mode toggle gesture for keyboard help
-#: addon/globalPlugins/numpadNavMode.py:281
+#: addon/globalPlugins/numpadNavMode.py:285
 msgid "Toggles the numpad between NVDA navigation and Windows navigation modes."
 msgstr "Vaihtaa laskinnäppäimistön NVDA- ja Windows-navigointitilojen välillä."
 
 #. Translators: message given to the user when the numpad's mode changes between NVDA and Windows nav
 #. Note: the variable given to format() is already translated.
-#: addon/globalPlugins/numpadNavMode.py:292
+#: addon/globalPlugins/numpadNavMode.py:296
 msgid "Numpad mode {}."
 msgstr "Laskinnäppäimistön tila {}."
 
 #. Add-on description
-#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
-#: buildVars.py:25
+#. Translators: Long description to be shown for this add-on on add-on information from add-on store
+#: buildVars.py:24
 msgid "Allows switching the numpad between NVDA navigation mode, and Windows navigation mode.\n"
 "Especially useful if migrating from Jaws; or for laptop users preferring laptop mode, but who have a numpad and want to use it for arrow keys, etc.\n"
 "The add-on also gives control of numlock state when starting NVDA or changing profiles."
 msgstr "Mahdollistaa laskinnäppäimistön vaihtamisen NVDA- ja Windows-navigointitilojen välillä.\n"
 "Tämä on erittäin hyödyllistä JAWSista siirryttäessä tai kannettavien tietokoneiden käyttäjille, jotka käyttävät mieluummin kannettavan näppäimistöasettelua mutta joilla on laskinnäppäimistö ja haluavat käyttää sitä nuolinäppäimiä varten jne.\n"
 "Lisäosa voi myös hallita Numlockin tilaa NVDA:ta käynnistettäessä tai profiilia vaihdettaessa."
+
+#. Brief changelog for this version
+#. Translators: what's new content for the add-on version to be shown in the add-on store
+#: buildVars.py:31
+msgid "* NVDA 2026.1 ready.\n"
+"* Made the add-on code more robust with help from Pyright (a Python static type checker)."
+msgstr "* NVDA 2026.1 -yhteensopiva.\n"
+"* Lisäosan koodin luotettavuutta on parannettu Pyright-työkalun (Pythonin staattinen tyyppitarkistin) avulla."
 

@@ -1,137 +1,72 @@
-# Numpad Nav Mode #
+# Numpad Nav Mode
 
-# Modo de navegação do teclado numérico
+* Author: Luke Davis (Open Source Systems, Ltd.)
+* Download [stable version][1]
 
-* Autor: Luke Davis (Open Source Systems, Ltd.)
-* Download [versão estável][1]
+Numpad Nav Mode is an [NVDA][2] add-on, which allows you to easily switch your keyboard's numpad between NVDA's navigation controls and the non-screenreader Windows navigation controls. This can be especially useful for users migrating from Jaws to NVDA. This add-on also gives granular control over the numlock key toggle, both when NVDA starts, and optionally in profiles.
 
-O Numpad Nav Mode é um complemento do [NVDA][2] que permite alternar
-facilmente o teclado numérico do teclado entre os controles de navegação do
-NVDA e os controles de navegação do Windows que não são de leitura de
-tela. Isso pode ser especialmente útil para usuários que estão migrando do
-Jaws para o NVDA. Esse complemento também oferece controle granular sobre a
-alternância da tecla numlock, quando o NVDA é iniciado e, opcionalmente, nos
-perfis.
+### Navigation modes explanation and features
 
-### Explicação e recursos dos modos de navegação
+The normal functions of the PC number pad, with numlock off, are: page up, page down, home, end, four-way arrow keys, and a delete key.
+But NVDA completely takes over the numpad, to provide review keys, mouse controls, and object navigation controls. This is true even in laptop keyboard mode, which also duplicates those functions on non-numpad keys.
 
-As funções normais do teclado numérico do PC, com o numlock desativado, são:
-page up, page down, home, end, teclas de seta de quatro direções e uma tecla
-de exclusão.  Mas o NVDA assume completamente o teclado numérico para
-fornecer teclas de revisão, controles de mouse e controles de navegação de
-objetos. Isso ocorre mesmo no modo de teclado do laptop, que também duplica
-essas funções em teclas que não são do teclado numérico.
+However some users do have a numpad on their laptop, and would prefer to use it for Windows navigation purposes (at least some of the time), especially because some laptops do not provide home, end, or other such keys.  That is where this add-on can help.
+Additionally, some desktop users, for example those used to the way the numpad works in JAWS, may sometimes find it convenient to use the numpad for those keyboard functions rather than the normal NVDA keys, which this add-on enables.
+This includes the popular JAWS command NumpadInsert+Numpad2, for read to end, which was a specific feature request from some early users of this add-on.
 
-No entanto, alguns usuários têm um teclado numérico no laptop e preferem
-usá-lo para fins de navegação no Windows (pelo menos em parte do tempo),
-especialmente porque alguns laptops não oferecem as teclas home, end ou
-outras teclas semelhantes.  É nesse ponto que esse complemento pode ajudar.
-Além disso, alguns usuários de desktop, por exemplo, aqueles acostumados com
-a forma como o teclado numérico funciona no JAWS, às vezes podem achar
-conveniente usar o teclado numérico para essas funções do teclado em vez das
-teclas normais do NVDA, que este complemento permite.  Isso inclui o popular
-comando do JAWS NumpadInsert+Numpad2, para leitura até o fim, que foi uma
-solicitação de recurso específica de alguns dos primeiros usuários desse
-complemento.
+### How it works
 
-### Como funciona
+With numlock off, no matter what keyboard layout you are using, this add-on will let you press Alt+NVDA+NumpadPlus (which is usually the long key second up on the right), to quickly and easily switch between the normal NVDA navigation controls, and the classic Windows navigation controls. This key can be remapped under Input Gestures, in the Input section.
 
-Com o numlock desativado, independentemente do layout de teclado que estiver
-usando, esse complemento permitirá que você pressione Alt+NVDA+NumpadPlus
-(que geralmente é a segunda tecla longa à direita) para alternar rápida e
-facilmente entre os controles de navegação normais do NVDA e os controles de
-navegação clássicos do Windows. Essa tecla pode ser remapeada em Gestos de
-entrada, na seção Entrada.
+Note that this add-on doesn't disable the use of numpad insert as an NVDA modifier, if you have it set as such. If you want that feature, please let me know, although you can manually turn off numpad insert as a modifier in NVDA keyboard settings. It also doesn't change the NVDA function of numpad delete (key between zero and enter)--contact me if you desire this.
 
-Note que esse complemento não desativa o uso da inserção do teclado numérico
-como modificador do NVDA, se você o tiver configurado como tal. Se desejar
-esse recurso, informe-me, embora você possa desativar manualmente a inserção
-do teclado numérico como modificador nas configurações de teclado do
-NVDA. Isso também não altera a função NVDA de exclusão do teclado numérico
-(tecla entre zero e enter) - entre em contato comigo se desejar isso.
+If you would prefer to have NVDA start with the Windows nav mode active by default, you can configure that in NVDA configuration.  Go to NVDA's preferences, then settings, and find the Numpad Nav Mode settings panel.  There you will be able to select a checkbox to turn Windows Nav Mode on by default when you start NVDA.
+To get there quickly, press NVDA+N, P, S, then N one or more times until you hear "Numpad Nav Mode".
 
-Se preferir que o NVDA inicie com o modo de navegação do Windows ativo por
-padrão, você pode definir isso na configuração do NVDA.  Vá para as
-preferências do NVDA, depois para as configurações e encontre o painel de
-configurações do Modo de navegação do Teclado numérico.  Lá, você poderá
-marcar uma caixa de seleção para ativar o modo de navegação do Windows por
-padrão ao iniciar o NVDA.  Para chegar lá rapidamente, pressione NVDA+N, P,
-S e, em seguida, N uma ou mais vezes até ouvir “Numpad Nav Mode”.
+### Numlock features
 
-### Recursos do Numlock
+By default, nothing is done with the numlock key.
 
-Por padrão, nada é feito com a tecla numlock.
+However, if you share your computer with a sighted user who prefers that numlock always be turned on, but you like having it off so that the numpad works with NVDA, you may want the numlock to automatically turned off when NVDA starts.
+Alternatively, you may enter a lot of data, and so prefer the numlock to always be on when you start NVDA.
 
-No entanto, se você compartilha o computador com um usuário com visão que
-prefere que o numlock esteja sempre ativado, mas você gosta de desativá-lo
-para que o teclado numérico funcione com o NVDA, talvez queira que o numlock
-seja desativado automaticamente quando o NVDA for iniciado.  Como
-alternativa, você pode inserir muitos dados e preferir que o numlock esteja
-sempre ligado quando iniciar o NVDA.
+ Go to NVDA menu, Preferences, Settings, Numpad Nav Mode, and use the "state of numlock when NVDA starts or profile loads" selector. This has three options. The first, "do not change", is the default, and won't touch the numlock. It will be in whatever state it was in before NVDA started.
+The second option, is "turn numlock off", which will always turn the numlock off when NVDA starts. The third option, "Turn numlock on", will turn the numlock on if it was off when NVDA started.
+If you choose either the second or third option, the numlock will be restored to whatever state it was in before, when you exit NVDA. For example, if you choose "Turn numlock off", and numlock was on when you started NVDA: it will be turned off while you use NVDA, but will be turned back on when you exit NVDA.
 
- Vá para o menu NVDA, Preferências, Configurações, Modo de navegação do teclado numérico e use o seletor “estado do teclado numérico quando o NVDA é iniciado ou o perfil é carregado”. Ele tem três opções. A primeira, “não alterar", é o padrão e não mexerá no teclado numérico. Ele estará no estado em que se encontrava antes do início do NVDA.
-A segunda opção é “desativar o numlock", que sempre desativará o numlock quando o NVDA for iniciado. A terceira opção, “Ativar o numlock", ativará o numlock se ele estiver desativado quando o NVDA for iniciado.
-Se você escolher a segunda ou a terceira opção, o numlock será restaurado para o estado em que estava antes, quando você sair do NVDA. Por exemplo, se você escolher “Desativar o numlock" e o numlock estava ativado quando você iniciou o NVDA, ele será desativado enquanto você estiver usando o NVDA, mas será ativado novamente quando você sair do NVDA.
+#### Advanced use cases
 
-#### Casos de uso avançados
+If you use NVDA's powerful configuration profiles, and you would like the numlock to automatically turn on when you enter certain profiles, do the following:
+* While in the "normal profile", go to the Numpad Nav Mode settings panel described above. Check the box for "Initial numlock state is configuration profile dependent". This option is unchecked by default.
+* Select OK.
+* Change to the profile where you want numlock to be always turned off or on.
+* Go back to the Numpad Nav Mode settings panel, and select the option to Turn numlock off or on, as you prefer.
+* Then select OK. Now, whenever you enter this profile, the numlock will automatically change to the desired state.
 
-Se você usar os perfis de configuração avançados do NVDA e quiser que o
-teclado numérico seja ativado automaticamente quando você entrar em
-determinados perfis, faça o seguinte:
+Note that this is a new feature, and I don't know if anyone has use for this feature. If you find one, please send an email or open [an issue][3], to let me know how you have found to make use of it.
 
-* Enquanto estiver no “perfil normal”, vá para o painel de configurações do
-  modo de navegação do Teclado Numérico descrito acima. Marque a caixa de
-  seleção “O estado inicial do teclado numérico depende do perfil de
-  configuração". Essa opção está desmarcada por padrão.
-* Selecione OK.
-* Mude para o perfil em que você deseja que o numlock esteja sempre ativado
-  ou desativado.
-* Volte ao painel de configurações do Modo de navegação do teclado numérico
-  e selecione a opção Ativar ou desativar o teclado numérico, conforme sua
-  preferência.
-* Então, selecione OK. Agora, sempre que você entrar nesse perfil, o teclado
-  numérico mudará automaticamente para o estado desejado.
+Or, better yet, leave a [review][4] for the add-on, and comment on it there!
+Reviews are very helpful, whether or not you use that feature.
 
-Note que esse é um recurso novo, e não sei se alguém já o utilizou. Se você
-encontrar um, envie um e-mail ou abra [uma edição][3] para que eu saiba como
-você o utilizou.
+### New features
 
-Ou, melhor ainda, deixe uma [avaliação][4] para o complemento e comente
-sobre ele lá! As avaliações são muito úteis, independentemente de você usar
-ou não esse recurso.
+I encourage you to post an [issue][3], or email with any feature suggestions, or other use cases that I haven't listed here, or just to let me know you find the add-on useful!
+But as mentioned above, if you do find it useful, please leave a [review][4].
 
-### Novos recursos
+### History
 
-Incentivo você a publicar um [issue][3] ou enviar um e-mail com sugestões de
-recursos ou outros casos de uso que eu não tenha listado aqui, ou apenas
-para que eu saiba que você acha o complemento útil! Mas, conforme mencionado
-acima, se você achar que ele é útil, deixe uma [avaliação][4].
+This add-on was the direct result of requests I've heard from users over the years, and a GitHub discussion in [#9549](https://github.com/nvaccess/nvda/issues/9549). With thanks to @Qchristensen and @feerrenrut.
+The basic implementation of the numlock features was borrowed from the legacy NumLock Manager add-on, by Noelia Ruiz (@nvdaes on GitHub), and others. Used with permission.
 
-### Histórico
+### Changelog
 
-Esse complemento foi o resultado direto de solicitações que ouvi de usuários
-ao longo dos anos e de uma discussão no GitHub em [#9549]
-(https://github.com/nvaccess/nvda/issues/9549). Agradecimentos a
-@Qchristensen e @feerrenrut.  A implementação básica dos recursos de numlock
-foi emprestada do complemento legado NumLock Manager, de Noelia Ruiz
-(@nvdaes no GitHub) e outros. Usado com permissão.
+(This changelog is incomplete. See Git log for full details.)
 
-### Registro de alterações
-
-(Este registro de alterações está incompleto. Consulte o registro do Git
-para obter todos os detalhes.)
-
-* 24.1.0: Compatibilidade com o NVDA 2024.X.
-* 23.1.0: Adicionados recursos de gerenciamento de numlock. Melhor registro
-  em log. Manuseio aprimorado do perfil de configuração (WIP).
-* 23.0: Compatibilidade com o NVDA 2023.X.
-
-[[!tag dev stable]]
+* 24.1.0: NVDA 2024.X compatibility.
+* 23.1.0: Added numlock management features. Better logging. Improved config profile handling (WIP).
+* 23.0: NVDA 2023.X compatibility.
 
 [1]: https://www.nvaccess.org/addonStore/legacy?file=numpadNavMode
-
 [2]: https://nvaccess.org/
-
 [3]: https://github.com/opensourcesys/numpadNavMode/issues/new
-
 [4]: https://github.com/nvaccess/addon-datastore/discussions/2630

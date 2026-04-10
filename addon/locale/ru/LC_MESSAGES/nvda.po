@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nvdaaddons\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
-"POT-Creation-Date: 2026-03-09 03:47+0000\n"
-"PO-Revision-Date: 2026-03-30 00:45\n"
+"POT-Creation-Date: 2026-03-30 04:16+0000\n"
+"PO-Revision-Date: 2026-04-06 01:48\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -89,8 +89,7 @@ msgstr "Позволяет переключать цифровую клавиа�
 #. Brief changelog for this version
 #. Translators: what's new content for the add-on version to be shown in the add-on store
 #: buildVars.py:31
-msgid "* NVDA 2026.1 compatibility.\n"
+msgid "* NVDA 2026.1 ready.\n"
 "* Made the add-on code more robust with help from Pyright (a Python static type checker)."
-msgstr "* Совместимость с NVDA 2026.1.\n"
-"* Код дополнения стал более надёжным с помощью Pyright (средства проверки статических типов Python)."
+msgstr ""
 

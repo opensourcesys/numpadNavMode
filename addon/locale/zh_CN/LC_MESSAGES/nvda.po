@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nvdaaddons\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
-"POT-Creation-Date: 2026-03-09 03:47+0000\n"
-"PO-Revision-Date: 2026-03-30 00:45\n"
+"POT-Creation-Date: 2026-03-30 04:16+0000\n"
+"PO-Revision-Date: 2026-04-06 01:44\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -89,8 +89,7 @@ msgstr "允许将数字键盘在 NVDA 导航和 Windows 编辑模式之间切换
 #. Brief changelog for this version
 #. Translators: what's new content for the add-on version to be shown in the add-on store
 #: buildVars.py:31
-msgid "* NVDA 2026.1 compatibility.\n"
+msgid "* NVDA 2026.1 ready.\n"
 "* Made the add-on code more robust with help from Pyright (a Python static type checker)."
-msgstr "* 兼容 NVDA 2026.1。\n"
-"* 在 Pyright（Python 静态类型检查器）的帮助下，使插件代码更加健壮。"
+msgstr ""
 

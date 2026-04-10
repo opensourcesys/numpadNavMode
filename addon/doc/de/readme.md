@@ -1,138 +1,72 @@
-# Nummernblock-Navigationsmodus #
-
 # Numpad Nav Mode
 
-* Autor: Luke Davis (Open Source Systems, Ltd.)
-* [Stabile Version herunterladen][1]
+* Author: Luke Davis (Open Source Systems, Ltd.)
+* Download [stable version][1]
 
-Numpad Nav Mode is an [NVDA][2] add-on, which allows you to easily switch
-your keyboard's numpad between NVDA's navigation controls and the
-non-screenreader Windows navigation controls. This can be especially useful
-for users migrating from Jaws to NVDA. This add-on also gives granular
-control over the numlock key toggle, both when NVDA starts, and optionally
-in profiles.
+Numpad Nav Mode is an [NVDA][2] add-on, which allows you to easily switch your keyboard's numpad between NVDA's navigation controls and the non-screenreader Windows navigation controls. This can be especially useful for users migrating from Jaws to NVDA. This add-on also gives granular control over the numlock key toggle, both when NVDA starts, and optionally in profiles.
 
-### Erklärung der Navigationsmodi und Funktionen
+### Navigation modes explanation and features
 
-Die normalen Funktionen des Nummernblock bei deaktivierter Funktion des
-Nummernblocks sind: Seite nach oben, Seite nach unten, Home, Ende,
-Vier-Wege-Pfeiltasten und eine Löschtaste. NVDA übernimmt jedoch den
-Nummernblock vollständig, um Tasten zur Ansicht, Maussteuerung und
-Objektnavigationssteuerung bereitzustellen. Dies gilt auch für den
-Tastaturmodus am Laptop, der diese Funktionen auch ohne Nummernblock
-dupliziert.
+The normal functions of the PC number pad, with numlock off, are: page up, page down, home, end, four-way arrow keys, and a delete key.
+But NVDA completely takes over the numpad, to provide review keys, mouse controls, and object navigation controls. This is true even in laptop keyboard mode, which also duplicates those functions on non-numpad keys.
 
-Einige Benutzer haben jedoch einen Nummernblock auf dem Laptop und würden
-diesen gerne für die Windows-Navigation verwenden (zumindest zeitweise), vor
-allem, weil einige Laptops keine Pos1-, Ende- oder andere derartige Tasten
-haben. In diesem Fall kann diese NVDA-Erweiterung helfen. Darüber hinaus
-finden es manche Benutzer am einem Desktop-PC, die beispielsweise an die
-Funktionsweise des Nummernblocks in JAWS gewöhnt sind, manchmal bequemer,
-den ihn für diese Tastaturfunktionen zu verwenden, als die normalen
-NVDA-Tasten, was diese NVDA-Erweiterung ermöglicht.  Dies gilt auch für den
-beliebten JAWS-Befehl Nummernblock-Einfügen+Nummernblock 2 zum Lesen bis zum
-Ende, der ein spezieller Funktionswunsch einiger früherer Benutzer diese
-NVDA-Erweiterung war.
+However some users do have a numpad on their laptop, and would prefer to use it for Windows navigation purposes (at least some of the time), especially because some laptops do not provide home, end, or other such keys.  That is where this add-on can help.
+Additionally, some desktop users, for example those used to the way the numpad works in JAWS, may sometimes find it convenient to use the numpad for those keyboard functions rather than the normal NVDA keys, which this add-on enables.
+This includes the popular JAWS command NumpadInsert+Numpad2, for read to end, which was a specific feature request from some early users of this add-on.
 
-### Funktionsweise
+### How it works
 
-Bei ausgeschaltetem Nummernblock und in allen Tastaturschemen können Sie
-alt+NVDA+Nummernblock plus betätigen, um zwischen den bekannten
-NVDA-Navigationsbefehlen sowie den Windows-Navigationsbefehlen zu
-wechseln. Zumeist ist Nummernblock plus die obere längere Taste ganz rechts
-auf der Tastatur. Die Tastenkombination kann man im Dialog Tastenbefehle
-unter Eingabe anpassen.
+With numlock off, no matter what keyboard layout you are using, this add-on will let you press Alt+NVDA+NumpadPlus (which is usually the long key second up on the right), to quickly and easily switch between the normal NVDA navigation controls, and the classic Windows navigation controls. This key can be remapped under Input Gestures, in the Input section.
 
-Beachten Sie, dass diese NVDA-Erweiterung nicht die Verwendung des
-Nummernblocks als NVDA-Modifikator deaktiviert, wenn Sie ihn als solchen
-eingestellt haben. Wenn Sie diese Funktion wünschen, lassen Sie es dem Autor
-bitte wissen, obwohl Sie die Einfügung des Nummernblocks als Modifikator in
-den NVDA-Tastatureinstellungen manuell deaktivieren können. Auch die
-NVDA-Funktion des Nummernblocks zum Löschen (Taste zwischen Null und Enter)
-wird nicht verändert - kontaktieren Sie ebenfalls den Autor, wenn Sie dies
-wünschen.
+Note that this add-on doesn't disable the use of numpad insert as an NVDA modifier, if you have it set as such. If you want that feature, please let me know, although you can manually turn off numpad insert as a modifier in NVDA keyboard settings. It also doesn't change the NVDA function of numpad delete (key between zero and enter)--contact me if you desire this.
 
-Wenn Sie wollen, dass beim Start von NVDA der Windows-Navigations-Modus
-aktiv ist, können Sie dies in den Einstellungen von NVDA festlegen. Gehen
-Sie hierzu in die Optionen -> Einstellungen und suchen Sie dort den Eintrag
-Nummernblock-Navigations-modus. Dort finden Sie ein Kontrollfeld, welches
-ermöglicht, die Windows-Navigation beim NVDA-Start einzuschalten. Um schnell
-dort hin zu kommen, drücken Sie NVDA+N, o, e und mehrere male n, bis Sie
-"Nummernblock-Navigations-Modus" hören.
+If you would prefer to have NVDA start with the Windows nav mode active by default, you can configure that in NVDA configuration.  Go to NVDA's preferences, then settings, and find the Numpad Nav Mode settings panel.  There you will be able to select a checkbox to turn Windows Nav Mode on by default when you start NVDA.
+To get there quickly, press NVDA+N, P, S, then N one or more times until you hear "Numpad Nav Mode".
 
-### Nummernblock-Features
+### Numlock features
 
-Standardmäßig wird mit der Taste des Nummernblocks nichts gemacht.
+By default, nothing is done with the numlock key.
 
-However, if you share your computer with a sighted user who prefers that
-numlock always be turned on, but you like having it off so that the numpad
-works with NVDA, you may want the numlock to automatically turned off when
-NVDA starts.  Alternatively, you may enter a lot of data, and so prefer the
-numlock to always be on when you start NVDA.
+However, if you share your computer with a sighted user who prefers that numlock always be turned on, but you like having it off so that the numpad works with NVDA, you may want the numlock to automatically turned off when NVDA starts.
+Alternatively, you may enter a lot of data, and so prefer the numlock to always be on when you start NVDA.
 
-Gehen Sie in das NVDA-menü, Optionen, Einstellungen, Navigationsmodus des Nummernblocks, und verwenden Sie die Option "Status des Nummernblocks beim Start von NVDA oder beim Laden des Profils". Hier gibt es drei Optionen. Die erste, "Nicht ändern", ist die Standard-Einstellung, die den Nummernblock nicht verändert. Es bleibt in dem Zustand, in dem er sich vor dem Start von NVDA befand.
-Die zweite Option, "Nummernblock ausschalten", schaltet den Nummernblock beim Start von NVDA immer aus. Die dritte Option, "Nummernblock einschalten", schaltet den Nummernblock ein, wenn er beim Start von NVDA ausgeschaltet war.
-Wenn Sie sich für die zweite oder dritte Option entscheiden, wird der Nummernblock beim Beenden von NVDA in den Zustand zurückgesetzt, in dem er vorher war. Wenn Sie z. B. "Nummernblock ausschalten" auswählen und der Nummernblock beim Start von NVDA eingeschaltet war, wird er während der Benutzung von NVDA ausgeschaltet, aber beim Beenden von NVDA wieder eingeschaltet.
+ Go to NVDA menu, Preferences, Settings, Numpad Nav Mode, and use the "state of numlock when NVDA starts or profile loads" selector. This has three options. The first, "do not change", is the default, and won't touch the numlock. It will be in whatever state it was in before NVDA started.
+The second option, is "turn numlock off", which will always turn the numlock off when NVDA starts. The third option, "Turn numlock on", will turn the numlock on if it was off when NVDA started.
+If you choose either the second or third option, the numlock will be restored to whatever state it was in before, when you exit NVDA. For example, if you choose "Turn numlock off", and numlock was on when you started NVDA: it will be turned off while you use NVDA, but will be turned back on when you exit NVDA.
 
-#### Erweiterte Anwendungsfälle
+#### Advanced use cases
 
-Wenn Sie die leistungsstarken NVDA-Konfigurationsprofile verwenden und
-möchten, dass die Funktion des Nummernblocks automatisch aktiviert wird,
-wenn Sie bestimmte Profile eingeben, gehen Sie wie folgt vor:
+If you use NVDA's powerful configuration profiles, and you would like the numlock to automatically turn on when you enter certain profiles, do the following:
+* While in the "normal profile", go to the Numpad Nav Mode settings panel described above. Check the box for "Initial numlock state is configuration profile dependent". This option is unchecked by default.
+* Select OK.
+* Change to the profile where you want numlock to be always turned off or on.
+* Go back to the Numpad Nav Mode settings panel, and select the option to Turn numlock off or on, as you prefer.
+* Then select OK. Now, whenever you enter this profile, the numlock will automatically change to the desired state.
 
-* Rufen Sie im "normalen Profil" die oben beschriebene Einstellung für den
-  Navigationsmodus des Nummernblocks auf. Aktivieren Sie das
-  Kontrollkästchen "Der anfängliche Numlock-Zustand ist abhängig vom
-  Konfigurationsprofil". Diese Option ist standardmäßig nicht markiert.
-* Klicken Sie auf die Schaltfläche "OK".
-* Wechseln Sie zu dem Profil, in dem die Funktion des Nummernblocks immer
-  aktiviert oder deaktiviert sein soll.
-* Gehen Sie zurück in die Einstellungen für den Navigationsmodus des
-  Nummernblocks und wählen Sie die Option Nummernblock aus- oder
-  einschalten, je nach Wunsch.
-* Klicken Sie dann auf die Schaltfläche "OK". Wenn Sie nun dieses Profil
-  eingeben, wechselt der Nummernblock automatisch in den gewünschten
-  Zustand.
-
-Note that this is a new feature, and I don't know if anyone has use for this
-feature. If you find one, please send an email or open [an issue][3], to let
-me know how you have found to make use of it.
+Note that this is a new feature, and I don't know if anyone has use for this feature. If you find one, please send an email or open [an issue][3], to let me know how you have found to make use of it.
 
 Or, better yet, leave a [review][4] for the add-on, and comment on it there!
 Reviews are very helpful, whether or not you use that feature.
 
-### Neue Features
+### New features
 
-I encourage you to post an [issue][3], or email with any feature
-suggestions, or other use cases that I haven't listed here, or just to let
-me know you find the add-on useful! But as mentioned above, if you do find
-it useful, please leave a [review][4].
+I encourage you to post an [issue][3], or email with any feature suggestions, or other use cases that I haven't listed here, or just to let me know you find the add-on useful!
+But as mentioned above, if you do find it useful, please leave a [review][4].
 
-### Verlauf
+### History
 
-This add-on was the direct result of requests I've heard from users over the
-years, and a GitHub discussion in
-[#9549](https://github.com/nvaccess/nvda/issues/9549). With thanks to
-@Qchristensen and @feerrenrut.  The basic implementation of the numlock
-features was borrowed from the legacy NumLock Manager add-on, by Noelia Ruiz
-(@nvdaes on GitHub), and others. Used with permission.
+This add-on was the direct result of requests I've heard from users over the years, and a GitHub discussion in [#9549](https://github.com/nvaccess/nvda/issues/9549). With thanks to @Qchristensen and @feerrenrut.
+The basic implementation of the numlock features was borrowed from the legacy NumLock Manager add-on, by Noelia Ruiz (@nvdaes on GitHub), and others. Used with permission.
 
-### Änderungsprotokoll
+### Changelog
 
-(Dieses Änderungsprotokoll ist unvollständig. Siehe im Protokoll mit Git für
-vollständige Details.)
+(This changelog is incomplete. See Git log for full details.)
 
 * 24.1.0: NVDA 2024.X compatibility.
-* 23.1.0: Zusätzliche Funktionen zur Verwaltung des Nummernblocks. Bessere
-  Protokollierung. Verbesserte Handhabung von Konfigurationsprofilen (WIP).
-* 23.0: Kompabilität ab NVDA 2023.1
-
-[[!tag dev stable]]
+* 23.1.0: Added numlock management features. Better logging. Improved config profile handling (WIP).
+* 23.0: NVDA 2023.X compatibility.
 
 [1]: https://www.nvaccess.org/addonStore/legacy?file=numpadNavMode
-
 [2]: https://nvaccess.org/
-
 [3]: https://github.com/opensourcesys/numpadNavMode/issues/new
-
 [4]: https://github.com/nvaccess/addon-datastore/discussions/2630

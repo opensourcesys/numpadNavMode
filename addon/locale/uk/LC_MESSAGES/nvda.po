@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: nvdaaddons\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2026-03-30 04:16+0000\n"
-"PO-Revision-Date: 2026-04-06 01:50\n"
+"PO-Revision-Date: 2026-05-01 16:43+0300\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -16,6 +16,7 @@ msgstr ""
 "X-Crowdin-Language: uk\n"
 "X-Crowdin-File: numpadNavMode.pot\n"
 "X-Crowdin-File-ID: 412\n"
+"X-Generator: Poedit 3.9\n"
 
 #. Translators: This is the label for the Numpad Nav Mode settings category in NVDA Settings panel.
 #. Add-on summary/title, usually the user visible name of the add-on
@@ -58,12 +59,12 @@ msgstr "Початковий стан numlock залежить від профі
 #. Translators: returned as part of some user messages
 #: addon/globalPlugins/numpadNavMode.py:250
 msgid "NVDA"
-msgstr ""
+msgstr "NVDA"
 
 #. Translators: returned as part of some user messages
 #: addon/globalPlugins/numpadNavMode.py:253
 msgid "Windows"
-msgstr ""
+msgstr "Windows"
 
 #. Translators: description of the Numpad Nav Mode toggle gesture for keyboard help
 #: addon/globalPlugins/numpadNavMode.py:285
@@ -79,15 +80,18 @@ msgstr "Режим цифрової клавіатури {}."
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-on store
 #: buildVars.py:24
-msgid "Allows switching the numpad between NVDA navigation mode, and Windows navigation mode.\n"
+msgid ""
+"Allows switching the numpad between NVDA navigation mode, and Windows navigation mode.\n"
 "Especially useful if migrating from Jaws; or for laptop users preferring laptop mode, but who have a numpad and want to use it for arrow keys, etc.\n"
 "The add-on also gives control of numlock state when starting NVDA or changing profiles."
-msgstr ""
+msgstr "Дозволяє перемикати цифрову клавіатуру (numpad) між режимом навігації NVDA та режимом навігації Windows. Особливо корисно при переході з Jaws або для користувачів ноутбуків, які обрали режим \"laptop\", але мають цифровий блок і хочуть використовувати його для стрілок тощо. Додаток також дозволяє керувати станом Numlock при запуску NVDA або зміні профілів."
 
 #. Brief changelog for this version
 #. Translators: what's new content for the add-on version to be shown in the add-on store
 #: buildVars.py:31
-msgid "* NVDA 2026.1 ready.\n"
+msgid ""
+"* NVDA 2026.1 ready.\n"
 "* Made the add-on code more robust with help from Pyright (a Python static type checker)."
 msgstr ""
-
+"* Підтримка NVDA 2026.1.\n"
+"* Зроблено код додатка більш надійним за допомогою Pyright (статичного аналізатора Python)."

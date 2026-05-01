@@ -11,7 +11,21 @@
 * Made the add-on code more robust with help from Pyright (a Python static type checker).
 * Significant update to add-on template.
 
-### Old versions
+### 24.1:
+
+* NVDA 2024.X compatibility.
+
+### 23.1:
+
+* Added numlock management features.
+* Better logging.
+* Improved config profile handling (WIP).
+
+### 23.0:
+
+* NVDA 2023.X compatibility.
+
+### Older versions (summarized)
 
 * 1.3: 1 October, 2020. After user requests, enabled NVDA, Shift, and Control modifiers on the Windows nav mode commands, along with some combinations.
 * 1.0: 30 September, 2020. Initial stable release.

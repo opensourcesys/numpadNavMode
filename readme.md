@@ -58,13 +58,7 @@ But as mentioned above, if you do find it useful, please leave a [review][4].
 This add-on was the direct result of requests I've heard from users over the years, and a GitHub discussion in [#9549](https://github.com/nvaccess/nvda/issues/9549). With thanks to @Qchristensen and @feerrenrut.
 The basic implementation of the numlock features was borrowed from the legacy NumLock Manager add-on, by Noelia Ruiz (@nvdaes on GitHub), and others. Used with permission.
 
-### Changelog
-
-(This changelog is incomplete. See Git log for full details.)
-
-* 24.1.0: NVDA 2024.X compatibility.
-* 23.1.0: Added numlock management features. Better logging. Improved config profile handling (WIP).
-* 23.0: NVDA 2023.X compatibility.
+See changes file for code history.
 
 [1]: https://www.nvaccess.org/addonStore/legacy?file=numpadNavMode
 [2]: https://nvaccess.org/

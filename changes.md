@@ -1,5 +1,18 @@
 ## Changelog
 
+### 26.2
+
+* Marked as NVDA 2026.1 compatible.
+
+### 26.1
+
+* Joseph Lee joined as co-maintainer.
+* NVDA 2026.1 ready.
+* Made the add-on code more robust with help from Pyright (a Python static type checker).
+* Significant update to add-on template.
+
+### Old versions
+
 * 1.3: 1 October, 2020. After user requests, enabled NVDA, Shift, and Control modifiers on the Windows nav mode commands, along with some combinations.
 * 1.0: 30 September, 2020. Initial stable release.
 * 0.7 (dev): 29 September, 2020. Confirmed works with 2019.3, and updated manifest accordingly.

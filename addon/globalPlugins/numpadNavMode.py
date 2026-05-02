@@ -170,6 +170,51 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	#: A dict of user assigned gestures, containing their values in G form
 	userGestures = {}
 
+	#: Gesture mappings used for CJK Enhanced UI compatibility.
+	CJK_COMPAT_GESTURES = (
+		("kb:numpad2", "kb:downarrow"),
+		("kb:shift+numpad2", "kb:shift+downarrow"),
+		("kb:numpad1", "kb:end"),
+		("kb:numpad3", "kb:pagedown"),
+	)
+
+	def _hasCjkAddon(self) -> bool:
+		"""Checks whether CJK Enhanced UI is running."""
+		for addon in addonHandler.getRunningAddons():
+			if addon.name == "CJKEnhancedUI":
+				return True
+		return False
+
+	def _setCjkCompat(self, enable: bool) -> None:
+		"""Applies or removes CJK compatibility gestures."""
+		if not self._hasCjkAddon():
+			log.debug("CJK Enhanced UI not found.")
+			return
+
+		for gesture, script in self.CJK_COMPAT_GESTURES:
+			if enable:
+				manager.userGestureMap.add(
+					gesture,
+					"globalPlugins.cjkEnhancedUI",
+					"GlobalPlugin",
+					script,
+				)
+			else:
+				try:
+					manager.userGestureMap.remove(
+						gesture,
+						"globalPlugins.cjkEnhancedUI",
+						"GlobalPlugin",
+						script,
+					)
+				except ValueError:
+					pass
+
+		if enable:
+			log.debug("Enabled CJK compatibility gestures.")
+		else:
+			log.debug("Disabled CJK compatibility gestures.")
+
 	def __init__(self):
 		"""Initializes the add-on by performing the following tasks:
 		- If the NVDA config is set to enter Windows nav mode on startup, we enter it here.
@@ -331,6 +376,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			manager.userGestureMap.add("kb(laptop):" + gFrag, *action, True)
 			manager.userGestureMap.add("kb:" + gFrag, action.mod, action.cls, None, True)
 
+		self._setCjkCompat(True)
+
 	def _setNVDANavMode(self) -> None:
 		"""A setMode() helper method, to put the numpad back in NVDA mode.
 		Overview: for each numpad gesture, check whether:
@@ -371,6 +418,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			# If the gesture isn't set, we need to put it back.
 			if gest not in currentGestures:
 				manager.userGestureMap.add(gest, *action, True)
+
+		self._setCjkCompat(False)
 
 	def handleConfigProfileSwitch(self):
 		if config.conf["numpadNavMode"]["profilesUseInitialNumlockState"]:

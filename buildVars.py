@@ -25,10 +25,10 @@ addon_info = AddonInfo(
 Especially useful if migrating from Jaws; or for laptop users preferring laptop mode, but who have a numpad and want to use it for arrow keys, etc.
 The add-on also gives control of numlock state when starting NVDA or changing profiles."""),
 	# version
-	addon_version="26.2.0",
+	addon_version="26.2.500",
 	# Brief changelog for this version
 	# Translators: what's new content for the add-on version to be shown in the add-on store
-	addon_changelog=_("""* NVDA 2026.1 compatible."""),
+	addon_changelog=_("""* Resolve CJK Enhanced UI add-on conflict in Windows nav mode (Anonymously contributed fix)."""),
 	# Author(s)
 	addon_author="Luke Davis <XLTechie@newanswertech.com>, Joseph Lee <joseph.lee22590@gmail.com>",
 	# URL for the add-on documentation support
